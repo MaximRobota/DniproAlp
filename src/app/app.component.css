@@ -26,6 +26,14 @@
   display: inline-block;
 }
 
+.menu {
+    float: right;
+}
+
+.lang {
+  float: left;
+}
+
 .lang li, .menu li {
   float: left;
   list-style: none;
