@@ -1,22 +1,30 @@
-<div class="page-1">
+<div class="page-1"></div>
+<div id="page-1">
   <div class="container row">
     <div class="nav-bar col-md-12">
       <ul class="lang">
-        <li>Рус
+        <li class="active">Рус
         </li>
         <li>Укр</li>
       </ul>
       <ul class="menu">
-        <li>Контакты</li>
-        <li>FAQ</li>
+        <li><a href="#page2">Контакты</a></li>
+        <li (click)="click()">FAQ</li>
         <li>Прайс</li>
         <li>Услуги</li>
         <li>О нас</li>
-        <li>Главная</li>
+        <li class="active">Главная</li>
       </ul>
     </div>
-    <img class="logo col-md-12" src="../assets/img/logo.png" alt="logo">
-    <h2>Промышленный альпинизм</h2>
-    <h3>высотные и верхолазные работы</h3>
+    <div class="center-logo">
+      <img class="logo col-md-12" src="../assets/img/logo.png" alt="logo">
+      <p class="logo-title">Промышленный альпинизм <br>
+        высотные и верхолазные работы
+      </p>
+    </div>
   </div>
+</div>
+<div class="page-2"></div>
+<div id="page2">
+
 </div>
