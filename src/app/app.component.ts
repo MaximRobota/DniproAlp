@@ -6,7 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  click() {
-    console.log('asd');
+  isClicked = true;
+  toggleState() {
+    this.isClicked = !this.isClicked;
+  }
+
+  scroll(el: HTMLElement) {
+    el.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
   }
 }

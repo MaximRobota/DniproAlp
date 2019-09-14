@@ -1,19 +1,19 @@
 <div class="page-1"></div>
 <div id="page-1">
   <div class="container row">
-    <div class="nav-bar col-md-12">
+    <div class="nav-bar">
       <ul class="lang">
-        <li class="active">Рус
+        <li class="active button" [ngClass]="{'active': isClicked}">Рус
         </li>
-        <li>Укр</li>
+        <li class="button" [ngClass]="{'active': isClicked}">Укр</li>
       </ul>
       <ul class="menu">
-        <li><a href="#page2">Контакты</a></li>
-        <li (click)="click()">FAQ</li>
-        <li>Прайс</li>
-        <li>Услуги</li>
-        <li>О нас</li>
-        <li class="active">Главная</li>
+        <li class="button"><a href="#page2" (click)="scroll(page-2)">Контакты</a></li>
+        <li class="button"><a href="#page3">FAQ</a></li>
+        <li class="button"><a href="#page4">Прайс</a></li>
+        <li class="button"><a href="#page5">Услуги</a></li>
+        <li class="button"><a href="#page6">О нас</a></li>
+        <li class="active button"><a href="#page1">Главная</a></li>
       </ul>
     </div>
     <div class="center-logo">
@@ -25,6 +25,24 @@
   </div>
 </div>
 <div class="page-2"></div>
-<div id="page2">
-
+<div id="page2" page-2>
+  <div class="container row">
+    <div class="col-md-6"></div>
+    <div class="text-block col-md-6">
+      <h3>Компания «Днепр-АльпПром»</h3>
+      <h4>команда профессионалов, выполняющая все
+        виды высотных работ!
+      </h4>
+      <p>Мы оказываем любые услуги в области промышленного
+        альпинизма бизнесу, государственным и коммунальным
+        предприятиям, ОСМД (ОСББ), а также частным лицам.
+      </p>
+      <p>Наша специализация — это сложные высотные работы,
+        требующие не только альпинистской техники, но и
+        строительно-монтажного опыта, пескоструйным и
+        другими специфическим аппаратами.
+      </p>
+      <div class="active button"><a href="#page5">Связаться с нами</a></div>
+    </div>
+  </div>
 </div>

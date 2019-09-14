@@ -51,28 +51,23 @@
   float: left;
   list-style: none;
   color: white;
+  display: inline-block;
+  padding: 0 7px;
+  position: relative;
+  margin: 0 2px;
 }
 
-.menu li {
+.button {
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+}
+
+.menu .button {
   width: 87px;
 }
 
-.menu li a{
-  text-decoration: none;
-  text-transform: none;
-  color: white;
-}
-
-li {
-  display: inline-block;
-  padding: 0 7px;
-  height: 26px;
-  position: relative;
-  margin: 0 2px;
-  line-height: 26px;
-}
-
-li::after {
+.button::after, .button::after {
    content: '';
    position: absolute;
    top: 0;
@@ -84,7 +79,8 @@ li::after {
    z-index: -1;
 }
 
-li.active::after {
+.button.active::after,
+.button.active::after {
   background-color: #fbc821;
 }
 .center-logo {
@@ -118,4 +114,19 @@ li.active::after {
   background: url("../assets/img/background-2.png") no-repeat;
   background-size: 100%;
   text-align: center;
+}
+
+.text-block {
+  padding: 0 90px 0 0;
+  text-align: right;
+}
+
+.text-block h3, .text-block h4 {
+  font-weight: bold;
+}
+
+.text-block .button {
+  width: 150px;
+  position: relative;
+  float: right;
 }
