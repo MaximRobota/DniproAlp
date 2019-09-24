@@ -159,5 +159,24 @@
 }
 
 #page3 img {
-  width: 150px;
+  width: 80px;
+}
+
+#page3 h3 {
+  margin-top: 100px;
+  font-size: 30px;
+}
+
+.services {
+  margin-top: 32px;
+}
+
+.head-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.head-title, .sub-title {
+  width: 195px;
+  margin: 10px auto;
 }
