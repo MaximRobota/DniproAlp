@@ -25,9 +25,15 @@
             ],
             "styles": [
               "src/styles.css",
+              "node_modules/slick-carousel/slick/slick.css",
+              "node_modules/slick-carousel/slick/slick-theme.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/slick-carousel/slick/slick.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -122,5 +128,5 @@
         }
       }
     }},
-  "defaultProject": "my-dream-app"
+  "defaultProject": "dnipro-alp-pro"
 }

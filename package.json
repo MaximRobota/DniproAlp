@@ -20,7 +20,10 @@
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
     "bootstrap": "^3.4.1",
+    "jquery": "^3.4.1",
+    "ngx-slick-carousel": "^0.4.6",
     "rxjs": "~6.4.0",
+    "slick-carousel": "^1.8.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

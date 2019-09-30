@@ -12,7 +12,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: url("../assets/img/background-1.png") no-repeat;
+  background: url("../assets/img/background-1.1.png") no-repeat;
   background-size: 100%;
   text-align: center;
   z-index: -2;
@@ -179,4 +179,31 @@
 .head-title, .sub-title {
   width: 195px;
   margin: 10px auto;
+}
+
+#page4 {
+  color: white;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: white;
+  background-size: 100%;
+  text-align: center;
+}
+
+.page4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url("../assets/img/background-3.png") no-repeat;
+  background-size: 100%;
+  text-align: center;
+}
+
+#page4 h3 {
+  color: #000;
+  margin-top: 100px;
+  font-size: 30px;
 }
