@@ -1,20 +1,20 @@
 <div class="page-1"></div>
-<div id="page-1">
+<div id="page1"  page-1>
   <div class="container row">
     <div class="nav-bar">
-      <ul class="lang">
-        <li class="active button" [ngClass]="{'active': isClicked}">Рус
-        </li>
-        <li class="button" [ngClass]="{'active': isClicked}">Укр</li>
-      </ul>
       <ul class="menu">
-        <li class="button"><a href="#page2" (click)="scroll(page-2)">Контакты</a></li>
-        <li class="button"><a href="#page3">FAQ</a></li>
-        <li class="button"><a href="#page4">Прайс</a></li>
-        <li class="button"><a href="#page5">Услуги</a></li>
-        <li class="button"><a href="#page6">О нас</a></li>
         <li class="active button"><a href="#page1">Главная</a></li>
+        <li class="button"><a href="#page2">О нас</a></li>
+        <li class="button"><a href="#page3">Услуги</a></li>
+        <!--<li class="button"><a href="#page4">Прайс</a></li>-->
+        <!--<li class="button"><a href="#page5">FAQ</a></li>-->
+        <!--<li class="button"><a href="#page6">Контакты</a></li>-->
       </ul>
+      <!--<ul class="lang">-->
+        <!--<li class="button" [ngClass]="{'active': !isClicked}" (click)="isClicked=false">Рус-->
+        <!--</li>-->
+        <!--<li class="button" [ngClass]="{'active': isClicked}" (click)="isClicked=true">Укр</li>-->
+      <!--</ul>-->
     </div>
     <div class="center-logo">
       <img class="logo col-md-12" src="../assets/img/logo.png" alt="logo">
@@ -42,9 +42,48 @@
         строительно-монтажного опыта, пескоструйным и
         другими специфическим аппаратами.
       </p>
-      <div class="active button"><a href="#page5">Связаться с нами</a></div>
+      <div class="active button"><a href="#page5" (click)="openModal(template)">Связаться с нами</a></div>
     </div>
   </div>
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Связаться с нами</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="submitForm()">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group form-group-horizontal">
+              <label>Имя</label>
+              <input type="text" [(ngModel)]="mailer.firstName" name="first">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group form-group-horizontal">
+              <label>Фамилия</label>
+              <input type="text" [(ngModel)]="mailer.lastName" name="last">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group form-group-horizontal">
+              <label for="phone">Телефон</label>
+              <input type="phone" id="phone" [(ngModel)]="mailer.phone" name="phone">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group form-group-horizontal">
+              <label for="email">Емаил</label>
+              <input type="email" id="email" [(ngModel)]="mailer.email" name="email">
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="active button-submit text-right">Отправить</button>
+      </form>
+    </div>
+  </ng-template>
 </div>
 <div class="page-3"></div>
 <div id="page3" page-3>
@@ -100,83 +139,83 @@
     </div>
   </div>
 </div>
-<div class="page-4"></div>
-<div id="page4" page-4>
-  <h3>Мы производим широкий спектр услуг:</h3>
-  <div class="slider-1">
-    <p>Высотные работы</p>
-    <ngx-slick-carousel class="carousel"
-                        #slickModal="slick-carousel"
-                        [config]="slideConfig"
-                        (init)="slickInit($event)"
-                        (breakpoint)="breakpoint($event)"
-                        (afterChange)="afterChange($event)"
-                        (beforeChange)="beforeChange($event)">
-      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-        <img src="{{ slide.img }}" alt="" width="100%">
-      </div>
-    </ngx-slick-carousel>
+<!--<div class="page-4"></div>-->
+<!--<div id="page4" page-4>-->
+  <!--<h3>Мы производим широкий спектр услуг:</h3>-->
+  <!--<div class="slider-1">-->
+    <!--<p>Высотные работы</p>-->
+    <!--<ngx-slick-carousel class="carousel"-->
+                        <!--#slickModal="slick-carousel"-->
+                        <!--[config]="slideConfig"-->
+                        <!--(init)="slickInit($event)"-->
+                        <!--(breakpoint)="breakpoint($event)"-->
+                        <!--(afterChange)="afterChange($event)"-->
+                        <!--(beforeChange)="beforeChange($event)">-->
+      <!--<div ngxSlickItem *ngFor="let slide of slides" class="slide">-->
+        <!--<img src="{{ slide.img }}" alt="" width="100%">-->
+      <!--</div>-->
+    <!--</ngx-slick-carousel>-->
 
-    <button (click)="addSlide()">Add</button>
-    <button (click)="removeSlide()">Remove</button>
-    <button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
-    <button (click)="slickModal.unslick()">unslick</button>
-  </div>
-  <div class="slider-2">
-    <p>Монтажные работы</p>
-    <ngx-slick-carousel class="carousel"
-                        #slickModal="slick-carousel"
-                        [config]="slideConfig"
-                        (init)="slickInit($event)"
-                        (breakpoint)="breakpoint($event)"
-                        (afterChange)="afterChange($event)"
-                        (beforeChange)="beforeChange($event)">
-      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-        <img src="{{ slide.img }}" alt="" width="100%">
-      </div>
-    </ngx-slick-carousel>
+    <!--<button (click)="addSlide()">Add</button>-->
+    <!--<button (click)="removeSlide()">Remove</button>-->
+    <!--<button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>-->
+    <!--<button (click)="slickModal.unslick()">unslick</button>-->
+  <!--</div>-->
+  <!--<div class="slider-2">-->
+    <!--<p>Монтажные работы</p>-->
+    <!--<ngx-slick-carousel class="carousel"-->
+                        <!--#slickModal="slick-carousel"-->
+                        <!--[config]="slideConfig"-->
+                        <!--(init)="slickInit($event)"-->
+                        <!--(breakpoint)="breakpoint($event)"-->
+                        <!--(afterChange)="afterChange($event)"-->
+                        <!--(beforeChange)="beforeChange($event)">-->
+      <!--<div ngxSlickItem *ngFor="let slide of slides" class="slide">-->
+        <!--<img src="{{ slide.img }}" alt="" width="100%">-->
+      <!--</div>-->
+    <!--</ngx-slick-carousel>-->
 
-    <button (click)="addSlide()">Add</button>
-    <button (click)="removeSlide()">Remove</button>
-    <button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
-    <button (click)="slickModal.unslick()">unslick</button>
-  </div>
-  <div class="slider-3">
-    <p>Фасадные работы</p>
-    <ngx-slick-carousel class="carousel"
-                        #slickModal="slick-carousel"
-                        [config]="slideConfig"
-                        (init)="slickInit($event)"
-                        (breakpoint)="breakpoint($event)"
-                        (afterChange)="afterChange($event)"
-                        (beforeChange)="beforeChange($event)">
-      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-        <img src="{{ slide.img }}" alt="" width="100%">
-      </div>
-    </ngx-slick-carousel>
+    <!--<button (click)="addSlide()">Add</button>-->
+    <!--<button (click)="removeSlide()">Remove</button>-->
+    <!--<button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>-->
+    <!--<button (click)="slickModal.unslick()">unslick</button>-->
+  <!--</div>-->
+  <!--<div class="slider-3">-->
+    <!--<p>Фасадные работы</p>-->
+    <!--<ngx-slick-carousel class="carousel"-->
+                        <!--#slickModal="slick-carousel"-->
+                        <!--[config]="slideConfig"-->
+                        <!--(init)="slickInit($event)"-->
+                        <!--(breakpoint)="breakpoint($event)"-->
+                        <!--(afterChange)="afterChange($event)"-->
+                        <!--(beforeChange)="beforeChange($event)">-->
+      <!--<div ngxSlickItem *ngFor="let slide of slides" class="slide">-->
+        <!--<img src="{{ slide.img }}" alt="" width="100%">-->
+      <!--</div>-->
+    <!--</ngx-slick-carousel>-->
 
-    <button (click)="addSlide()">Add</button>
-    <button (click)="removeSlide()">Remove</button>
-    <button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
-    <button (click)="slickModal.unslick()">unslick</button>
-  </div>
-  <div class="slider-4">
-    <p>Кровельные работы</p>
-    <ngx-slick-carousel class="carousel"
-                        #slickModal="slick-carousel"
-                        [config]="slideConfig"
-                        (init)="slickInit($event)"
-                        (breakpoint)="breakpoint($event)"
-                        (afterChange)="afterChange($event)"
-                        (beforeChange)="beforeChange($event)">
-      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-        <img src="{{ slide.img }}" alt="" width="100%">
-      </div>
-    </ngx-slick-carousel>
+    <!--<button (click)="addSlide()">Add</button>-->
+    <!--<button (click)="removeSlide()">Remove</button>-->
+    <!--<button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>-->
+    <!--<button (click)="slickModal.unslick()">unslick</button>-->
+  <!--</div>-->
+  <!--<div class="slider-4">-->
+    <!--<p>Кровельные работы</p>-->
+    <!--<ngx-slick-carousel class="carousel"-->
+                        <!--#slickModal="slick-carousel"-->
+                        <!--[config]="slideConfig"-->
+                        <!--(init)="slickInit($event)"-->
+                        <!--(breakpoint)="breakpoint($event)"-->
+                        <!--(afterChange)="afterChange($event)"-->
+                        <!--(beforeChange)="beforeChange($event)">-->
+      <!--<div ngxSlickItem *ngFor="let slide of slides" class="slide">-->
+        <!--<img src="{{ slide.img }}" alt="" width="100%">-->
+      <!--</div>-->
+    <!--</ngx-slick-carousel>-->
 
-    <button (click)="addSlide()">Add</button>
-    <button (click)="removeSlide()">Remove</button>
-    <button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
-    <button (click)="slickModal.unslick()">unslick</button>
-  </div>
-</div>
+    <!--<button (click)="addSlide()">Add</button>-->
+    <!--<button (click)="removeSlide()">Remove</button>-->
+    <!--<button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>-->
+    <!--<button (click)="slickModal.unslick()">unslick</button>-->
+  <!--</div>-->
+<!--</div>-->

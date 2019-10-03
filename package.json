@@ -1,5 +1,5 @@
 {
-  "name": "my-dream-app",
+  "name": "dnipro-alp-pro",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.4",
     "bootstrap": "^3.4.1",
     "jquery": "^3.4.1",
+    "ngx-bootstrap": "^5.1.2",
     "ngx-slick-carousel": "^0.4.6",
     "rxjs": "~6.4.0",
     "slick-carousel": "^1.8.1",

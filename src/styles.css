@@ -16,6 +16,11 @@ a {
   text-transform: none;
   color: white !important;
 }
+a:focus, a:hover {
+  text-decoration: none !important;
+  text-transform: none !important;
+
+}
 
 .slick-slider {
   width: 90%;

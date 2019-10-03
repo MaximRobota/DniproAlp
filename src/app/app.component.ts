@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+
 
 @Component({
   selector: 'app-root',
@@ -6,16 +8,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isClicked = true;
-  toggleState() {
-    this.isClicked = !this.isClicked;
+  constructor(private modalService: BsModalService) {}
+  mailer = {
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: ''
+  };
+
+  isClicked = false;
+
+  submitForm() {
+    console.log(this.mailer);
+    this.modalService.hide(1);
   }
 
-  scroll(el: HTMLElement) {
-    el.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});
+  openModal(template: TemplateRef<any>) {
+    this.modalService.show(template, {
+      animated: true
+    });
   }
 
-  title = 'ngSlick';
+
 
 
   slides = [
