@@ -9,6 +9,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 })
 export class AppComponent {
   constructor(private modalService: BsModalService) {}
+  modalRef: BsModalRef;
+
   mailer = {
     firstName: '',
     lastName: '',
@@ -20,11 +22,11 @@ export class AppComponent {
 
   submitForm() {
     console.log(this.mailer);
-    this.modalService.hide(1);
+    this.modalRef.hide();
   }
 
   openModal(template: TemplateRef<any>) {
-    this.modalService.show(template, {
+    this.modalRef = this.modalService.show(template, {
       animated: true
     });
   }
