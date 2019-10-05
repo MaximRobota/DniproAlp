@@ -1,5 +1,6 @@
 import { Component, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+import { ToasterService } from 'angular2-toaster';
 
 
 @Component({
@@ -8,7 +9,11 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private modalService: BsModalService) {}
+  private toasterService: ToasterService;
+
+  constructor(private modalService: BsModalService, toasterService: ToasterService) {
+    this.toasterService = toasterService;
+  }
   modalRef: BsModalRef;
 
   mailer = {
@@ -22,6 +27,7 @@ export class AppComponent {
 
   submitForm() {
     console.log(this.mailer);
+    this.toasterService.pop('success', '', 'Спасибо. Заявка принята. В ближайшее время с Вами свяжется наш менеджер.');
     this.modalRef.hide();
   }
 
@@ -30,9 +36,6 @@ export class AppComponent {
       animated: true
     });
   }
-
-
-
 
   slides = [
     {img: '../assets/img/slider/slider-1/1.jpg'},
