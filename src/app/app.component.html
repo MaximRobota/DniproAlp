@@ -5,10 +5,11 @@
       <ul class="menu">
         <li class="active button"><a href="#page1">{{ "menu.home" | translate }}</a></li>
         <li class="button"><a href="#page2">{{ "menu.about" | translate }}</a></li>
-        <li class="button"><a href="#page3">{{ "menu.service" | translate }}</a></li>
-        <!--<li class="button"><a href="#page4">{{ "menu.price" | translate }}</a></li>-->
-        <!--<li class="button"><a href="#page5">{{ "menu.FAQ" | translate }}</a></li>-->
-        <!--<li class="button"><a href="#page6">{{ "menu.contacts" | translate }}</a></li>-->
+        <li class="button"><a href="#page3">Ваша выгода</a></li>
+        <li class="button"><a href="#page4">{{ "menu.service" | translate }}</a></li>
+        <li class="button"><a href="#page5">{{ "menu.price" | translate }}</a></li>
+        <!--<li class="button"><a href="#page6">{{ "menu.FAQ" | translate }}</a></li>-->
+        <!--<li class="button"><a href="#page7">{{ "menu.contacts" | translate }}</a></li>-->
       </ul>
       <ul class="lang">
         <li class="button"
@@ -43,7 +44,11 @@
       <p>
       </p>
       <p>{{ "page-2.text-3"  | translate }}</p>
-      <div class="active button"><a href="#page5" (click)="openModal(template)">{{ "page-2.callback-btn"  | translate }}</a></div>
+      <div class="active button">
+        <a href="#page5" (click)="openModal(template)">
+          {{ "page-2.callback-btn"  | translate }}
+        </a>
+      </div>
     </div>
   </div>
   <ng-template #template>
@@ -140,84 +145,115 @@
     </div>
   </div>
 </div>
-<!--<div class="page-4"></div>-->
-<!--<div id="page4" page-4>-->
-  <!--<h3>Мы производим широкий спектр услуг:</h3>-->
-  <!--<div class="slider-1">-->
-    <!--<p>Высотные работы</p>-->
-    <!--<ngx-slick-carousel class="carousel"-->
-                        <!--#slickModal="slick-carousel"-->
-                        <!--[config]="slideConfig"-->
-                        <!--(init)="slickInit($event)"-->
-                        <!--(breakpoint)="breakpoint($event)"-->
-                        <!--(afterChange)="afterChange($event)"-->
-                        <!--(beforeChange)="beforeChange($event)">-->
-      <!--<div ngxSlickItem *ngFor="let slide of slides" class="slide">-->
-        <!--<img src="{{ slide.img }}" alt="" width="100%">-->
-      <!--</div>-->
-    <!--</ngx-slick-carousel>-->
+<div class="page-4"></div>
+<div id="page4" page-4>
+  <div class="container row">
+    <h3>Мы производим широкий спектр услуг:</h3>
+    <div class="slider">
+      <div class="slider-1">
+        <p class="text-left">Высотные работы</p>
+        <ngx-slick-carousel class="carousel"
+                            #slickModal="slick-carousel"
+                            [config]="slideConfig"
+                            (init)="slickInit($event)"
+                            (breakpoint)="breakpoint($event)"
+                            (afterChange)="afterChange($event)"
+                            (beforeChange)="beforeChange($event)">
+          <div ngxSlickItem *ngFor="let slide of altitudeSlides" class="slide">
+            <img src="{{ slide.img }}" alt="" width="100%">
+          </div>
+        </ngx-slick-carousel>
+      </div>
+      <div class="slider-2">
+        <p class="text-right">Монтажные работы</p>
+        <ngx-slick-carousel class="carousel"
+                            #slickModal="slick-carousel"
+                            [config]="slideConfig"
+                            (init)="slickInit($event)"
+                            (breakpoint)="breakpoint($event)"
+                            (afterChange)="afterChange($event)"
+                            (beforeChange)="beforeChange($event)">
+          <div ngxSlickItem *ngFor="let slide of installationSlides" class="slide">
+            <img src="{{ slide.img }}" alt="" width="100%">
+          </div>
+        </ngx-slick-carousel>
+      </div>
+      <div class="slider-3">
+        <p class="text-left">Фасадные работы</p>
+        <ngx-slick-carousel class="carousel"
+                            #slickModal="slick-carousel"
+                            [config]="slideConfig"
+                            (init)="slickInit($event)"
+                            (breakpoint)="breakpoint($event)"
+                            (afterChange)="afterChange($event)"
+                            (beforeChange)="beforeChange($event)">
+          <div ngxSlickItem *ngFor="let slide of frontSlides" class="slide">
+            <img src="{{ slide.img }}" alt="" width="100%">
+          </div>
+        </ngx-slick-carousel>
+      </div>
+      <div class="slider-4">
+        <p class="text-right">Кровельные работы</p>
+        <ngx-slick-carousel class="carousel"
+                            #slickModal="slick-carousel"
+                            [config]="slideConfig"
+                            (init)="slickInit($event)"
+                            (breakpoint)="breakpoint($event)"
+                            (afterChange)="afterChange($event)"
+                            (beforeChange)="beforeChange($event)">
+          <div ngxSlickItem *ngFor="let slide of roofingSlides" class="slide">
+            <img src="{{ slide.img }}" alt="" width="100%">
+          </div>
+        </ngx-slick-carousel>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-5"></div>
+<div id="page5" page-5>
+<div class="container row">
+  <h3>Стоимость услуг промышленного альпинизма</h3>
+  <p>Конечно же, зайдя на сайт компании "Днепр-АльпПром", вы можете увидеть прайс на промышленный альпинизм,
+    однако следует понимать, что расценки на промышленный альпинизм там приведены только примерные.
+    Итоговая стоимость может отличаться от приведенных значений как в меньшую, так и в большую
+    сторону. Это определяется множеством факторов:
+  </p>
+  <div class="row prices">
+    <div class="col-md-3 price">
+      <div class="col-md-12">
+        <div class="price-icon price-icon-1"></div>
+        <p>Особенность выполняемых работ в зависимости от фактуры фасада;</p>
+      </div>
+    </div>
+    <div class="col-md-3 price">
+      <div class="col-md-12">
+        <div class="price-icon price-icon-2"></div>
+        <p>Сроки, на протяжении которых надо будет выполнять работу;</p>
+      </div>
+    </div>
+    <div class="col-md-3 price">
+      <div class="col-md-12">
+        <div class="price-icon price-icon-3"></div>
+        <p>
+          Наличие со стороны заказчика каких-то индивидуальных требований, которые не прописаны в стандартном договоре;
+        </p>
+      </div>
+    </div>
+    <div class="col-md-3 price">
+      <div class="col-md-12">
+        <div class="price-icon price-icon-4"></div>
+        <p>Является ли здание стандартным проектом или же внесено в реестр исторических памятников,
+          работа с фасадами которых определяется рядом ограничений.</p>    </div>
+    </div>
+  </div>
+  <p>Все эти вопросы решаются в индивидуальном порядке, с каждым клиентом в отдельности. Помните,
+    что промышленные альпинисты в Днепре и Днепропетровской области компании "Днепр-АльпПром",
+    всегда готовы оказать вам помощь в плане выполнения работ, связанных с восстановлением целостности фасадов или же
+    каких-либо других высотных работ.
+  </p>
+</div>
+</div>
 
-    <!--<button (click)="addSlide()">Add</button>-->
-    <!--<button (click)="removeSlide()">Remove</button>-->
-    <!--<button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>-->
-    <!--<button (click)="slickModal.unslick()">unslick</button>-->
-  <!--</div>-->
-  <!--<div class="slider-2">-->
-    <!--<p>Монтажные работы</p>-->
-    <!--<ngx-slick-carousel class="carousel"-->
-                        <!--#slickModal="slick-carousel"-->
-                        <!--[config]="slideConfig"-->
-                        <!--(init)="slickInit($event)"-->
-                        <!--(breakpoint)="breakpoint($event)"-->
-                        <!--(afterChange)="afterChange($event)"-->
-                        <!--(beforeChange)="beforeChange($event)">-->
-      <!--<div ngxSlickItem *ngFor="let slide of slides" class="slide">-->
-        <!--<img src="{{ slide.img }}" alt="" width="100%">-->
-      <!--</div>-->
-    <!--</ngx-slick-carousel>-->
 
-    <!--<button (click)="addSlide()">Add</button>-->
-    <!--<button (click)="removeSlide()">Remove</button>-->
-    <!--<button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>-->
-    <!--<button (click)="slickModal.unslick()">unslick</button>-->
-  <!--</div>-->
-  <!--<div class="slider-3">-->
-    <!--<p>Фасадные работы</p>-->
-    <!--<ngx-slick-carousel class="carousel"-->
-                        <!--#slickModal="slick-carousel"-->
-                        <!--[config]="slideConfig"-->
-                        <!--(init)="slickInit($event)"-->
-                        <!--(breakpoint)="breakpoint($event)"-->
-                        <!--(afterChange)="afterChange($event)"-->
-                        <!--(beforeChange)="beforeChange($event)">-->
-      <!--<div ngxSlickItem *ngFor="let slide of slides" class="slide">-->
-        <!--<img src="{{ slide.img }}" alt="" width="100%">-->
-      <!--</div>-->
-    <!--</ngx-slick-carousel>-->
 
-    <!--<button (click)="addSlide()">Add</button>-->
-    <!--<button (click)="removeSlide()">Remove</button>-->
-    <!--<button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>-->
-    <!--<button (click)="slickModal.unslick()">unslick</button>-->
-  <!--</div>-->
-  <!--<div class="slider-4">-->
-    <!--<p>Кровельные работы</p>-->
-    <!--<ngx-slick-carousel class="carousel"-->
-                        <!--#slickModal="slick-carousel"-->
-                        <!--[config]="slideConfig"-->
-                        <!--(init)="slickInit($event)"-->
-                        <!--(breakpoint)="breakpoint($event)"-->
-                        <!--(afterChange)="afterChange($event)"-->
-                        <!--(beforeChange)="beforeChange($event)">-->
-      <!--<div ngxSlickItem *ngFor="let slide of slides" class="slide">-->
-        <!--<img src="{{ slide.img }}" alt="" width="100%">-->
-      <!--</div>-->
-    <!--</ngx-slick-carousel>-->
-
-    <!--<button (click)="addSlide()">Add</button>-->
-    <!--<button (click)="removeSlide()">Remove</button>-->
-    <!--<button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>-->
-    <!--<button (click)="slickModal.unslick()">unslick</button>-->
-  <!--</div>-->
-<!--</div>-->
 <toaster-container></toaster-container>

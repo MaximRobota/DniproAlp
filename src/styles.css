@@ -25,7 +25,7 @@ a:focus, a:hover {
 .slick-slider {
   width: 90%;
   margin: auto;
-  background: #000;
+  background: #d9e5f2;
 }
 
 .nav-btn {
@@ -33,7 +33,7 @@ a:focus, a:hover {
   position: absolute;
   width: 26px;
   cursor: pointer;
-  top: 100px !important;
+  top: 37px !important;
 }
 
 .prev-slide.slick-disabled,
@@ -43,20 +43,23 @@ a:focus, a:hover {
 }
 
 .prev-slide {
-  /*background: url(assets/img/nav-icon.png) no-repeat scroll 0 0;*/
+  background: url(assets/img/slider/prev-btn.png) no-repeat 0 0;
   left: -33px;
 }
 
 .next-slide {
-  /*background: url(assets/img/nav-icon.png) no-repeat scroll -24px 0px;*/
+  background: url(assets/img/slider/next-btn.png) no-repeat scroll 0px 0px;
   right: -33px;
 }
 
-.prev-slide:hover {
-  background-position: 0 -53px;
-}
+/*.prev-slide:hover {*/
+  /*background-position: 0 -53px;*/
+/*}*/
 
-.next-slide:hover {
-  background-position: -24px -53px;
-}
+/*.next-slide:hover {*/
+  /*background-position: -24px -53px;*/
+/*}*/
 
+.slick-dotted.slick-slider {
+  margin-bottom: 10px !important;
+}
