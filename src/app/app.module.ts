@@ -7,7 +7,16 @@ import { AppComponent } from './app.component';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ModalModule } from 'ngx-bootstrap';
-import {ToasterModule, ToasterService} from 'angular2-toaster';
+import { ToasterModule } from 'angular2-toaster';
+
+
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 @NgModule({
   declarations: [
@@ -18,8 +27,16 @@ import {ToasterModule, ToasterService} from 'angular2-toaster';
     BrowserAnimationsModule,
     FormsModule,
     SlickCarouselModule,
+    HttpClientModule,
+    ToasterModule.forRoot(),
     ModalModule.forRoot(),
-    ToasterModule.forRoot()
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

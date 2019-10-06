@@ -3,23 +3,30 @@
   <div class="container row">
     <div class="nav-bar">
       <ul class="menu">
-        <li class="active button"><a href="#page1">Главная</a></li>
-        <li class="button"><a href="#page2">О нас</a></li>
-        <li class="button"><a href="#page3">Услуги</a></li>
-        <!--<li class="button"><a href="#page4">Прайс</a></li>-->
-        <!--<li class="button"><a href="#page5">FAQ</a></li>-->
-        <!--<li class="button"><a href="#page6">Контакты</a></li>-->
+        <li class="active button"><a href="#page1">{{ "menu.home" | translate }}</a></li>
+        <li class="button"><a href="#page2">{{ "menu.about" | translate }}</a></li>
+        <li class="button"><a href="#page3">{{ "menu.service" | translate }}</a></li>
+        <!--<li class="button"><a href="#page4">{{ "menu.price" | translate }}</a></li>-->
+        <!--<li class="button"><a href="#page5">{{ "menu.FAQ" | translate }}</a></li>-->
+        <!--<li class="button"><a href="#page6">{{ "menu.contacts" | translate }}</a></li>-->
       </ul>
-      <!--<ul class="lang">-->
-        <!--<li class="button" [ngClass]="{'active': !isClicked}" (click)="isClicked=false">Рус-->
-        <!--</li>-->
-        <!--<li class="button" [ngClass]="{'active': isClicked}" (click)="isClicked=true">Укр</li>-->
-      <!--</ul>-->
+      <ul class="lang">
+        <li class="button"
+            [ngClass]="{'active': this.translate.store.currentLang === 'ru'}"
+            (click)="changeLang('ru')">
+          Рус
+        </li>
+        <li class="button"
+            [ngClass]="{'active': this.translate.store.currentLang === 'ua'}"
+            (click)="changeLang('ua')">
+          Укр
+        </li>
+      </ul>
     </div>
     <div class="center-logo">
       <img class="logo col-md-12" src="../assets/img/logo.png" alt="logo">
-      <p class="logo-title">Промышленный альпинизм <br>
-        высотные и верхолазные работы
+      <p class="logo-title">{{ "logo-title-1"  | translate }} <br>
+        {{ "logo-title-2"  | translate }}
       </p>
     </div>
   </div>
@@ -29,25 +36,19 @@
   <div class="container row">
     <div class="col-md-7"></div>
     <div class="text-block col-md-5">
-      <h3>Компания <br> «Днепр-АльпПром»</h3>
-      <h4>команда профессионалов, выполняющая все <br>
-        виды высотных работ!
+      <h3>{{ "page-2.company"  | translate }} <br> «Днепр-АльпПром»</h3>
+      <h4>{{ "page-2.text-1"  | translate }} <br>
+        {{ "page-2.text-2"  | translate }}
       </h4>
-      <p>Мы оказываем любые услуги в области промышленного
-        альпинизма бизнесу, государственным и коммунальным
-        предприятиям, ОСМД (ОСББ), а также частным лицам.
+      <p>
       </p>
-      <p>Наша специализация — это сложные высотные работы,
-        требующие не только альпинистской техники, но и
-        строительно-монтажного опыта, пескоструйным и
-        другими специфическим аппаратами.
-      </p>
-      <div class="active button"><a href="#page5" (click)="openModal(template)">Связаться с нами</a></div>
+      <p>{{ "page-2.text-3"  | translate }}</p>
+      <div class="active button"><a href="#page5" (click)="openModal(template)">{{ "page-2.callback-btn"  | translate }}</a></div>
     </div>
   </div>
   <ng-template #template>
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Связаться с нами</h4>
+      <h4 class="modal-title pull-left">{{ "page-2.callback-btn"  | translate }}</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -57,30 +58,30 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group form-group-horizontal">
-              <label>Имя</label>
+              <label>{{ "firstName"  | translate }}</label>
               <input type="text" [(ngModel)]="mailer.firstName" name="first">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group form-group-horizontal">
-              <label>Фамилия</label>
+              <label>{{ "lastName"  | translate }}</label>
               <input type="text" [(ngModel)]="mailer.lastName" name="last">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group form-group-horizontal">
-              <label for="phone">Телефон</label>
+              <label for="phone">{{ "phone"  | translate }}</label>
               <input type="phone" id="phone" [(ngModel)]="mailer.phone" name="phone">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group form-group-horizontal">
-              <label for="email">Емаил</label>
+              <label for="email">{{ "email"  | translate }}</label>
               <input type="email" id="email" [(ngModel)]="mailer.email" name="email">
             </div>
           </div>
         </div>
-        <button type="submit" class="active button-submit text-right">Отправить</button>
+        <button type="submit" class="active button-submit text-right">{{ "send"  | translate }}</button>
       </form>
     </div>
   </ng-template>

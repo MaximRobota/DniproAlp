@@ -5,10 +5,14 @@
   "projects": {
     "dnipro-alp-pro": {
       "projectType": "application",
-      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "schematics": {
+//        "@schematics/angular:component": {
+//          "style": "scss"
+//        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
