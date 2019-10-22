@@ -68,6 +68,16 @@
   text-align: left;
 }
 
+#page6 {
+  position: relative;
+  min-height: 100vh;
+  background: url("../assets/img/background-6.png") no-repeat #ffffff;
+  background-size: cover;
+  text-align: left;
+  padding: 50px 0 0 0;
+  z-index: 0;
+}
+
 .container {
   width: 70%;
   margin: 0 auto;
@@ -150,21 +160,21 @@
   margin: calc(50% - 120px) 0;
 }
 
-.text-block {
+#page2 .text-block {
   margin: 150px 0 0 0;
   text-align: right;
 }
 
-.text-block h3, .text-block h4 {
+#page2 .text-block h3, #page2 .text-block h4 {
   font-weight: bold;
   font-size: 30px;
 }
 
-.text-block p {
+#page2 .text-block p {
   font-size: 16px;
 }
 
-.text-block .button {
+#page2 .text-block .button {
   width: 150px;
   position: relative;
   float: right;
@@ -226,10 +236,6 @@ label {
   width: 100px;
   height: 32px;
   text-align: center;
-}
-
-.modal-body {
-  height: 150px;
 }
 
 .slider p {
@@ -310,7 +316,7 @@ label {
   }
 
   #page2 {
-    background: url("../assets/img/background-2.png") 100% 0px #0006ff12;
+    background: url("../assets/img/background-2.png") 100% 0 #0006ff12;
   }
 
   .price {
@@ -336,4 +342,60 @@ label {
   .prev-slide.slick-disabled, .next-slide.slick-disabled {
     margin: -30px 0 !important;
   }
+
+  #page6 {
+    background: url("../assets/img/background-mob-6.png") no-repeat #ffffff;
+    padding: 0;
+  }
+}
+
+#page6 h4, #page6 h2 {
+  font-weight: bold;
+}
+
+#page6 .text-block {
+  margin-top: 15px;
+}
+#page6 span {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  font-size: 120px;
+  color: #bebec5;
+  font-weight: bold;
+  padding: 0 -45px;
+  margin: 0 0 0 -40px;
+}
+
+#page6 .button {
+  width: 150px;
+  position: relative;
+  margin: 15px auto 0;
+}
+
+footer {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  color: white;
+}
+
+footer p {
+  font-size: 13px;
+  line-height: 14px;
+}
+
+.footer-logo {
+  width: 130px;
+}
+
+#question-mess-area {
+  width: 100%;
+}
+
+.modal-content {
+  min-height: 270px !important;
+}
+
+.form-group-horizontal input {
+  padding-left: 5px;
 }

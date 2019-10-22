@@ -8,7 +8,7 @@
         <li class="button"><a href="#page3">Ваша выгода</a></li>
         <li class="button"><a href="#page4">{{ "menu.service" | translate }}</a></li>
         <li class="button"><a href="#page5">{{ "menu.price" | translate }}</a></li>
-        <!--<li class="button"><a href="#page6">{{ "menu.FAQ" | translate }}</a></li>-->
+        <li class="button"><a href="#page6">{{ "menu.FAQ" | translate }}</a></li>
         <!--<li class="button"><a href="#page7">{{ "menu.contacts" | translate }}</a></li>-->
       </ul>
       <ul class="lang">
@@ -45,7 +45,7 @@
       </p>
       <p>{{ "page-2.text-3"  | translate }}</p>
       <div class="active button">
-        <a href="#page5" (click)="openModal(template)">
+        <a (click)="openModal(template)">
           {{ "page-2.callback-btn"  | translate }}
         </a>
       </div>
@@ -59,7 +59,7 @@
       </button>
     </div>
     <div class="modal-body">
-      <form (ngSubmit)="submitForm()">
+      <form (ngSubmit)="callbackUs()">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group form-group-horizontal">
@@ -85,8 +85,10 @@
               <input type="email" id="email" [(ngModel)]="mailer.email" name="email">
             </div>
           </div>
+          <div class="col-md-12">
+            <button type="submit" class="active button-submit text-right">{{ "send"  | translate }}</button>
+          </div>
         </div>
-        <button type="submit" class="active button-submit text-right">{{ "send"  | translate }}</button>
       </form>
     </div>
   </ng-template>
@@ -211,49 +213,155 @@
 </div>
 <div class="page-5"></div>
 <div id="page5" page-5>
-<div class="container row">
-  <h3>Стоимость услуг промышленного альпинизма</h3>
-  <p>Конечно же, зайдя на сайт компании "Днепр-АльпПром", вы можете увидеть прайс на промышленный альпинизм,
-    однако следует понимать, что расценки на промышленный альпинизм там приведены только примерные.
-    Итоговая стоимость может отличаться от приведенных значений как в меньшую, так и в большую
-    сторону. Это определяется множеством факторов:
-  </p>
-  <div class="row prices">
-    <div class="col-md-3 price">
-      <div class="col-md-12">
-        <div class="price-icon price-icon-1"></div>
-        <p>Особенность выполняемых работ в зависимости от фактуры фасада;</p>
+  <div class="container row">
+    <h3>Стоимость услуг промышленного альпинизма</h3>
+    <p>Конечно же, зайдя на сайт компании "Днепр-АльпПром", вы можете увидеть прайс на промышленный альпинизм,
+      однако следует понимать, что расценки на промышленный альпинизм там приведены только примерные.
+      Итоговая стоимость может отличаться от приведенных значений как в меньшую, так и в большую
+      сторону. Это определяется множеством факторов:
+    </p>
+    <div class="row prices">
+      <div class="col-md-3 price">
+        <div class="col-md-12">
+          <div class="price-icon price-icon-1"></div>
+          <p>Особенность выполняемых работ в зависимости от фактуры фасада;</p>
+        </div>
+      </div>
+      <div class="col-md-3 price">
+        <div class="col-md-12">
+          <div class="price-icon price-icon-2"></div>
+          <p>Сроки, на протяжении которых надо будет выполнять работу;</p>
+        </div>
+      </div>
+      <div class="col-md-3 price">
+        <div class="col-md-12">
+          <div class="price-icon price-icon-3"></div>
+          <p>
+            Наличие со стороны заказчика каких-то индивидуальных требований, которые не прописаны в стандартном договоре;
+          </p>
+        </div>
+      </div>
+      <div class="col-md-3 price">
+        <div class="col-md-12">
+          <div class="price-icon price-icon-4"></div>
+          <p>Является ли здание стандартным проектом или же внесено в реестр исторических памятников,
+            работа с фасадами которых определяется рядом ограничений.</p>    </div>
       </div>
     </div>
-    <div class="col-md-3 price">
-      <div class="col-md-12">
-        <div class="price-icon price-icon-2"></div>
-        <p>Сроки, на протяжении которых надо будет выполнять работу;</p>
-      </div>
+    <p>Все эти вопросы решаются в индивидуальном порядке, с каждым клиентом в отдельности. Помните,
+      что промышленные альпинисты в Днепре и Днепропетровской области компании "Днепр-АльпПром",
+      всегда готовы оказать вам помощь в плане выполнения работ, связанных с восстановлением целостности фасадов или же
+      каких-либо других высотных работ.
+    </p>
+  </div>
+</div>
+<div id="page6" page-6>
+  <div class="container row">
+    <div class="col-md-3">
+      <h2>У Вас возник вопрос?</h2>
+      <p>Не спешите писать в службу поддержки. Посмотрите,
+        может ответ на Ваш вопрос написан ниже?</p>
+      <span>FAQ</span>
     </div>
-    <div class="col-md-3 price">
-      <div class="col-md-12">
-        <div class="price-icon price-icon-3"></div>
-        <p>
-          Наличие со стороны заказчика каких-то индивидуальных требований, которые не прописаны в стандартном договоре;
-        </p>
+    <div class="text-block col-md-9">
+      <h4>Подскажите, вы занимаетесь только ремонтными работами? Или нет?</h4>
+      <p>Нет. Помимо монтажа рекламы, герметизации швов, подъема крупных грузов и
+        техники, мы также занимаемся мытьем и ремонтом оконных конструкций,
+        покраской фасадов, установкой проводки и освещения на стенах дома, монтажом
+        кондиционеров, очисткой крыш и навесов от снега и льда, заменой водостоков и
+        труб. Помимо этого, в нашей практике часто встречаются заказы оригинального
+        жанра. Например, мы можем поздравить Вашего друга с праздником — влезем в
+        окно на 16 этаже с охапкой шариков. Или же, можем открыть дверь вашей квартиры,
+        если Вы вдруг потеряли ключи и не хотите ломать дорогостоящий замок.</p>
+      <h4>А не проще ли будет воспользоваться услугами автовышки или
+        строительными лесами?
+      </h4>
+      <p>Нет, не проще. Во-первых, стоимость услуг автовышки и рабочих со строительными
+        лесами гораздо выше, чем стоимость услуг промышленного альпинизма. Во-вторых,
+        время работы. Установка лесов требует довольно длительного времени. А
+        альпинистам достаточно 15-20 минут и они приступают к работе. В-третьих, альпинист
+        может работать на любой высоте, в тесных условиях или там, куда технику невозможно
+        будет подогнать в принципе.</p>
+      <h4>Как можно связаться с нами и заказать услуги промышленных
+        альпинистов?</h4>
+      <p>Достаточно позвонить нам по телефону +380992750357 и объяснить оператору суть
+        вашей проблемы. После согласования всех деталей к Вам сразу же будут
+        направлены наши мастера.</p>
+      <div class="active button">
+        <a (click)="openModal(questionModal)">
+          {{ "page-6.question-btn"  | translate }}
+        </a>
       </div>
-    </div>
-    <div class="col-md-3 price">
-      <div class="col-md-12">
-        <div class="price-icon price-icon-4"></div>
-        <p>Является ли здание стандартным проектом или же внесено в реестр исторических памятников,
-          работа с фасадами которых определяется рядом ограничений.</p>    </div>
+      <ng-template #questionModal>
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">{{ "page-6.question-btn"  | translate }}</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="sendMessage()">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group form-group-horizontal">
+                  <label>{{ "firstName"  | translate }}</label>
+                  <input type="text" [(ngModel)]="mailer.firstName" name="first">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group form-group-horizontal">
+                  <label>{{ "lastName"  | translate }}</label>
+                  <input type="text" [(ngModel)]="mailer.lastName" name="last">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group form-group-horizontal">
+                  <label for="phone">{{ "phone"  | translate }}</label>
+                  <input type="phone" [(ngModel)]="mailer.phone" name="phone">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group form-group-horizontal">
+                  <label for="email">{{ "email"  | translate }}</label>
+                  <input type="email" [(ngModel)]="mailer.email" name="email">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <textarea name="mess" id="question-mess-area" rows="3" [(ngModel)]="mailer.message"></textarea>
+              </div>
+              <div class="col-md-12">
+                <button type="submit" class="active button-submit text-right">{{ "send"  | translate }}</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </ng-template>
     </div>
   </div>
-  <p>Все эти вопросы решаются в индивидуальном порядке, с каждым клиентом в отдельности. Помните,
-    что промышленные альпинисты в Днепре и Днепропетровской области компании "Днепр-АльпПром",
-    всегда готовы оказать вам помощь в плане выполнения работ, связанных с восстановлением целостности фасадов или же
-    каких-либо других высотных работ.
-  </p>
+  <footer>
+    <div class="container row hidden-xs">
+      <div class="col-md-4">
+        <p>©Компания промышленного альпинизма</p>
+        <p>Высотные работы / Верхолазные работы</p>
+        <p>Промышленные работы</p>
+        <p>Промышленные альпинисты</p>
+      </div>
+      <div class="col-md-3">
+        <p>График работы Call-центра</p>
+        <p>В будние дни с 8 до 21</p>
+        <p>Суббота с 9 до 20</p>
+        <p>Воскресенье с 10 до 19</p>
+      </div>
+      <div class="col-md-3">
+        <p>+38 (099) 275 03 57</p>
+        <p>+38 (098) 729 44 73</p>
+        <p>dniproalpprom@gmail.com</p>
+      </div>
+      <div class="col-md-2">
+        <img class="footer-logo" src="../assets/img/footer-logo.png" alt="logo">
+      </div>
+    </div>
+  </footer>
 </div>
-</div>
-
-
 
 <toaster-container></toaster-container>

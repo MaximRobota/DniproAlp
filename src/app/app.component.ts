@@ -39,9 +39,15 @@ export class AppComponent {
     localStorage.setItem('lang', lang);
   }
 
-  submitForm() {
+  callbackUs() {
     console.log(this.mailer);
     this.toasterService.pop('success', '', 'Спасибо. Заявка принята. В ближайшее время с Вами свяжется наш менеджер.');
+    this.modalRef.hide();
+  }
+
+  sendMessage() {
+    console.log(this.mailer);
+    this.toasterService.pop('success', '', 'Спасибо. Вопрос отправлен нашему менеджеру.');
     this.modalRef.hide();
   }
 
