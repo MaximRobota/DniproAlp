@@ -10,7 +10,7 @@
   left: 0;
   width: 100%;
   min-height: 100vh;
-  background: url("../assets/img/background-1.png") no-repeat #1a1a36;
+  background: url("../../assets/img/background-1.png") no-repeat #1a1a36;
   background-size: cover;
   text-align: center;
   z-index: -2;
@@ -19,7 +19,7 @@
 #page2 {
   position: relative;
   min-height: 100vh;
-  background: url("../assets/img/background-2.png") no-repeat;
+  background: url("../../assets/img/background-2.png") no-repeat;
   background-size: cover;
   text-align: center;
 }
@@ -28,7 +28,7 @@
   color: white;
   position: relative;
   min-height: 100vh;
-  background: url("../assets/img/background-3.png") no-repeat;
+  background: url("../../assets/img/background-3.png") no-repeat;
   background-size: cover;
   text-align: center;
 }
@@ -45,7 +45,7 @@
   top: 0;
   left: 0;
   min-height: 100vh;
-  background: url("../assets/img/background-3.png") no-repeat;
+  background: url("../../assets/img/background-3.png") no-repeat;
   background-size: cover;
   text-align: center;
 }
@@ -53,7 +53,7 @@
 #page5 {
   position: relative;
   min-height: 100vh;
-  background: url("../assets/img/background-5.png") no-repeat #11112a;
+  background: url("../../assets/img/background-5.png") no-repeat #11112a;
   background-size: cover;
   text-align: left;
 }
@@ -63,7 +63,7 @@
   top: 0;
   left: 0;
   min-height: 100vh;
-  background: url("../assets/img/background-5.png") no-repeat #11112a;
+  background: url("../../assets/img/background-5.png") no-repeat #11112a;
   background-size: cover;
   text-align: left;
 }
@@ -71,7 +71,7 @@
 #page6 {
   position: relative;
   min-height: 100vh;
-  background: url("../assets/img/background-6.png") no-repeat #ffffff;
+  background: url("../../assets/img/background-6.png") no-repeat #ffffff;
   background-size: cover;
   text-align: left;
   padding: 50px 0 0 0;
@@ -268,22 +268,22 @@ label {
 
 .price-icon-1 {
   width: 85px;
-  background: url("../assets/img/price-icons/1.png") no-repeat 18px 0;
+  background: url("../../assets/img/price-icons/1.png") no-repeat 18px 0;
 }
 
 .price-icon-2 {
   width: 90px;
-  background: url("../assets/img/price-icons/2.png") no-repeat;
+  background: url("../../assets/img/price-icons/2.png") no-repeat;
 }
 
 .price-icon-3 {
   width: 77px;
-  background: url("../assets/img/price-icons/3.png") no-repeat;
+  background: url("../../assets/img/price-icons/3.png") no-repeat;
 }
 
 .price-icon-4 {
   width: 106px;
-  background: url("../assets/img/price-icons/4.png") no-repeat;
+  background: url("../../assets/img/price-icons/4.png") no-repeat;
 }
 
 
@@ -316,7 +316,7 @@ label {
   }
 
   #page2 {
-    background: url("../assets/img/background-2.png") 100% 0 #0006ff12;
+    background: url("../../assets/img/background-2.png") 100% 0 #0006ff12;
   }
 
   .price {
@@ -344,7 +344,7 @@ label {
   }
 
   #page6 {
-    background: url("../assets/img/background-mob-6.png") no-repeat #ffffff;
+    background: url("../../assets/img/background-mob-6.png") no-repeat #ffffff;
     padding: 0;
   }
 }

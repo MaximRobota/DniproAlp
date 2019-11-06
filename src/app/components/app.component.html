@@ -25,7 +25,7 @@
       </ul>
     </div>
     <div class="center-logo">
-      <img class="logo col-md-12" src="../assets/img/logo.png" alt="logo">
+      <img class="logo col-md-12" src="../../assets/img/logo.png" alt="logo">
       <p class="logo-title">{{ "logo-title-1"  | translate }} <br>
         {{ "logo-title-2"  | translate }}
       </p>
@@ -64,25 +64,25 @@
           <div class="col-md-6">
             <div class="form-group form-group-horizontal">
               <label>{{ "firstName"  | translate }}</label>
-              <input type="text" [(ngModel)]="mailer.firstName" name="first">
+              <input type="text" [(ngModel)]="callbackUsMailer.firstName" name="first">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group form-group-horizontal">
               <label>{{ "lastName"  | translate }}</label>
-              <input type="text" [(ngModel)]="mailer.lastName" name="last">
+              <input type="text" [(ngModel)]="callbackUsMailer.lastName" name="last">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group form-group-horizontal">
               <label for="phone">{{ "phone"  | translate }}</label>
-              <input type="phone" id="phone" [(ngModel)]="mailer.phone" name="phone">
+              <input type="phone" id="phone" [(ngModel)]="callbackUsMailer.phone" name="phone">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group form-group-horizontal">
               <label for="email">{{ "email"  | translate }}</label>
-              <input type="email" id="email" [(ngModel)]="mailer.email" name="email">
+              <input type="email" id="email" [(ngModel)]="callbackUsMailer.email" name="email">
             </div>
           </div>
           <div class="col-md-12">
@@ -99,7 +99,7 @@
     <h3>Вы получаете</h3>
     <div class="col-md-12 services">
       <div class="col-md-4">
-        <img src="../assets/img/service-icons/1.png" alt="icon">
+        <img src="../../assets/img/service-icons/1.png" alt="icon">
         <p class="head-title">Опыт верхолазных
           работ – 10 лет</p>
         <p class="sub-title">Знаем, как все сделать
@@ -107,20 +107,20 @@
           главное – безопасно.</p>
       </div>
       <div class="col-md-4">
-        <img src="../assets/img/service-icons/2.png" alt="icon">
+        <img src="../../assets/img/service-icons/2.png" alt="icon">
         <p class="head-title">Услуги 18
           альпинистов</p>
         <p class="sub-title">Работы многоне бывает, выполним любой объем работ в короткий срок.</p>
       </div>
       <div class="col-md-4">
-        <img src="../assets/img/service-icons/3.png" alt="icon">
+        <img src="../../assets/img/service-icons/3.png" alt="icon">
         <p class="head-title">Нет праздников <br> и выходных</p>
         <p class="sub-title">Когда у Вас выходной,<br> у нас - рабочий день.</p>
       </div>
     </div>
     <div class="col-md-12 services">
       <div class="col-md-4">
-        <img src="../assets/img/service-icons/4.png" alt="icon">
+        <img src="../../assets/img/service-icons/4.png" alt="icon">
         <p class="head-title">100% соблюдение
           правил ТБ</p>
         <p class="sub-title">Наши сотрудники
@@ -128,7 +128,7 @@
           промышленных альпинистов.</p>
       </div>
       <div class="col-md-4">
-        <img src="../assets/img/service-icons/5.png" alt="icon">
+        <img src="../../assets/img/service-icons/5.png" alt="icon">
         <p class="head-title">100% гарантия соб-
           людения сроков</p>
         <p class="sub-title">Готовы платить
@@ -137,7 +137,7 @@
           по договору – 10%.</p>
       </div>
       <div class="col-md-4">
-        <img src="../assets/img/service-icons/6.png" alt="icon">
+        <img src="../../assets/img/service-icons/6.png" alt="icon">
         <p class="head-title">357 выполненных
           объектов</p>
         <p class="sub-title">Более 300 довольных
@@ -305,29 +305,29 @@
               <div class="col-md-6">
                 <div class="form-group form-group-horizontal">
                   <label>{{ "firstName"  | translate }}</label>
-                  <input type="text" [(ngModel)]="mailer.firstName" name="first">
+                  <input type="text" [(ngModel)]="sendQuestionMailer.firstName" name="first">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group form-group-horizontal">
                   <label>{{ "lastName"  | translate }}</label>
-                  <input type="text" [(ngModel)]="mailer.lastName" name="last">
+                  <input type="text" [(ngModel)]="sendQuestionMailer.lastName" name="last">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group form-group-horizontal">
                   <label for="phone">{{ "phone"  | translate }}</label>
-                  <input type="phone" [(ngModel)]="mailer.phone" name="phone">
+                  <input type="phone" [(ngModel)]="sendQuestionMailer.phone" name="phone">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group form-group-horizontal">
                   <label for="email">{{ "email"  | translate }}</label>
-                  <input type="email" [(ngModel)]="mailer.email" name="email">
+                  <input type="email" [(ngModel)]="sendQuestionMailer.email" name="email">
                 </div>
               </div>
               <div class="col-md-12">
-                <textarea name="mess" id="question-mess-area" rows="3" [(ngModel)]="mailer.message"></textarea>
+                <textarea name="mess" id="question-mess-area" rows="3" [(ngModel)]="sendQuestionMailer.message"></textarea>
               </div>
               <div class="col-md-12">
                 <button type="submit" class="active button-submit text-right">{{ "send"  | translate }}</button>
@@ -356,9 +356,10 @@
         <p>+38 (099) 275 03 57</p>
         <p>+38 (098) 729 44 73</p>
         <p>dniproalpprom@gmail.com</p>
+        <p style="cursor: pointer;" (click)="goToNewPage()">www.facebook.com/dniproalpprom</p>
       </div>
       <div class="col-md-2">
-        <img class="footer-logo" src="../assets/img/footer-logo.png" alt="logo">
+        <img class="footer-logo" src="../../assets/img/footer-logo.png" alt="logo">
       </div>
     </div>
   </footer>
