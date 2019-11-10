@@ -81,7 +81,7 @@
               <span *ngIf="f.phone.errors.minlength">Phone must be at least 10</span>
             </span>
           </div>
-          <div class="col-md-7 form-row">
+          <div class="col-md-6 form-row">
             <div class="form-group form-group-horizontal">
               <label for="email">{{ "modal-1-callbackUsMailer.email"  | translate }}</label>
               <input type="email" id="email" formControlName="email" class="form-control"
@@ -257,10 +257,54 @@
       <h4>{{"page-6.text-7" | translate}}</h4>
       <p>{{"page-6.text-8" | translate}}</p>
       <div class="active button">
-        <a (click)="openModal(modal)">
+        <a (click)="openModal(questionModal)">
           {{ "page-6.question-btn"  | translate }}
         </a>
       </div>
+      <ng-template #questionModal>
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">{{ "page-6.question-btn"  | translate }}</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="sendMessage()">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group form-group-horizontal">
+                  <label>{{ "firstName"  | translate }}</label>
+                  <input type="text" [(ngModel)]="sendQuestionMailer.firstName" name="first">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group form-group-horizontal">
+                  <label>{{ "lastName"  | translate }}</label>
+                  <input type="text" [(ngModel)]="sendQuestionMailer.lastName" name="last">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group form-group-horizontal">
+                  <label for="phone">{{ "phone"  | translate }}</label>
+                  <input type="phone" [(ngModel)]="sendQuestionMailer.phone" name="phone">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group form-group-horizontal">
+                  <label for="email">{{ "email"  | translate }}</label>
+                  <input type="email" [(ngModel)]="sendQuestionMailer.email" name="email">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <textarea name="mess" id="question-mess-area" rows="3" [(ngModel)]="sendQuestionMailer.message"></textarea>
+              </div>
+              <div class="col-md-12">
+                <button type="submit" class="active button-submit text-right">{{ "send"  | translate }}</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </ng-template>
     </div>
   </div>
   <footer>
