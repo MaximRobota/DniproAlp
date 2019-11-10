@@ -85,7 +85,7 @@
 
 .logo {
   width: 480px;
-  margin-top: 20%;
+  margin-top: calc(50% - 120px);
 }
 
 .nav-bar {

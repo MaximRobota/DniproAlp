@@ -1,0 +1,25 @@
+.lds-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0000002d;
+  transition: .05s;
+  z-index: 999999;
+}
+
+.lds-default {
+  display: inline-block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+  margin: auto;
+}

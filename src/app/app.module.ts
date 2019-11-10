@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './components/app.component';
+import { MainLoadingComponent } from './components/loading/loading.component';
 // import { ConfigService } from './services/config.service';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
@@ -23,12 +26,14 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    MainLoadingComponent,
     // ConfigService
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     SlickCarouselModule,
     HttpClientModule,
     ToasterModule.forRoot(),

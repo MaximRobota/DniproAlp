@@ -1,11 +1,12 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component, TemplateRef, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { ToasterService } from 'angular2-toaster';
 import { TranslateService } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export interface CallbackUsMailer {
-  fioName: string;
+  fullName: string;
   phone: string;
   email: string;
 }
@@ -15,10 +16,14 @@ export interface CallbackUsMailer {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   private toasterService: ToasterService;
+  registerForm: FormGroup;
+  submitted = false;
+
   localLang;
   modalRef: BsModalRef;
+  loaded: boolean;
 
   altitudeSlides = [
     {img: '../assets/img/slider/slider-1/1.jpg'},
@@ -63,28 +68,32 @@ export class AppComponent {
   };
 
   callbackUsMailer = {
-    firstName: '',
+    fullName: '',
     lastName: '',
     phone: '',
     email: ''
   };
 
   sendQuestionMailer = {
-    firstName: '',
+    fullName: '',
     lastName: '',
     phone: '',
     email: '',
     message: ''
   };
 
-  url = 'http://localhost:4000';
+  url = 'http://localhost:3000';
 
   constructor(
     private modalService: BsModalService,
     public translate: TranslateService,
     toasterService: ToasterService,
-    private http: HttpClient
+    private http: HttpClient,
+    private formBuilder: FormBuilder
   ) {
+    this.loaded = false;
+    this.fakeLoading(1000);
+
     this.toasterService = toasterService;
 
     // Translate
@@ -93,35 +102,70 @@ export class AppComponent {
     translate.use(this.localLang);
   }
 
+  ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      fullName: ['', Validators.required],
+      phone: ['', Validators.compose([
+          Validators.maxLength(25),
+          Validators.minLength(9),
+          // Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
+          Validators.required])
+      ],
+      email: ['', [Validators.required, Validators.email]],
+    });
+  }
+  get f() { return this.registerForm.controls; }
+
   goToNewPage() {
     window.open('https://www.facebook.com/dniproalpprom');
   }
 
   changeLang(lang) {
+    this.loaded = false;
     this.translate.use(lang);
     localStorage.setItem('lang', lang);
+    this.fakeLoading(300);
   }
 
   sendler(data) {
+    this.loaded = false;
     return this
       .http
-      .post(`${this.url}/characters`, data);
+      .post(`${this.url}/contact-us`, data);
   }
 
   callbackUs() {
+    this.submitted = true;
+    console.log(this.registerForm);
+
+    if (this.registerForm.invalid) {
+      return;
+    }
     console.log(this.callbackUsMailer);
     this.sendler(this.callbackUsMailer)
       .subscribe((data) => {
         console.log(data);
         this.toasterService.pop('success', '', 'Спасибо. Заявка принята. В ближайшее время с Вами свяжется наш менеджер.');
         this.modalRef.hide();
-      });
+      },
+        error => {
+          this.fakeLoading(300);
+          this.toasterService.pop('error', '', error.message);
+        });
   }
 
   sendMessage() {
     console.log(this.sendQuestionMailer);
-    this.toasterService.pop('success', '', 'Спасибо. Вопрос отправлен нашему менеджеру.');
-    this.modalRef.hide();
+    this.sendler(this.sendQuestionMailer)
+      .subscribe((data) => {
+          console.log(data);
+          this.toasterService.pop('success', '', 'Спасибо. Вопрос отправлен нашему менеджеру.');
+          this.modalRef.hide();
+        },
+        error => {
+          this.fakeLoading(300);
+          this.toasterService.pop('error', '', error.message);
+        });
   }
 
   openModal(template: TemplateRef<any>) {
@@ -146,4 +190,9 @@ export class AppComponent {
     console.log('beforeChange');
   }
 
+  fakeLoading(timeout) {
+    setTimeout(() => {
+      this.loaded = true;
+    }, timeout);
+  }
 }
