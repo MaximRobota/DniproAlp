@@ -69,14 +69,12 @@ export class AppComponent implements OnInit {
 
   callbackUsMailer = {
     fullName: '',
-    lastName: '',
     phone: '',
     email: ''
   };
 
   sendQuestionMailer = {
     fullName: '',
-    lastName: '',
     phone: '',
     email: '',
     message: ''
