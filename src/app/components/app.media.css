@@ -1,0 +1,71 @@
+@media (max-width: 360px) {
+  .nav-bar {
+    position: relative;
+    float: right;
+    margin: 0 20px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .logo {
+    width: 85%;
+    margin-top: 20%;
+  }
+  .logo-title {
+    width: 320px;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .center-logo {
+    width: 100%;
+  }
+
+  #page2 {
+    background: url("../../assets/img/background-2.png") 100% 0 #0006ff12;
+  }
+
+  .price {
+    padding: 15px;
+  }
+
+  #page5 h3 {
+    margin-top: 30px;
+  }
+
+  .price .col-md-12 {
+    margin: 0;
+  }
+
+  #page4 {
+    background: #ededff;
+  }
+
+  .next-slide, .prev-slide, .nav-btn.next-slide.slick-arrow {
+    margin: -30px 0 !important;
+  }
+
+  .prev-slide.slick-disabled, .next-slide.slick-disabled {
+    margin: -30px 0 !important;
+  }
+
+  #page6 {
+    background: url("../../assets/img/background-mob-6.png") no-repeat #ffffff;
+    padding: 0;
+  }
+}
+
+@media (max-width: 1093px) {
+  .container {
+    width: 100%;
+  }
+  .nav-bar {
+    width: 95%;
+    margin: 0 15px;
+  }
+}

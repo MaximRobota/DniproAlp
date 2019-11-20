@@ -14,7 +14,7 @@ export interface CallbackUsMailer {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css', './app.media.css']
 })
 export class AppComponent implements OnInit {
   private toasterService: ToasterService;
