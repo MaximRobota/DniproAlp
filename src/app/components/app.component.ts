@@ -80,7 +80,8 @@ export class AppComponent implements OnInit {
     message: ''
   };
 
-  url = 'http://localhost:3000';
+  url = 'http://dniproalpprom.com:3000';
+  // url = 'http://localhost:3000';
 
   constructor(
     private modalService: BsModalService,
@@ -144,6 +145,7 @@ export class AppComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         this.toasterService.pop('success', '', 'Спасибо. Заявка принята. В ближайшее время с Вами свяжется наш менеджер.');
+        this.fakeLoading(300);
         this.modalRef.hide();
       },
         error => {
