@@ -1,20 +1,57 @@
-@media (max-width: 360px) {
-  .nav-bar {
-    position: relative;
-    float: right;
-    margin: 0 20px;
+@media (max-width: 991px) {
+  .container {
+    width: 100%;
   }
+  .nav-bar {
+    width: 760px;
+    margin-left: -380px;
+  }
+}
 
+@media (max-width: 780px) {
   .menu {
     display: none;
   }
 
-  .logo {
-    width: 85%;
-    margin-top: 20%;
+  .nav-bar {
+    left: 0;
+    width: 100%;
+    margin-left: -40px;
   }
-  .logo-title {
-    width: 320px;
+
+  .center-logo {
+    width: 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  .center-logo {
+    width: 80%;
+  }
+
+  #page2 {
+    background: url("../../assets/img/background-2.png") 100% 0 #0006ff12;
+  }
+
+  #page6 {
+    background: url("../../assets/img/background-mob-6.png") repeat #ffffff;
+    padding: 0;
+  }
+
+  footer {
+    width: 100%;
+    background: #11102a;
+    bottom: 0;
+    margin: -120px 0;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 411px) {
+  .nav-bar {
+    position: relative;
+    float: right;
+    margin: 0 20px;
   }
 
   .container {
@@ -24,10 +61,6 @@
 
   .center-logo {
     width: 100%;
-  }
-
-  #page2 {
-    background: url("../../assets/img/background-2.png") 100% 0 #0006ff12;
   }
 
   .price {
@@ -52,20 +85,5 @@
 
   .prev-slide.slick-disabled, .next-slide.slick-disabled {
     margin: -30px 0 !important;
-  }
-
-  #page6 {
-    background: url("../../assets/img/background-mob-6.png") no-repeat #ffffff;
-    padding: 0;
-  }
-}
-
-@media (max-width: 1093px) {
-  .container {
-    width: 100%;
-  }
-  .nav-bar {
-    width: 95%;
-    margin: 0 15px;
   }
 }

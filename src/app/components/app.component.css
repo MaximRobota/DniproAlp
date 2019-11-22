@@ -83,15 +83,19 @@
 }
 
 .logo {
-  width: 480px;
+  width: 100%;
+  padding: 2px;
 }
 
 .nav-bar {
   padding-top: 14px;
-  position: fixed;
-  top: 0;
   z-index: 1;
-  width: 67%;
+  position: fixed;
+  width: 1020px;
+  height: 200px;
+  left: 50%;
+  top: 0%;
+  margin-left: -510px;
 }
 
 .nav-bar ul {
@@ -148,15 +152,15 @@
 }
 
 .center-logo {
-  width: 480px;
-  margin: 300px auto 0;
+  width: 42%;
+  margin: 40vh auto 0;
 }
 
 .logo-title {
   color: white;
   font-size: 25px;
   text-align: right;
-  width: 480px;
+  width: 100%;
 }
 
 #page2 .text-block {
@@ -295,7 +299,7 @@ label {
 #page6 span {
   writing-mode: vertical-lr;
   transform: rotate(180deg);
-  font-size: 120px;
+  font-size: 130px;
   color: #bebec5;
   font-weight: bold;
   padding: 0 -45px;

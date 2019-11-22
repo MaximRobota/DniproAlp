@@ -26,6 +26,13 @@
     "email": "Емаил",
     "send": "Отправить"
   },
+  "modal-2-callbackUsMailer": {
+    "fullName": "ФИО",
+    "phone": "Телефон",
+    "email": "Емаил",
+    "message": "Вопрос",
+    "send": "Отправить"
+  },
   "page-3": {
     "yourProfit": "Вы получаете",
     "text-1": "Опыт верхолазных работ – 10 лет",

@@ -1,6 +1,6 @@
 <div class="page-1"></div>
 <div id="page1"  page-1>
-  <div class="container row">
+  <div class="container">
     <div class="nav-bar">
       <ul class="menu">
         <li class="active button"><a href="#page1">{{ "menu.home" | translate }}</a></li>
@@ -107,34 +107,34 @@
   <div class="container row">
     <h3>{{"page-3.yourProfit" | translate}}</h3>
     <div class="col-md-12 services">
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-4">
         <img src="../../assets/img/service-icons/1.png" alt="icon">
         <p class="head-title">{{"page-3.text-1" | translate}}</p>
         <p class="sub-title">{{"page-3.text-2" | translate}}</p>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-4">
         <img src="../../assets/img/service-icons/2.png" alt="icon">
         <p class="head-title">{{"page-3.text-3" | translate}}</p>
         <p class="sub-title">{{"page-3.text-4" | translate}}</p>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-4">
         <img src="../../assets/img/service-icons/3.png" alt="icon">
         <p class="head-title">{{"page-3.text-5" | translate}} <br> {{"page-3.text-6" | translate}}</p>
         <p class="sub-title">{{"page-3.text-7" | translate}}<br> {{"page-3.text-8" | translate}}</p>
       </div>
     </div>
     <div class="col-md-12 services">
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-4">
         <img src="../../assets/img/service-icons/4.png" alt="icon">
         <p class="head-title">{{"page-3.text-9" | translate}}</p>
         <p class="sub-title">{{"page-3.text-10" | translate}}</p>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-4">
         <img src="../../assets/img/service-icons/5.png" alt="icon">
         <p class="head-title">{{"page-3.text-11" | translate}}</p>
         <p class="sub-title">{{"page-3.text-12" | translate}}</p>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-4">
         <img src="../../assets/img/service-icons/6.png" alt="icon">
         <p class="head-title">{{"page-3.text-13" | translate}}</p>
         <p class="sub-title">{{"page-3.text-14" | translate}}</p>
@@ -212,25 +212,25 @@
     <h3>{{"page-5.text-1" | translate}}</h3>
     <p>{{"page-5.text-2" | translate}}</p>
     <div class="row prices">
-      <div class="col-md-3 price">
+      <div class="col-md-3 col-sm-6 price">
         <div class="col-md-12">
           <div class="price-icon price-icon-1"></div>
           <p>{{"page-5.text-3" | translate}}</p>
         </div>
       </div>
-      <div class="col-md-3 price">
+      <div class="col-md-3 col-sm-6 price">
         <div class="col-md-12">
           <div class="price-icon price-icon-2"></div>
           <p>{{"page-5.text-4" | translate}}</p>
         </div>
       </div>
-      <div class="col-md-3 price">
+      <div class="col-md-3 col-sm-6 price">
         <div class="col-md-12">
           <div class="price-icon price-icon-3"></div>
           <p>{{"page-5.text-5" | translate}}</p>
         </div>
       </div>
-      <div class="col-md-3 price">
+      <div class="col-md-3 col-sm-6 price">
         <div class="col-md-12">
           <div class="price-icon price-icon-4"></div>
           <p>{{"page-5.text-6" | translate}}</p>
@@ -243,12 +243,12 @@
 </div>
 <div id="page6" page-6>
   <div class="container row">
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3">
       <h2>{{"page-6.text-1" | translate}}</h2>
       <p>{{"page-6.text-2" | translate}}</p>
-      <span>FAQ</span>
+      <span class="hidden-xs">FAQ</span>
     </div>
-    <div class="text-block col-md-9">
+    <div class="text-block col-md-9 col-sm-9">
       <h4>{{"page-6.text-3" | translate}}</h4>
       <p>{{"page-6.text-4" | translate}}</p>
       <h4>{{"page-6.text-5" | translate}}
@@ -273,27 +273,28 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group form-group-horizontal">
-                  <label>{{ "firstName"  | translate }}</label>
+                  <label>{{ "modal-2-callbackUsMailer.fullName"  | translate }}</label>
                   <input type="text" [(ngModel)]="sendQuestionMailer.fullName" name="first">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group form-group-horizontal">
-                  <label for="phone">{{ "phone"  | translate }}</label>
+                  <label for="phone">{{ "modal-2-callbackUsMailer.phone"  | translate }}</label>
                   <input type="phone" [(ngModel)]="sendQuestionMailer.phone" name="phone">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group form-group-horizontal">
-                  <label for="email">{{ "email"  | translate }}</label>
+                  <label for="email">{{ "modal-2-callbackUsMailer.email"  | translate }}</label>
                   <input type="email" [(ngModel)]="sendQuestionMailer.email" name="email">
                 </div>
               </div>
               <div class="col-md-12">
+                <label for="email">{{ "modal-2-callbackUsMailer.message"  | translate }}</label>
                 <textarea name="mess" id="question-mess-area" rows="3" [(ngModel)]="sendQuestionMailer.message"></textarea>
               </div>
               <div class="col-md-12">
-                <button type="submit" class="active button-submit text-right">{{ "send"  | translate }}</button>
+                <button type="submit" class="active button-submit text-right">{{ "modal-2-callbackUsMailer.send"  | translate }}</button>
               </div>
             </div>
           </form>
@@ -302,26 +303,26 @@
     </div>
   </div>
   <footer>
-    <div class="container row hidden-xs">
-      <div class="col-md-4">
+    <div class="container row">
+      <div class="col-md-4 col-sm-4 hidden-xs">
         <p>{{ "footer.text-1"  | translate }}</p>
         <p>{{ "footer.text-2"  | translate }}</p>
         <p>{{ "footer.text-3"  | translate }}</p>
         <p>{{ "footer.text-4"  | translate }}</p>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-sm-3 col-xs-6">
         <p>{{ "footer.text-5"  | translate }}</p>
         <p>{{ "footer.text-6"  | translate }}</p>
         <p>{{ "footer.text-7"  | translate }}</p>
         <p>{{ "footer.text-8"  | translate }}</p>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-sm-3 col-xs-6">
         <p>+38 (099) 275 03 57</p>
         <p>+38 (098) 729 44 73</p>
         <p>dniproalpprom@gmail.com</p>
         <p style="cursor: pointer;" (click)="goToNewPage()">www.facebook.com/dniproalpprom</p>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2 col-sm-2 hidden-xs">
         <img class="footer-logo" src="../../assets/img/footer-logo.png" alt="logo">
       </div>
     </div>
