@@ -25,7 +25,7 @@ a:focus, a:hover {
 .slick-slider {
   width: 90%;
   margin: auto;
-  background: #d9e5f2;
+  /*background: #d9e5f2;*/
 }
 
 .nav-btn {
@@ -33,7 +33,6 @@ a:focus, a:hover {
   position: absolute;
   width: 26px;
   cursor: pointer;
-  top: 37px !important;
 }
 
 .prev-slide.slick-disabled,
@@ -49,7 +48,8 @@ a:focus, a:hover {
 
 .next-slide {
   background: url(assets/img/slider/next-btn.png) no-repeat scroll 0px 0px;
-  right: -33px;
+  right: -28px;
+  top: 0;
 }
 
 /*.prev-slide:hover {*/

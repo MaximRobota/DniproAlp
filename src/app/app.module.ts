@@ -10,7 +10,7 @@ import { MainLoadingComponent } from './components/loading/loading.component';
 // import { ConfigService } from './services/config.service';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { ModalModule } from 'ngx-bootstrap';
+import {CollapseModule, ModalModule} from 'ngx-bootstrap';
 import { ToasterModule } from 'angular2-toaster';
 
 
@@ -44,7 +44,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    CollapseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

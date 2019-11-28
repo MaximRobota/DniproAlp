@@ -80,10 +80,10 @@
   }
 
   .next-slide, .prev-slide, .nav-btn.next-slide.slick-arrow {
-    margin: -30px 0 !important;
+    margin: -27px 0 !important;
   }
 
   .prev-slide.slick-disabled, .next-slide.slick-disabled {
-    margin: -30px 0 !important;
+    margin: -27px 0 !important;
   }
 }

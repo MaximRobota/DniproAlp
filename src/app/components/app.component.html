@@ -1,6 +1,10 @@
 <div class="page-1"></div>
 <div id="page1"  page-1>
   <div class="container">
+    <div class="phone-number hidden-sm hidden-md hidden-lg">
+      <span></span>
+      <p>+38 (099) 275 03 57</p>
+    </div>
     <div class="nav-bar">
       <ul class="menu">
         <li class="active button"><a href="#page1">{{ "menu.home" | translate }}</a></li>
@@ -26,8 +30,14 @@
     <div class="center-logo">
       <img class="logo col-md-12" src="../../assets/img/logo.png" alt="logo">
       <p class="logo-title">{{ "page-1.logo-title-1"  | translate }} <br>
-        {{ "page-1.logo-title-2"  | translate }}
+        {{ "page-1.logo-title-2"  | translate }} <br>
+        {{ "page-1.logo-title-3"  | translate }}
       </p>
+<!--      <div class="active button">-->
+<!--        <a (click)="openModal(modal)">-->
+<!--          {{ "page-2.callback-btn"  | translate }}-->
+<!--        </a>-->
+<!--      </div>-->
     </div>
   </div>
 </div>
@@ -108,17 +118,17 @@
     <h3>{{"page-3.yourProfit" | translate}}</h3>
     <div class="col-md-12 services">
       <div class="col-md-4 col-sm-4">
-        <img src="../../assets/img/service-icons/1.png" alt="icon">
+        <div class="service-icon-1"></div>
         <p class="head-title">{{"page-3.text-1" | translate}}</p>
         <p class="sub-title">{{"page-3.text-2" | translate}}</p>
       </div>
       <div class="col-md-4 col-sm-4">
-        <img src="../../assets/img/service-icons/2.png" alt="icon">
+        <div class="service-icon-2"></div>
         <p class="head-title">{{"page-3.text-3" | translate}}</p>
         <p class="sub-title">{{"page-3.text-4" | translate}}</p>
       </div>
       <div class="col-md-4 col-sm-4">
-        <img src="../../assets/img/service-icons/3.png" alt="icon">
+        <div class="service-icon-3"></div>
         <p class="head-title">{{"page-3.text-5" | translate}} <br> {{"page-3.text-6" | translate}}</p>
         <p class="sub-title">{{"page-3.text-7" | translate}}<br> {{"page-3.text-8" | translate}}</p>
       </div>
@@ -249,13 +259,27 @@
       <span class="hidden-xs">FAQ</span>
     </div>
     <div class="text-block col-md-9 col-sm-9">
-      <h4>{{"page-6.text-3" | translate}}</h4>
-      <p>{{"page-6.text-4" | translate}}</p>
-      <h4>{{"page-6.text-5" | translate}}
-      </h4>
-      <p>{{"page-6.text-6" | translate}}</p>
-      <h4>{{"page-6.text-7" | translate}}</h4>
-      <p>{{"page-6.text-8" | translate}}</p>
+        <ngx-slick-carousel class="carousel"
+                            #slickModal="slick-carousel"
+                            [config]="thumbnailsSlider"
+                            (init)="slickInit($event)"
+                            (breakpoint)="breakpoint($event)"
+                            (afterChange)="afterChange($event)"
+                            (beforeChange)="beforeChange($event)">
+          <div ngxSlickItem *ngFor="let slide of questionSlides" class="slide">
+            <div class="col-md-12">
+              <h4>{{ slide.header | translate }}</h4>
+              <p>{{ slide.text | translate }}</p>
+            </div>
+          </div>
+        </ngx-slick-carousel>
+<!--      <h4>{{"page-6.text-3" | translate}}</h4>-->
+<!--      <p>{{"page-6.text-4" | translate}}</p>-->
+<!--      <h4>{{"page-6.text-5" | translate}}-->
+<!--      </h4>-->
+<!--      <p>{{"page-6.text-6" | translate}}</p>-->
+<!--      <h4>{{"page-6.text-7" | translate}}</h4>-->
+<!--      <p>{{"page-6.text-8" | translate}}</p>-->
       <div class="active button">
         <a (click)="openModal(questionModal)">
           {{ "page-6.question-btn"  | translate }}
@@ -319,11 +343,15 @@
       <div class="col-md-3 col-sm-3 col-xs-6">
         <p>+38 (099) 275 03 57</p>
         <p>+38 (098) 729 44 73</p>
-        <p>dniproalpprom@gmail.com</p>
-        <p style="cursor: pointer;" (click)="goToNewPage()">www.facebook.com/dniproalpprom</p>
+        <p class="hidden-xs">dniproalpprom@gmail.com</p>
+        <p style="cursor: pointer;" (click)="goToNewPage()" class="hidden-xs">www.facebook.com/dniproalpprom</p>
       </div>
       <div class="col-md-2 col-sm-2 hidden-xs">
         <img class="footer-logo" src="../../assets/img/footer-logo.png" alt="logo">
+      </div>
+      <div class="col-xs-12 hidden-sm">
+        <p>dniproalpprom@gmail.com</p>
+        <p style="cursor: pointer;" (click)="goToNewPage()" >www.facebook.com/dniproalpprom</p>
       </div>
     </div>
   </footer>

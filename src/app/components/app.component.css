@@ -87,6 +87,28 @@
   padding: 2px;
 }
 
+.phone-number {
+  position: absolute;
+  top: 19px;
+  left: 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  width: 180px;
+  line-height: 27px;
+}
+
+.phone-number span{
+  background: url("../../assets/img/phone.png") no-repeat;
+  width: 20px;
+  height: 25px;
+  background-size: 100%;
+  display: block;
+  float: left;
+  padding: 12px;
+}
+
 .nav-bar {
   padding-top: 14px;
   z-index: 1;
@@ -152,7 +174,7 @@
 
 .center-logo {
   width: 42%;
-  margin: 35vh auto 0;
+  margin: 28vh auto 0;
 }
 
 .logo-title {
@@ -186,10 +208,35 @@
   height: 95px;
 }
 
+.service-icon-1 {
+  background: url("../../assets/img/service-icons/1.png") no-repeat;
+  width: 88px;
+  height: 88px;
+  background-size: 100%;
+  margin: auto;
+}
+
+.service-icon-2 {
+  background: url("../../assets/img/service-icons/2.png") no-repeat;
+  width: 88px;
+  height: 88px;
+  background-size: 100%;
+  margin: auto;
+}
+
+.service-icon-3 {
+  background: url("../../assets/img/service-icons/3.png") no-repeat;
+  width: 88px;
+  height: 88px;
+  background-size: 100%;
+  margin: auto;
+}
+
 .services div:hover img {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
   transition: .3s;
+  background: red;
 }
 
 .prices div:hover .price-icon {

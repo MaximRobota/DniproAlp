@@ -58,6 +58,19 @@ export class AppComponent implements OnInit {
     {img: '../assets/img/slider/slider-4/1.jpg'}
   ];
 
+  questionSlides = [
+    {
+      header: 'page-6.text-3',
+      text: 'page-6.text-4'
+    }, {
+      header: 'page-6.text-5',
+      text: 'page-6.text-6'
+    }, {
+      header: 'page-6.text-7',
+      text: 'page-6.text-8'
+    }
+  ];
+
   slideConfig = {
     slidesToShow: 6,
     slidesToScroll: 1,
@@ -65,6 +78,17 @@ export class AppComponent implements OnInit {
     prevArrow: '<div class="nav-btn prev-slide"></div>',
     dots: true,
     infinite: false
+  };
+
+  thumbnailsSlider = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: '<div class="nav-btn next-slide"></div>',
+    prevArrow: '<div class="nav-btn prev-slide"></div>',
+    cssEase: 'linear',
+    fade: true,
+    infinite: false,
+    draggable: true
   };
 
   callbackUsMailer = {
