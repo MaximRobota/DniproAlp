@@ -22,6 +22,10 @@
   .center-logo {
     width: 50%;
   }
+
+  .head-title, .sub-title {
+    width: auto;
+  }
 }
 
 @media (max-width: 500px) {
@@ -39,11 +43,15 @@
   }
 
   footer {
-    width: 100%;
+    position: static;
     background: #11102a;
-    bottom: 0;
-    margin: -120px 0;
-    padding: 10px;
+    margin: 10px 0 0;
+    padding: 10px 0;
+  }
+
+  #page6 .text-block {
+    margin-top: -15px;
+    padding: 0;
   }
 }
 
@@ -51,7 +59,7 @@
   .nav-bar {
     position: relative;
     float: right;
-    margin: 0 20px;
+    margin: 0 5px;
   }
 
   .container {
@@ -85,5 +93,16 @@
 
   .prev-slide.slick-disabled, .next-slide.slick-disabled {
     margin: -27px 0 !important;
+  }
+}
+
+@media (max-width: 992px) and (orientation:landscape) {
+  .col-md-4 {
+    width: 33.33333333%;
+    float: left;
+  }
+  .col-sm-6 {
+    width: 50%;
+    float: left;
   }
 }

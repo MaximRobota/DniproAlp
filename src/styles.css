@@ -22,14 +22,14 @@ a:focus, a:hover {
 
 }
 
-.slick-slider {
+#page4 .slick-slider {
   width: 90%;
   margin: auto;
   /*background: #d9e5f2;*/
 }
 
 .nav-btn {
-  height: 47px;
+  height: 30px;
   position: absolute;
   width: 26px;
   cursor: pointer;
@@ -44,12 +44,13 @@ a:focus, a:hover {
 .prev-slide {
   background: url(assets/img/slider/prev-btn.png) no-repeat 0 0;
   left: -33px;
+  top: calc(50% - 15px);
 }
 
 .next-slide {
   background: url(assets/img/slider/next-btn.png) no-repeat scroll 0px 0px;
   right: -28px;
-  top: 0;
+  top: calc(50% - 15px);
 }
 
 /*.prev-slide:hover {*/
@@ -60,6 +61,21 @@ a:focus, a:hover {
   /*background-position: -24px -53px;*/
 /*}*/
 
-.slick-dotted.slick-slider {
-  margin-bottom: 10px !important;
+
+@media (max-width: 500px) {
+  .slick-dotted.slick-slider {
+    margin-bottom: 10px !important;
+  }
+
+  #page6 .prev-slide {
+    left: -15px;
+  }
+
+  #page6 .next-slide {
+    right: -15px;
+  }
+}
+
+.slick-slide:focus {
+  outline: none;
 }
