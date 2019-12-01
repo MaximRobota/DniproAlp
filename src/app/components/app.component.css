@@ -141,6 +141,16 @@
   margin: 0 2px;
 }
 
+.main-btn {
+  width: 140px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  background-color: #fbc821;
+  margin: auto;
+  cursor: pointer;
+}
+
 .button {
   cursor: pointer;
   height: 35px;
@@ -531,3 +541,12 @@ footer p {
   background: red;
 }
 
+.invalid-feedback {
+  color: red;
+  font-size: 10px;
+  float: right;
+}
+
+.is-invalid {
+  border: 1px solid red;
+}

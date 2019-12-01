@@ -79,3 +79,11 @@ a:focus, a:hover {
 .slick-slide:focus {
   outline: none;
 }
+
+.modal-dialog {
+  width: 400px !important;
+}
+
+:focus {
+  outline: none;
+}

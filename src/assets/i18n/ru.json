@@ -25,6 +25,7 @@
     "fullName": "ФИО",
     "phone": "Телефон",
     "email": "Емаил",
+    "jobList": "Выберите вид работы",
     "send": "Отправить"
   },
   "modal-2-callbackUsMailer": {

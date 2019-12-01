@@ -33,11 +33,9 @@
         {{ "page-1.logo-title-2"  | translate }} <br>
         {{ "page-1.logo-title-3"  | translate }}
       </p>
-<!--      <div class="active button">-->
-<!--        <a (click)="openModal(modal)">-->
-<!--          {{ "page-2.callback-btn"  | translate }}-->
-<!--        </a>-->
-<!--      </div>-->
+      <div class="main-btn" (click)="openModal(modal)">
+        {{ "page-2.callback-btn"  | translate }}
+      </div>
     </div>
   </div>
 </div>
@@ -70,8 +68,8 @@
     <div class="modal-body">
       <form [formGroup]="registerForm" (ngSubmit)="callbackUs()">
         <div class="row">
-          <div class="col-md-6 form-row">
-            <div class="form-group form-group-horizontal">
+          <div class="col-md-12 form-row">
+            <div class="form-group">
               <label>{{ "modal-1-callbackUsMailer.fullName"  | translate }}</label>
               <input type="text" formControlName="fullName" class="form-control"
                      [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
@@ -80,8 +78,8 @@
               <span *ngIf="f.fullName.errors.required">Full Name is required</span>
             </span>
           </div>
-          <div class="col-md-6 form-row">
-            <div class="form-group form-group-horizontal">
+          <div class="col-md-12 form-row">
+            <div class="form-group">
               <label for="phone">{{ "modal-1-callbackUsMailer.phone"  | translate }}</label>
               <input type="text" id="phone" formControlName="phone" class="form-control"
                      [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
@@ -91,8 +89,8 @@
               <span *ngIf="f.phone.errors.minlength">Phone must be at least 10</span>
             </span>
           </div>
-          <div class="col-md-6 form-row">
-            <div class="form-group form-group-horizontal">
+          <div class="col-md-12 form-row">
+            <div class="form-group">
               <label for="email">{{ "modal-1-callbackUsMailer.email"  | translate }}</label>
               <input type="email" id="email" formControlName="email" class="form-control"
                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
@@ -101,6 +99,14 @@
               <span *ngIf="f.email.errors.required">Email is required</span>
               <span *ngIf="f.email.errors.email">Email must be a valid email address</span>
             </span>
+          </div>
+          <div class="col-md-12 form-row">
+            <div class="form-group">
+              <label for="email">{{ "modal-1-callbackUsMailer.jobList"  | translate }}</label>
+              <select class="form-control">
+                <option *ngFor="let item of typeWorkListItems" [value]="item.value">{{item.name}}</option>
+              </select>
+            </div>
           </div>
           <div class="col-md-12">
             <button class="active button-submit text-right">
@@ -295,19 +301,19 @@
           <form (ngSubmit)="sendMessage()">
             <div class="row">
               <div class="col-md-6">
-                <div class="form-group form-group-horizontal">
+                <div class="form-group">
                   <label>{{ "modal-2-callbackUsMailer.fullName"  | translate }}</label>
                   <input type="text" [(ngModel)]="sendQuestionMailer.fullName" name="first">
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="form-group form-group-horizontal">
+                <div class="form-group">
                   <label for="phone">{{ "modal-2-callbackUsMailer.phone"  | translate }}</label>
                   <input type="phone" [(ngModel)]="sendQuestionMailer.phone" name="phone">
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="form-group form-group-horizontal">
+                <div class="form-group">
                   <label for="email">{{ "modal-2-callbackUsMailer.email"  | translate }}</label>
                   <input type="email" [(ngModel)]="sendQuestionMailer.email" name="email">
                 </div>

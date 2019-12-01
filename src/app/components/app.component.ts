@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   private toasterService: ToasterService;
   registerForm: FormGroup;
   submitted = false;
-
+  phoneShow = false;
   localLang;
   modalRef: BsModalRef;
   loaded: boolean;
@@ -52,6 +52,24 @@ export class AppComponent implements OnInit {
     {img: '../assets/img/slider/slider-3/4.jpg'},
     {img: '../assets/img/slider/slider-3/5.jpg'},
     {img: '../assets/img/slider/slider-3/6.jpg'}
+  ];
+
+  typeWorkListItems = [{
+    value: 0,
+    name: ' Монтаж/демонтаж'
+  }, {
+    value: 1,
+    name: 'Фасадные работы'
+  }, {
+    value: 2,
+    name: 'Работы в промышленной зоне'
+  }, {
+    value: 3,
+    name: 'Подъем и спуск негабаритных грузов'
+  }, {
+    value: 4,
+    name: 'Клининговые услуги'
+  }
   ];
 
   roofingSlides = [
