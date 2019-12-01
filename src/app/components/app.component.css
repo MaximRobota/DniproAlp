@@ -460,3 +460,74 @@ footer p {
 .form-group-horizontal input {
   padding-left: 5px;
 }
+
+
+.widget-button-wrapper {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  left: 50px;
+  bottom: 50px;
+  background: red;
+  padding: 10px;
+  border-radius: 50px;
+  -webkit-transition: opacity .6s ease-out;
+  transition: opacity .6s ease-out;
+  -webkit-animation: socialRotateBack .4s;
+  animation: socialRotateBack .4s;
+}
+
+.widget-background {
+  width: 60px;
+  height: 60px;
+  background: #fbc821;
+  position: fixed;
+  left: 45px;
+  border-radius: 50px;
+  bottom: 45px;
+  -webkit-transition: transform .3s;
+  transition: transform .3s;
+  visibility: visible;
+  -webkit-animation: b24-widget-button-visible 1s ease-out forwards 1;
+  animation: b24-widget-button-visible 1s ease-out forwards 1;
+}
+
+.border-animate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 1px solid #525695;
+  border-radius: 50%;
+  -webkit-animation: widgetPulse infinite 1.5s;
+  animation: pulse infinite 1.5s;
+}
+
+.b24-widget-button-block {
+  width: 66px;
+  height: 66px;
+  border-radius: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
+.widget-background .tooltip-inner {
+  width: 130px;
+  margin: 7px 66px;
+  background: red;
+}
+
