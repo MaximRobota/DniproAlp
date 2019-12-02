@@ -212,7 +212,11 @@ export class AppComponent implements OnInit {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, {
-      animated: true
+      animated: true,
+      keyboard: true,
+      backdrop: true,
+      ignoreBackdropClick: false,
+      class: 'modal-sm'
     });
   }
 
@@ -236,5 +240,12 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.loaded = true;
     }, timeout);
+  }
+
+  isPhoneShow() {
+    setTimeout(() => {
+      this.phoneShow = false;
+    }, 20000);
+    return this.phoneShow = !this.phoneShow;
   }
 }

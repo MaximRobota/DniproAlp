@@ -80,10 +80,6 @@ a:focus, a:hover {
   outline: none;
 }
 
-.modal-dialog {
-  width: 400px !important;
-}
-
 :focus {
   outline: none;
 }

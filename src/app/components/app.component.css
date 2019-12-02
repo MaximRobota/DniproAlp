@@ -143,12 +143,16 @@
 
 .main-btn {
   width: 140px;
-  height: 35px;
-  line-height: 35px;
+  height: 50px;
+  line-height: 50px;
   text-align: center;
-  background-color: #fbc821;
+  background-color: red;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 4px;
   margin: auto;
   cursor: pointer;
+  color: white;
 }
 
 .button {
@@ -549,4 +553,8 @@ footer p {
 
 .is-invalid {
   border: 1px solid red;
+}
+
+.mess {
+  margin-bottom: 15px;
 }
