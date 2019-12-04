@@ -1,0 +1,47 @@
+<div class="bg-login">
+  <div class="col-md-4"></div>
+  <div class="modal-login col-md-4">
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+      <span class="login-form-userIcon"></span>
+      <div class="form-group login" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+        <input type="text" title='username' class="form-control user-icon" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+        <span class="under-line"></span>
+        <span *ngIf="model.username" (click)="model.username = ''"  class="clear-input"></span>
+        <div *ngIf="f.submitted && !username.valid" class="help-block"><span></span>Username is required</div>
+      </div>
+      <div class="form-group password" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <input type="password" title='password' id="changePassword" class="form-control lock-icon" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+        <span class="under-line"></span>
+        <span *ngIf="model.password" (click)="changeTypePassword()"  class="watch-icon"></span>
+        <div *ngIf="f.submitted && !password.valid" class="help-block"><span></span>Password is required</div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="loading" [ngClass]="{ 'button-auth-active': model.username && model.password}" class="button-auth">Log in</button>
+        <div *ngIf="loading" class="download-login">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                    <rect x="0" y="10" width="4" height="10" fill="#333" opacity="0.2">
+                      <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0s" dur="0.6s" repeatCount="indefinite" />
+                      <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0s" dur="0.6s" repeatCount="indefinite" />
+                      <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0s" dur="0.6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect x="8" y="10" width="4" height="10" fill="#333"  opacity="0.2">
+                      <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+                      <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+                      <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect x="16" y="10" width="4" height="10" fill="#333"  opacity="0.2">
+                      <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+                      <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+                      <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+                    </rect>
+                  </svg>
+        </div>
+      </div>
+      <div *ngIf="error" class="help-block-incorect"><span></span>{{error}}</div>
+    </form>
+    <div class="need-suport"><a href="/">Need support?</a><span></span></div>
+  </div>
+  <span class="logo"></span>
+  <div class="col-md-4"></div>
+</div>

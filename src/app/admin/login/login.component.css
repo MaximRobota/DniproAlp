@@ -1,0 +1,167 @@
+.modal-login{
+  width: 342px;
+  height: 462px;
+  -webkit-box-shadow: 0 0 30px 6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0 0 30px 6px rgba(0,0,0,0.75);
+  box-shadow: 0 0 30px 6px rgba(0,0,0,0.75);
+  background: linear-gradient(to bottom, rgb(58, 75, 101) 0%, rgb(29, 45, 72) 100%);
+  margin: 42px 0 0 -171px;
+  padding: 0 56px;
+  position: absolute;
+  left: 50%;
+}
+.button-auth{
+  width: 100%;
+  height: 37px;
+  line-height: 34px;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 17px;
+  background: #1f2d45;
+}
+.button-auth-active, .help-block, .help-block-incorect, .under-line{
+  background: -moz-linear-gradient(left,  #4a80fb, #88f1e7 100%);
+  background: -webkit-linear-gradient(left,  #4a80fb ,#88f1e7 100%);
+  background: linear-gradient(to right,  #4a80fb, #88f1e7 100%);
+}
+.login-form-userIcon{
+  background: url(../../../assets/img/logo.png) no-repeat;
+  margin: 34px 38px 30px;
+  background-size: 100%;
+  display: block;
+  height: 115px;
+  width: 151px;
+}
+.form-control{
+  height: 36px;
+  color: #fff;
+  border: 1px solid #1f2d45;
+  border-radius: 0;
+  padding-left: 40px;
+  margin: 0 0 35px;
+}
+.form-group .user-icon{
+  background: url(../../../img/user-icon.png) no-repeat 2px -2px #1f2d45;
+  background-size: 17%;
+}
+.login, .password {
+  position: relative;
+}
+.login .clear-input, .password .watch-icon{
+  width: 36px;
+  position: absolute;
+  height: 36px;
+  right: -36px;
+  top: 0;
+}
+.help-block, .help-block-incorect {
+  position: absolute;
+  right: -169px;
+  height: 35px;
+  top: -5px;
+  width: 171px;
+  line-height: 35px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  background: #4a80fb;
+}
+.help-block span, .help-block-incorect span{
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: -8px;
+  top: 12px;
+  border-style: solid;
+  border-width: 6px 8px 6px 0;
+  border-color: transparent #4a80fb transparent transparent;
+}
+.help-block-incorect{
+  top: 248px;
+  right: -113px;
+  height: 36px;
+  width: 170px;
+}
+.login .clear-input{
+  background: url(../../../img/cross-input.png) no-repeat;
+}
+.password .watch-icon{
+  background: url(../../../img/watch-input.png) no-repeat;
+  background-size: 100%;
+}
+.bg-login{
+  background: url(../../../assets/img/background-1.png) no-repeat center center fixed #26282f;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+.under-line{
+  opacity:0;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  background: #4a80fb;
+}
+.form-control:focus + .under-line{
+  display: block;
+  opacity:1;
+  -webkit-transition: opacity 0.2s ease-out 0.2s;
+  -moz-transition: opacity 0.2s ease-out 0.2s;
+  -o-transition: opacity 0.2s ease-out 0.2s;
+  transition: opacity 0.2s ease-out 0.2s;
+}
+.form-control:not(:focus) + .under-line{
+  opacity:0;
+  -webkit-transition: opacity 0.3s ease-out 0.3s;
+  -moz-transition: opacity 0.3s ease-out 0.3s;
+  -o-transition: opacity 0.3s ease-out 0.3s;
+  transition: opacity 0.3s ease-out 0.3s;
+}
+.form-control:focus{
+  box-shadow: none;
+}
+.form-group .lock-icon {
+  background: url(../../../img/lock-icon.png) no-repeat 12px 6px #1f2d45;
+  background-size: 8%;
+}
+.need-suport {
+  position: relative;
+  width: 342px;
+  height: 36px;
+  font-size: 14px;
+  background-color: #3f5169;
+  text-align: center;
+  color: #fff;
+  margin: 71px 0 0 -56px;
+  line-height: 36px;
+}
+.need-suport span{
+  position: absolute;
+  bottom: -45px;
+  left: 41px;
+  background: url(../../../img/arrow-need-support.png) no-repeat;
+  background-size: 79%;
+  width: 40px;
+  height: 47px;
+}
+.download-login{
+  position: absolute;
+  left: 50%;
+  width: 20px;
+  margin-left: -10px;
+  bottom: 140px;
+}
+svg path, svg rect{
+  fill: #4a80fb;
+}
+input:-webkit-autofill {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0 50px #1f2d45 inset;
+  background: url(../../../img/lock-icon.png) no-repeat 12px 6px #1f2d45 !important;
+}
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0 50px #1f2d45 inset;
+}

@@ -6,6 +6,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './components/app.component';
+import { HomeComponent } from './components/home.component';
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './admin/login/login.component';
 import { MainLoadingComponent } from './components/loading/loading.component';
 // import { ConfigService } from './services/config.service';
 
@@ -17,6 +20,10 @@ import { ToasterModule } from 'angular2-toaster';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { routing } from './app-routing.module';
+import {DashboardComponent} from './admin/dashboard/dashboard.component';
+import {AuthGuard} from './admin/role.guard';
+import {AuthenticationService} from './_services';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -26,10 +33,15 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     MainLoadingComponent,
+    AdminComponent,
+    DashboardComponent,
+    LoginComponent
     // ConfigService
   ],
   imports: [
+    routing,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -47,7 +59,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
     CollapseModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
