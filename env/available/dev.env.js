@@ -1,1 +1,1 @@
-var BACKEND_API_ENDPOINT = 'http://dniproalpprom.com//backend/';
+var BACKEND_API_ENDPOINT = 'http://dniproalpprom.com:3000';

@@ -2,6 +2,10 @@ Dashboard
 
 <a id="logout" [routerLink]="['/login']">Log out</a>
 
+
+LIST: {{ claims }}
+
+<br>
 <table mdbTable>
   <thead>
   <tr>
@@ -9,11 +13,14 @@ Dashboard
   </tr>
   </thead>
   <tbody>
-  <tr mdbTableCol *ngFor="let el of elements">
+  <tr mdbTableCol *ngFor="let el of claims">
     <th scope="row">{{el.id}}</th>
-    <td>{{el.first}}</td>
-    <td>{{el.last}}</td>
-    <td>{{el.handle}}</td>
+    <td>{{el.fullName}}</td>
+    <td>{{el.phone}}</td>
+    <td>{{el.email}}</td>
+    <td>{{el.type}}</td>
+    <td>{{el.message}}</td>
+    <td>{{el.created_at}}</td>
   </tr>
   </tbody>
 </table>

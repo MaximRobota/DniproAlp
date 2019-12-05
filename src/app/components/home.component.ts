@@ -5,6 +5,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+declare var BACKEND_API_ENDPOINT: any;
+
 export interface CallbackUsMailer {
   fullName: string;
   phone: string;
@@ -109,12 +111,6 @@ export class HomeComponent implements OnInit {
     draggable: true
   };
 
-  callbackUsMailer = {
-    fullName: '',
-    phone: '',
-    email: ''
-  };
-
   sendQuestionMailer = {
     fullName: '',
     phone: '',
@@ -122,8 +118,7 @@ export class HomeComponent implements OnInit {
     message: ''
   };
 
-  url = 'http://dniproalpprom.com:3000';
-  // url = 'http://localhost:3000';
+  // BACKEND_API_ENDPOINT = 'http://localhost:3000';
 
   constructor(
     private modalService: BsModalService,
@@ -173,7 +168,7 @@ export class HomeComponent implements OnInit {
     this.loaded = false;
     return this
       .http
-      .post(`${this.url}/claims`, data);
+      .post(`${BACKEND_API_ENDPOINT}/claims`, data);
   }
 
   callbackUs() {
