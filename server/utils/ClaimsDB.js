@@ -15,12 +15,12 @@ export function list(req, res) {
     let skip = req.query.skip ? req.query.skip : 0;
     let limit = req.query.limit ? req.query.limit : 20;
     let sortKey = req.query.sortKey ? req.query.sortKey : 'created_at';
-    Claim.find(function(err, claim){
+  Claim.find(function(err, claim){
       if (err) {
-            response = db.exceptionMessage(err.name, err.message);
+        response = db.exceptionMessage(err.name, err.message);
             res.status(500).json(response)
         } else {
-            claim = claim.sort(sort(sortKey)).slice(skip, skip + limit);
+        claim = claim.sort(sort(sortKey)).slice(skip, skip + limit);
             res.json(claim);
         }
     });

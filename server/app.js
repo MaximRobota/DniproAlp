@@ -1,7 +1,7 @@
 import * as claims from "../server/utils/ClaimsDB";
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import mongoose                 from 'mongoose';
+import mongoose from 'mongoose';
 
 import * as config from './etc/config.json';
 
@@ -15,8 +15,23 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-mongoose.connect(`mongodb://${config.db.user}:${config.db.pass}@${config.db.host}:${config.db.port}/${config.db.name}?authSource=${config.db.authDb}` , { useMongoClient: true });
+// mongoose.connect(`mongodb://${config.db.user}:${config.db.pass}@${config.db.host}:${config.db.port}/${config.db.name}?authSource=${config.db.authDb}` , { useMongoClient: true });
+// mongoose.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, { useMongoClient: true });
 
+
+// var MongoClient = require('mongodb').MongoClient
+//   , assert = require('assert');
+//
+// // Connection URL
+// var url = 'mongodb://localhost:27017';
+// // Use connect method to connect to the Server
+// MongoClient.connect(url, function(err, db) {
+//   assert.equal(null, err);
+//   console.log("Connected correctly to server");
+//
+//   db.close();
+// });
 /**
  * Initialization of dev/staging/production environments
  *
@@ -64,39 +79,39 @@ app.get('/contact-us', (req, res) => {
   res.json(data);  // scenes.filter(req, res);
 });
 
-app.post('/claim', (req, res) => {
-  let transporter = nodemailer.createTransport({
-    // service: 'https://webmail.meta.ua/',
-    secure: false, // use SSL
-    port: 25, // port for secure SMTP
-
-    auth: {
-      user: 'maxim1106@meta.ua',
-      pass: '3572735727'
-    },
-    tls: {
-      rejectUnauthorized: false
-    }
-  });
-  let mailOptions = {
-    from: '"Krunal Lathiya" <maxim1106@meta.ua>', // sender address
-    // to: req.body.to, // list of receivers
-    to: '<maxim11061106@gmail.com>', // list of receivers
-    subject: 'req.body.subject', // Subject line
-    text: 'req.body.body', // plain text body
-    html: '<b>NodeJS Email Tutorial</b>' // html body
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log('err', error);
-    }
-    console.log('Message %s sent: %s', info.messageId, info.response);
-    res.render('index');
-  });
-
-  res.json();
-  // scenes.create(req, res);
+app.post('/claims', (req, res) => {
+  // let transporter = nodemailer.createTransport({
+  //   // service: 'https://webmail.meta.ua/',
+  //   secure: false, // use SSL
+  //   port: 25, // port for secure SMTP
+  //
+  //   auth: {
+  //     user: 'maxim1106@meta.ua',
+  //     pass: '3572735727'
+  //   },
+  //   tls: {
+  //     rejectUnauthorized: false
+  //   }
+  // });
+  // let mailOptions = {
+  //   from: '"Krunal Lathiya" <maxim1106@meta.ua>', // sender address
+  //   // to: req.body.to, // list of receivers
+  //   to: '<maxim11061106@gmail.com>', // list of receivers
+  //   subject: 'req.body.subject', // Subject line
+  //   text: 'req.body.body', // plain text body
+  //   html: '<b>NodeJS Email Tutorial</b>' // html body
+  // };
+  //
+  // transporter.sendMail(mailOptions, (error, info) => {
+  //   if (error) {
+  //     return console.log('err', error);
+  //   }
+  //   console.log('Message %s sent: %s', info.messageId, info.response);
+  //   res.render('index');
+  // });
+  //
+  // res.json();
+  claims.create(req, res);
 });
 
 app.get('/claims', (req, res) => {
