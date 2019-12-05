@@ -1,49 +1,13 @@
 {
-  "dev": {
-    "apiPrefix": "http://localhost:4200",
-    "serverPort": "8080",
-    "db":{
-      "name": "dnipro-alp-pro",
-      "host": "localhost",
-      "port": 27017
-    }
-  }
-
-//  "staging": {
-//    "apiPrefix": "http://localhost:8082",
-//    "serverPort": "8080",
-//    "db": {
-//      "name": "dnipro-alp-pro",
-//      "host": "localhost",
-//      "port": 27017
-//    }
-//  },
-//
-//  "production": {
-//    "apiPrefix": "http://localhost:8083",
-//    "serverPort": "8080",
-//    "db": {
-//      "name": "dnipro-alp-pro",
-//      "host": "http://dniproalpprom.com",
-//      "port": 27017
-//    }
-//  },
-//    "local": {
-//      "apiPrefix": "http://localhost:8080",
-//      "serverPort": "8080",
-//      "db":{
-//        "name": "dnipro-alp-pro",
-//        "host": "http://dniproalpprom.com",
-//        "port": 27019
-//      }
-//  },
-//  "testing": {
-//    "apiPrefix": "http://localhost:3000",
-//    "serverPort": "3000",
-//    "db":{
-//      "name": "testing",
-//      "host": "localhost",
-//      "port": 27017
-//    }
-//  }
+  "apiPrefix": "",
+  "serverPort": "3000",
+  "db":{
+    "user": "dap_db_admin",
+    "pass": "dap_db_pass_S3dFdccws$ss",
+    "name": "dap_db",
+    "host": "localhost",
+    "port": 27017,
+    "authDb": "admin"
+  },
+  "jsonDataLimit" : "10mb"
 }

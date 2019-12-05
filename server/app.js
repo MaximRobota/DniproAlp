@@ -1,7 +1,9 @@
-// import * as scenes from "../server/utils/ScenesDB";
+import * as claims from "../server/utils/ClaimsDB";
 import cors from 'cors';
 import bodyParser from 'body-parser';
-// import * as config from './etc/config.json';
+import mongoose                 from 'mongoose';
+
+import * as config from './etc/config.json';
 
 // import nodemailer from "nodemailer";
 
@@ -12,6 +14,9 @@ const express = require('express');
 
 const app = express();
 const port = 3000;
+
+mongoose.connect(`mongodb://${config.db.user}:${config.db.pass}@${config.db.host}:${config.db.port}/${config.db.name}?authSource=${config.db.authDb}` , { useMongoClient: true });
+
 /**
  * Initialization of dev/staging/production environments
  *
@@ -59,7 +64,7 @@ app.get('/contact-us', (req, res) => {
   res.json(data);  // scenes.filter(req, res);
 });
 
-app.post('/contact-us', (req, res) => {
+app.post('/claim', (req, res) => {
   let transporter = nodemailer.createTransport({
     // service: 'https://webmail.meta.ua/',
     secure: false, // use SSL
@@ -94,8 +99,13 @@ app.post('/contact-us', (req, res) => {
   // scenes.create(req, res);
 });
 
-app.put('/scenes/:id', (req, res) => {
-  // scenes.update(req, res);
+app.get('/claims', (req, res) => {
+
+  claims.list(req, res);
+});
+
+app.put('/claims/:id', (req, res) => {
+  claims.update(req, res);
 });
 
 

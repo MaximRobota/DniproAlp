@@ -169,21 +169,21 @@ export class HomeComponent implements OnInit {
   }
 
   sendler(data) {
+    console.log(data);
     this.loaded = false;
     return this
       .http
-      .post(`${this.url}/contact-us`, data);
+      .post(`${this.url}/claims`, data);
   }
 
   callbackUs() {
     this.submitted = true;
-    console.log(this.registerForm);
+    console.log(this.registerForm.value);
 
     if (this.registerForm.invalid) {
       return;
     }
-    console.log(this.callbackUsMailer);
-    this.sendler(this.callbackUsMailer)
+    this.sendler(this.registerForm.value)
       .subscribe((data) => {
           console.log(data);
           this.toasterService.pop('success', '', 'Спасибо. Заявка принята. В ближайшее время с Вами свяжется наш менеджер.');

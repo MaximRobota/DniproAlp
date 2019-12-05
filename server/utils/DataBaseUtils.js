@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import config from '../etc/config.json';
+// import config from '../etc/config.json';
 import '../models/Directors';
 
 export function setUpConnection() {
@@ -22,14 +22,14 @@ export function exceptionMessage(err_name, err_msg, err_keys={}) {
             'error_name': err_name,
             'error_message': err_msg,
         }
-    }
+    };
     return response
 }
 
 export function castErrorMessage() {
     var response = {
         "result": false
-        }
+        };
     return response
 }
 
