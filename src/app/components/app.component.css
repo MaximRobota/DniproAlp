@@ -549,6 +549,7 @@ footer p {
   color: red;
   font-size: 10px;
   float: right;
+  margin: -5px 0 5px 0;
 }
 
 .is-invalid {

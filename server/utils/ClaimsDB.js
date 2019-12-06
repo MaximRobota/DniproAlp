@@ -170,17 +170,17 @@ export function update(req, res) {
  * @param res
  */
 export async function remove(req, res) {
-    var claim_id = req.params.id;
+    var claimId = req.params.id;
 
     try{
-        let claim = await Claim.findById(claim_id);
+        let claim = await Claim.findById(claimId);
         let removed = await claim.remove();
-        if(removed){
+        if (removed) {
             res.json(removed);
         } else {
             res.status(404).json(db.castErrorMessage());
         }
-    } catch(err){
+    } catch (err) {
         res.status(404).json(db.castErrorMessage());
     }
 }

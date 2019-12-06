@@ -93,7 +93,7 @@
             <div class="form-group">
               <label for="email">{{ "modal-1-callbackUsMailer.email"  | translate }}</label>
               <input type="email" id="email" formControlName="email" class="form-control"
-                     [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
+                     [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
             </div>
             <span *ngIf="submitted && f.email.errors" class="invalid-feedback">
               <span *ngIf="f.email.errors.required">{{ "alert.email"  | translate }}</span>
@@ -102,11 +102,16 @@
           </div>
           <div class="col-md-12 form-row">
             <div class="form-group">
-              <label for="email">{{ "modal-1-callbackUsMailer.jobList"  | translate }}</label>
-              <select class="form-control">
-                <option *ngFor="let item of typeWorkListItems" [value]="item.value">{{item.name}}</option>
+              <label for="type">{{ "modal-1-callbackUsMailer.jobList"  | translate }}</label>
+              <select formControlName="type" id="type" class="form-control" name="type"
+                      [ngClass]="{ 'is-invalid': submitted && f.type.errors }" >
+                <option value="">{{ "modal-1-callbackUsMailer.jobList"  | translate }}</option>
+                <option *ngFor="let item of typeWorkListItems" [value]="item.name">{{item.name}}</option>
               </select>
             </div>
+            <span *ngIf="submitted && f.type.errors" class="invalid-feedback">
+              <span *ngIf="f.type.errors.required">{{ "alert.type"  | translate }}</span>
+            </span>
           </div>
           <div class="col-md-12">
             <button class="active button-submit text-right">

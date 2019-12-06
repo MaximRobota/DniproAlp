@@ -1,26 +1,30 @@
-Dashboard
-
-<a id="logout" [routerLink]="['/login']">Log out</a>
-
-
-LIST: {{ claims }}
-
-<br>
-<table mdbTable>
-  <thead>
-  <tr>
-    <th *ngFor="let head of headElements" scope="col">{{head}} </th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr mdbTableCol *ngFor="let el of claims">
-    <th scope="row">{{el.id}}</th>
-    <td>{{el.fullName}}</td>
-    <td>{{el.phone}}</td>
-    <td>{{el.email}}</td>
-    <td>{{el.type}}</td>
-    <td>{{el.message}}</td>
-    <td>{{el.created_at}}</td>
-  </tr>
-  </tbody>
-</table>
+<div class="admin-dashboard">
+  <div class="col-md-12">
+    <h1 class="">Admin Dashboard</h1>
+    <a id="logout" class="logout-btn" [routerLink]="['/login']">Log out</a>
+    <br>
+    <table class="table table-striped table-dark">
+      <thead>
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let claim of claims; let i = index">
+        <td>{{i}}</td>
+        <td>{{ claim.fullName }}</td>
+        <td>{{ claim.phone }}</td>
+        <td>{{ claim.email }}</td>
+        <td>{{ claim.type }}</td>
+        <td>{{ claim.message }}</td>
+        <td>{{ claim.created_at | date:'medium' }}</td>
+        <td>
+          <a title="Delete Claim" class="hover-danger remove-btn" (click)="remove(claim)">
+            <i class="far fa-trash-alt"></i>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

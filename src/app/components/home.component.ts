@@ -7,11 +7,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 declare var BACKEND_API_ENDPOINT: any;
 
-export interface CallbackUsMailer {
-  fullName: string;
-  phone: string;
-  email: string;
-}
+// export interface CallbackUsMailer {
+//   fullName: string;
+//   phone: string;
+//   email: string;
+//   type: any;
+// }
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,24 @@ export interface CallbackUsMailer {
   styleUrls: ['./app.component.css', './app.media.css']
 })
 export class HomeComponent implements OnInit {
-  private toasterService: ToasterService;
+  public toasterService: ToasterService;
+  constructor(
+    private modalService: BsModalService,
+    public translate: TranslateService,
+    toasterService: ToasterService,
+    private http: HttpClient,
+    private formBuilder: FormBuilder
+  ) {
+    this.loaded = false;
+    this.fakeLoading(1000);
+
+    this.toasterService = toasterService;
+
+    // Translate
+    translate.addLangs(['ru', 'ua']);
+    this.localLang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'ru';
+    translate.use(this.localLang);
+  }
   registerForm: FormGroup;
   submitted = false;
   phoneShow = false;
@@ -118,26 +136,6 @@ export class HomeComponent implements OnInit {
     message: ''
   };
 
-  // BACKEND_API_ENDPOINT = 'http://localhost:3000';
-
-  constructor(
-    private modalService: BsModalService,
-    public translate: TranslateService,
-    toasterService: ToasterService,
-    private http: HttpClient,
-    private formBuilder: FormBuilder
-  ) {
-    this.loaded = false;
-    this.fakeLoading(1000);
-
-    this.toasterService = toasterService;
-
-    // Translate
-    translate.addLangs(['ru', 'ua']);
-    this.localLang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'ru';
-    translate.use(this.localLang);
-  }
-
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       fullName: ['', Validators.required],
@@ -148,6 +146,7 @@ export class HomeComponent implements OnInit {
         Validators.required])
       ],
       email: ['', [Validators.required, Validators.email]],
+      type: ['', [Validators.required]]
     });
   }
   get f() { return this.registerForm.controls; }
@@ -164,17 +163,14 @@ export class HomeComponent implements OnInit {
   }
 
   sendler(data) {
-    console.log(data);
     this.loaded = false;
     return this
       .http
-      .post(`${BACKEND_API_ENDPOINT}/claims`, data);
+      .post(`${BACKEND_API_ENDPOINT}/claim`, data);
   }
 
   callbackUs() {
     this.submitted = true;
-    console.log(this.registerForm.value);
-
     if (this.registerForm.invalid) {
       return;
     }

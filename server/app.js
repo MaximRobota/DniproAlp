@@ -79,7 +79,7 @@ app.get('/contact-us', (req, res) => {
   res.json(data);  // scenes.filter(req, res);
 });
 
-app.post('/claims', (req, res) => {
+app.post('/claim', (req, res) => {
   // let transporter = nodemailer.createTransport({
   //   // service: 'https://webmail.meta.ua/',
   //   secure: false, // use SSL
@@ -115,14 +115,16 @@ app.post('/claims', (req, res) => {
 });
 
 app.get('/claims', (req, res) => {
-
   claims.list(req, res);
 });
 
-app.put('/claims/:id', (req, res) => {
+app.put('/claim/:id', (req, res) => {
   claims.update(req, res);
 });
 
+app.delete('/claim/:id', (req, res) => {
+  claims.remove(req, res);
+});
 
 /**
  * Initialization of dev/staging/production environments
