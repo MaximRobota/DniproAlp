@@ -26,12 +26,6 @@
     "phone": "Телефон",
     "email": "Емайл",
     "jobList": "Виберіть вид роботи",
-    "send": "Надіслати"
-  },
-  "modal-2-callbackUsMailer": {
-    "fullName": "ПІБ",
-    "phone": "Телефон",
-    "email": "Емайл",
     "message": "Питання",
     "send": "Надіслати"
   },

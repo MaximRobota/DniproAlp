@@ -303,31 +303,34 @@
           </button>
         </div>
         <div class="modal-body">
-          <form (ngSubmit)="sendMessage()">
+          <form [formGroup]="registerForm" (ngSubmit)="callbackUs()">
             <div class="row">
               <div class="col-md-12 form-row">
                 <div class="form-group">
-                  <label>{{ "modal-2-callbackUsMailer.fullName"  | translate }}</label>
-                  <input type="text" class="form-control" [(ngModel)]="sendQuestionMailer.fullName" name="first">
+                  <label>{{ "modal-1-callbackUsMailer.fullName"  | translate }}</label>
+                  <input type="text" formControlName="fullName" class="form-control"
+                         [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
                 </div>
                 <span *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
-                  <span *ngIf="f.fullName.errors.required">{{ "alert.fullName"  | translate }}</span>
-                </span>
+              <span *ngIf="f.fullName.errors.required">{{ "alert.fullName"  | translate }}</span>
+            </span>
               </div>
               <div class="col-md-12 form-row">
                 <div class="form-group">
-                  <label for="phone">{{ "modal-2-callbackUsMailer.phone"  | translate }}</label>
-                  <input type="phone" class="form-control" [(ngModel)]="sendQuestionMailer.phone" name="phone">
+                  <label for="phone">{{ "modal-1-callbackUsMailer.phone"  | translate }}</label>
+                  <input type="text" formControlName="phone" class="form-control"
+                         [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
                 </div>
                 <span *ngIf="submitted && f.phone.errors" class="invalid-feedback">
-                  <span *ngIf="f.phone.errors.required">{{ "alert.phone"  | translate }}</span>
-                  <span *ngIf="f.phone.errors.minlength">{{ "alert.min-phone"  | translate }}</span>
-                </span>
+              <span *ngIf="f.phone.errors.required">{{ "alert.phone"  | translate }}</span>
+              <span *ngIf="f.phone.errors.minlength">{{ "alert.min-phone"  | translate }}</span>
+            </span>
               </div>
               <div class="col-md-12 form-row">
                 <div class="form-group">
-                  <label for="email">{{ "modal-2-callbackUsMailer.email"  | translate }}</label>
-                  <input type="email" class="form-control" [(ngModel)]="sendQuestionMailer.email" name="email">
+                  <label for="email">{{ "modal-1-callbackUsMailer.email"  | translate }}</label>
+                  <input type="email" formControlName="email" class="form-control"
+                         [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
                 </div>
                 <span *ngIf="submitted && f.email.errors" class="invalid-feedback">
                   <span *ngIf="f.email.errors.required">{{ "alert.email"  | translate }}</span>
@@ -335,11 +338,33 @@
                 </span>
               </div>
               <div class="col-md-12 form-row">
-                <label for="email">{{ "modal-2-callbackUsMailer.message"  | translate }}</label>
-                <textarea name="mess" class="form-control mess" id="question-mess-area" rows="3" [(ngModel)]="sendQuestionMailer.message"></textarea>
+                <div class="form-group">
+                  <label for="type">{{ "modal-1-callbackUsMailer.jobList"  | translate }}</label>
+                  <select formControlName="type" class="form-control" name="type"
+                          [ngClass]="{ 'is-invalid': submitted && f.type.errors }" >
+                    <option value="">{{ "modal-1-callbackUsMailer.jobList"  | translate }}</option>
+                    <option *ngFor="let item of typeWorkListItems" [value]="item.name">{{item.name}}</option>
+                  </select>
+                </div>
+                <span *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                 <span *ngIf="f.type.errors.required">{{ "alert.type"  | translate }}</span>
+                </span>
               </div>
               <div class="col-md-12 form-row">
-                <button type="submit" class="active button-submit text-right">{{ "modal-2-callbackUsMailer.send"  | translate }}</button>
+                <div class="form-group">
+                  <label for="type">{{ "modal-1-callbackUsMailer.message"  | translate }}</label>
+                  <textarea formControlName="message" name="message" class="form-control mess"
+                            [ngClass]="{ 'is-invalid': submitted && f.message.errors }"
+                            id="message" rows="3"></textarea>
+                </div>
+                <span *ngIf="submitted && f.message.errors" class="invalid-feedback">
+                  <span *ngIf="f.message.errors.required">{{ "alert.message"  | translate }}</span>
+                </span>
+              </div>
+              <div class="col-md-12">
+                <button class="active button-submit text-right">
+                  {{ "modal-1-callbackUsMailer.send"  | translate }}
+                </button>
               </div>
             </div>
           </form>

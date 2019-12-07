@@ -17,7 +17,7 @@ declare var BACKEND_API_ENDPOINT: any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./app.component.css', './app.media.css']
+  styleUrls: ['./home.component.css', './app.media.css']
 })
 export class HomeComponent implements OnInit {
   public toasterService: ToasterService;
@@ -146,6 +146,8 @@ export class HomeComponent implements OnInit {
         Validators.required])
       ],
       email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.compose([
+          Validators.minLength(9)])],
       type: ['', [Validators.required]]
     });
   }
@@ -176,7 +178,6 @@ export class HomeComponent implements OnInit {
     }
     this.sendler(this.registerForm.value)
       .subscribe((data) => {
-          console.log(data);
           this.toasterService.pop('success', '', 'Спасибо. Заявка принята. В ближайшее время с Вами свяжется наш менеджер.');
           this.fakeLoading(300);
           this.modalRef.hide();
@@ -188,10 +189,8 @@ export class HomeComponent implements OnInit {
   }
 
   sendMessage() {
-    console.log(this.sendQuestionMailer);
     this.sendler(this.sendQuestionMailer)
       .subscribe((data) => {
-          console.log(data);
           this.toasterService.pop('success', '', 'Спасибо. Вопрос отправлен нашему менеджеру.');
           this.modalRef.hide();
         },
@@ -212,19 +211,19 @@ export class HomeComponent implements OnInit {
   }
 
   slickInit(e) {
-    console.log('slick initialized');
+    // console.log('slick initialized');
   }
 
   breakpoint(e) {
-    console.log('breakpoint');
+    // console.log('breakpoint');
   }
 
   afterChange(e) {
-    console.log('afterChange');
+    // console.log('afterChange');
   }
 
   beforeChange(e) {
-    console.log('beforeChange');
+    // console.log('beforeChange');
   }
 
   fakeLoading(timeout) {

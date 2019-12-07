@@ -42,12 +42,15 @@ export class DashboardComponent {
   }
 
   remove(claim) {
-    console.log(claim);
     this.http
       .delete(`${BACKEND_API_ENDPOINT}/claim/` + claim._id)
       .subscribe((data: any) => {
-          console.log(data);
-          this.claims = data;
+          const indexClaim = this.claims.map((e) => {
+            return e._id;
+          }).indexOf(data._id);
+          if (indexClaim !== -1) {
+            this.claims.splice(indexClaim, 1);
+          }
           // this.toasterService.pop('success', '', 'Спасибо. Заявка принята. В ближайшее время с Вами свяжется наш менеджер.');
         },
         error => {
