@@ -142,7 +142,6 @@ export class HomeComponent implements OnInit {
       phone: ['', Validators.compose([
         Validators.maxLength(25),
         Validators.minLength(9),
-        // Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
         Validators.required])
       ],
       email: ['', [Validators.required, Validators.email]],
