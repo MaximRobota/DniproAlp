@@ -46,32 +46,79 @@ export class HomeComponent implements OnInit {
   loaded: boolean;
 
   altitudeSlides = [
-    {img: '../assets/img/slider/slider-1/1.jpg'},
-    {img: '../assets/img/slider/slider-1/2.jpg'},
-    {img: '../assets/img/slider/slider-1/3.jpg'},
-    {img: '../assets/img/slider/slider-1/4.jpg'},
-    {img: '../assets/img/slider/slider-1/5.jpg'}
+    {
+      img: '../assets/img/slider/slider-1/1.jpg',
+      description: 'slider-1.slide-1'
+    },
+    {img: '../assets/img/slider/slider-1/2.jpg',
+      description: 'slider-1.slide-2'
+    },
+    {img: '../assets/img/slider/slider-1/3.jpg',
+      description: 'slider-1.slide-3'
+    },
+    {img: '../assets/img/slider/slider-1/4.jpg',
+      description: 'slider-1.slide-4'
+    },
+    {img: '../assets/img/slider/slider-1/5.jpg',
+      description: 'slider-1.slide-5'
+    }
   ];
 
   installationSlides = [
-    {img: '../assets/img/slider/slider-2/1.jpg'},
-    {img: '../assets/img/slider/slider-2/2.jpg'},
-    {img: '../assets/img/slider/slider-2/3.jpg'},
-    {img: '../assets/img/slider/slider-2/4.jpg'},
-    {img: '../assets/img/slider/slider-2/5.jpg'},
-    {img: '../assets/img/slider/slider-2/6.jpg'},
-    {img: '../assets/img/slider/slider-2/7.jpg'},
-    {img: '../assets/img/slider/slider-2/8.jpg'},
-    {img: '../assets/img/slider/slider-2/9.jpg'}
+    {img: '../assets/img/slider/slider-2/1.jpg',
+      description: 'slider-2.slide-1'
+    },
+    {img: '../assets/img/slider/slider-2/2.jpg',
+      description: 'slider-2.slide-2'
+    },
+    {img: '../assets/img/slider/slider-2/3.jpg',
+      description: 'slider-2.slide-3'
+    },
+    {img: '../assets/img/slider/slider-2/4.jpg',
+      description: 'slider-2.slide-4'
+    },
+    {img: '../assets/img/slider/slider-2/5.jpg',
+      description: 'slider-2.slide-5'
+    },
+    {img: '../assets/img/slider/slider-2/6.jpg',
+      description: 'slider-2.slide-6'
+    },
+    {img: '../assets/img/slider/slider-2/7.jpg',
+      description: 'slider-2.slide-7'
+    },
+    {img: '../assets/img/slider/slider-2/8.jpg',
+      description: 'slider-2.slide-8'
+    },
+    {img: '../assets/img/slider/slider-2/9.jpg',
+      description: 'slider-2.slide-9'
+    }
   ];
 
   frontSlides = [
-    {img: '../assets/img/slider/slider-3/1.jpg'},
-    {img: '../assets/img/slider/slider-3/2.jpg'},
-    {img: '../assets/img/slider/slider-3/3.jpg'},
-    {img: '../assets/img/slider/slider-3/4.jpg'},
-    {img: '../assets/img/slider/slider-3/5.jpg'},
-    {img: '../assets/img/slider/slider-3/6.jpg'}
+    {img: '../assets/img/slider/slider-3/1.jpg',
+      description: 'slider-3.slide-1'
+    },
+    {img: '../assets/img/slider/slider-3/2.jpg',
+      description: 'slider-3.slide-2'
+    },
+    {img: '../assets/img/slider/slider-3/3.jpg',
+      description: 'slider-3.slide-3'
+    },
+    {img: '../assets/img/slider/slider-3/4.jpg',
+      description: 'slider-3.slide-4'
+    },
+    {img: '../assets/img/slider/slider-3/5.jpg',
+      description: 'slider-3.slide-5'
+    },
+    {img: '../assets/img/slider/slider-3/6.jpg',
+      description: 'slider-3.slide-6'
+    }
+  ];
+
+  roofingSlides = [
+    {img: '../assets/img/slider/slider-4/1.jpg',
+      description: 'slider-4.slide-1'
+    }
   ];
 
   typeWorkListItems = [{
@@ -90,10 +137,6 @@ export class HomeComponent implements OnInit {
     value: 4,
     name: 'Клининговые услуги'
   }
-  ];
-
-  roofingSlides = [
-    {img: '../assets/img/slider/slider-4/1.jpg'}
   ];
 
   questionSlides = [

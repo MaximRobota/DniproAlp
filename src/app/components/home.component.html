@@ -183,6 +183,9 @@
                             (beforeChange)="beforeChange($event)">
           <div ngxSlickItem *ngFor="let slide of altitudeSlides" class="slide">
             <img src="{{ slide.img }}" alt="" width="100%">
+            <div class="slide-description">
+              {{ slide.description | translate}}
+            </div>
           </div>
         </ngx-slick-carousel>
       </div>
@@ -197,6 +200,9 @@
                             (beforeChange)="beforeChange($event)">
           <div ngxSlickItem *ngFor="let slide of installationSlides" class="slide">
             <img src="{{ slide.img }}" alt="" width="100%">
+            <div class="slide-description">
+              {{ slide.description | translate}}
+            </div>
           </div>
         </ngx-slick-carousel>
       </div>
@@ -211,6 +217,9 @@
                             (beforeChange)="beforeChange($event)">
           <div ngxSlickItem *ngFor="let slide of frontSlides" class="slide">
             <img src="{{ slide.img }}" alt="" width="100%">
+            <div class="slide-description">
+              {{ slide.description | translate}}
+            </div>
           </div>
         </ngx-slick-carousel>
       </div>
@@ -225,6 +234,9 @@
                             (beforeChange)="beforeChange($event)">
           <div ngxSlickItem *ngFor="let slide of roofingSlides" class="slide">
             <img src="{{ slide.img }}" alt="" width="100%">
+            <div class="slide-description">
+              {{ slide.description | translate}}
+            </div>
           </div>
         </ngx-slick-carousel>
       </div>
