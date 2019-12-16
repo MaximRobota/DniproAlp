@@ -278,7 +278,7 @@
 }
 
 .hover-6:hover .service-icon-6{
-  background: url("../../assets/img/service-icons/6.2.png") no-repeat;
+  background-image: url("../../assets/img/service-icons/6.2.png");
   background-size: 100%;
 }
 
@@ -290,13 +290,13 @@
   transition: .3s;
 }
 
-.services div:hover .service-icons {
+.services .row div:hover .service-icons {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
   transition: .3s;
 }
 
-.prices div:hover .price-icon {
+.prices .row div:hover .price-icon {
   -webkit-transform: scale(1.1);
   transform: rotate(360deg);
   transition: 1.1s;
