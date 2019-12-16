@@ -245,39 +245,74 @@
 </div>
 <div class="page-5"></div>
 <div id="page5" page-5>
-  <div class="container row">
-    <div class="col-md-12">
-      <h3>{{"page-5.text-1" | translate}}</h3>
-      <p>{{"page-5.text-2" | translate}}</p>
-      <div class="row prices">
-        <div class="col-md-3 col-sm-6 price">
-          <div class="col-md-12">
-            <div class="price-icon price-icon-1"></div>
-            <p>{{"page-5.text-3" | translate}}</p>
-          </div>
+  <div class="container">
+    <h3>{{"page-5.text-1" | translate}}</h3>
+    <p>{{"page-5.text-2" | translate}}</p>
+    <div class="row prices">
+      <div class="col-md-3 col-sm-6 price">
+        <div class="col-md-12">
+          <div class="price-icon price-icon-1"></div>
+          <p>{{"page-5.text-3" | translate}}</p>
         </div>
-        <div class="col-md-3 col-sm-6 price">
-          <div class="col-md-12">
-            <div class="price-icon price-icon-2"></div>
-            <p>{{"page-5.text-4" | translate}}</p>
-          </div>
+      </div>
+      <div class="col-md-3 col-sm-6 price">
+        <div class="col-md-12">
+          <div class="price-icon price-icon-2"></div>
+          <p>{{"page-5.text-4" | translate}}</p>
         </div>
-        <div class="col-md-3 col-sm-6 price">
-          <div class="col-md-12">
-            <div class="price-icon price-icon-3"></div>
-            <p>{{"page-5.text-5" | translate}}</p>
-          </div>
+      </div>
+      <div class="col-md-3 col-sm-6 price">
+        <div class="col-md-12">
+          <div class="price-icon price-icon-3"></div>
+          <p>{{"page-5.text-5" | translate}}</p>
         </div>
-        <div class="col-md-3 col-sm-6 price">
+      </div>
+      <div class="col-md-3 col-sm-6 price">
+        <div class="col-md-12">
+          <div class="price-icon price-icon-4"></div>
+          <p>{{"page-5.text-6" | translate}}</p>
+        </div>
+      </div>
+    </div>
+    <p>{{"page-5.text-7" | translate}}</p>
+    <div class="active button align-center price-btn">
+      <a (click)="openPriceModal(priceModal)">
+        {{ "page-5.price-btn"  | translate }}
+      </a>
+    </div>
+    <ng-template #priceModal>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ "modal-2-price.text-1"  | translate }}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped table-dark">
+          <thead>
+          <tr>
+            <th *ngFor="let head of priceTableHeader()" scope="col">{{head}} </th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let item of priceItems; let i = index">
+          <h4>{{item.group.title}}</h4>
+          <tr *ngFor="let item of item.group.list; let i = index">
+            <td>{{ item.name }}</td>
+            <td>{{ item.units }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.description }}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="row">
           <div class="col-md-12">
-            <div class="price-icon price-icon-4"></div>
-            <p>{{"page-5.text-6" | translate}}</p>
+            <button class="active button-submit text-right" (click)="modalRef.hide()">
+              {{ "modal-2-price.close"  | translate }}
+            </button>
           </div>
         </div>
       </div>
-      <p>{{"page-5.text-7" | translate}}
-      </p>
-    </div>
+    </ng-template>
   </div>
 </div>
 <div id="page6" page-6>

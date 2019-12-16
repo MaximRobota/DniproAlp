@@ -252,6 +252,16 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  openPriceModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, {
+      animated: true,
+      keyboard: true,
+      backdrop: true,
+      ignoreBackdropClick: false,
+      class: 'modal-lg'
+    });
+  }
+
   slickInit(e) {
     // console.log('slick initialized');
   }
@@ -280,4 +290,155 @@ export class HomeComponent implements OnInit {
     }, 20000);
     return this.phoneShow = !this.phoneShow;
   }
+
+  priceTableHeader() {
+    return this.translate.currentLang === 'ru' ? ['Наименование работы', 'Ед.изм.', 'Цены от', 'Примечания'] :
+      ['Найменування робіт', 'Од.вим.', 'Ціни від', 'Примітки'];
+  }
+  priceItems = [{
+    group: {
+      title: 'Фасадные работы',
+      list: [{
+        name: 'Утепление фасада альпинистами',
+        units: 'м.кв.',
+        price: 'от 600 грн.',
+        description: 'с материалом'
+      }, {
+        name: 'Ремонт и покраска фасада',
+        units: 'м.кв.',
+        price: 'от 25 грн.',
+        description: 'без материала'
+      }, {
+        name: 'Гидрофобизация фасада',
+        units: 'м.кв.',
+        price: 'от 20 грн.',
+        description: 'без материала'
+      }, {
+        name: 'Простукивание плитки',
+        units: 'м.пог.',
+        price: 'от 10 грн.',
+        description: ''
+      }, {
+        name: 'Обследование фасада альпинистами',
+        units: 'вызов',
+        price: 'от 2000 грн.',
+        description: ''
+      }, {
+        name: 'Герметизация швов',
+        units: 'м.пог.',
+        price: 'от 120 грн.',
+        description: 'с материалом'
+      }, {
+        name: 'Герметизация швов с выбивание',
+        units: 'м.пог.',
+        price: 'от 300 грн.',
+        description: 'с материалом'
+      }]
+    }
+  }, {
+    group: {
+      title: 'Клининговые работы',
+      list: [{
+        name: 'Мойка окон альпинистами',
+        units: 'м.кв.',
+        price: 'от 20 грн.',
+        description: 'от 150 м.кв.'
+      }, {
+        name: 'Мойка малых объемах',
+        units: 'вызов',
+        price: 'от 2000 грн.',
+        description: ''
+      }, {
+        name: 'Мойка фасада',
+        units: 'м.кв.',
+        price: 'от 15 грн.',
+        description: 'от 200 м.кв.'
+      }, {
+        name: 'Чистка крыш от снега и сосулек',
+        units: 'вызов',
+        price: 'от 2000 грн.',
+        description: ''
+      }, {
+        name: 'Чистка крыш от снега и сосулек',
+        units: 'м.кв.',
+        price: 'от 15 грн.',
+        description: 'от 200 м.кв.'
+      }, {
+        name: 'Очистка фасада от высолов',
+        units: 'м.кв.',
+        price: 'от 35 грн.',
+        description: ''
+      }]
+    }
+  }, {
+    group: {
+        title: 'Монтажные работы на высоте',
+        list: [{
+          name: 'Монтаж воздуховодов вентиляции',
+          units: 'м.пог.',
+          price: 'от 120 грн.',
+          description: ''
+        }, {
+          name: 'Монтаж сэндвич дымоходов',
+          units: 'м.пог.',
+          price: 'от 150 грн.',
+          description: ''
+        }, {
+          name: 'Монтаж водосточных труб',
+          units: 'м.пог.',
+          price: 'от 100 грн.',
+          description: ''
+        }, {
+          name: 'Монтаж рекламных баннеров',
+          units: 'м.кв.',
+          price: 'от 50 грн.',
+          description: ''
+        }, {
+          name: 'Монтаж рекламных каркаса для баннеров',
+          units: 'м.пог.',
+          price: 'от 100 грн.',
+          description: ''
+        }, {
+          name: 'Монтаж баннерной сетки',
+          units: 'м.кв.',
+          price: 'от 35 грн.',
+          description: ''
+        }, {
+          name: 'Монтаж декора, объёмных букв, логотипа',
+          units: '',
+          price: 'догов.',
+          description: ''
+        }, {
+          name: 'Монтаж отлива на окна',
+          units: 'м.пог.',
+          price: 'от 75 грн.',
+          description: ''
+        }]
+    }
+  }, {
+      group: {
+        title: 'Подъем/спуск груза альпинистами',
+        list: [{
+          name: 'Подъем груза до 50 кг',
+          units: 'шт.',
+          price: 'от 2500 грн.',
+          description: ''
+        }, {
+          name: 'Подъем груза до 100 кг',
+          units: 'шт.',
+          price: 'от 3000 грн.',
+          description: ''
+        }, {
+          name: 'Подъем груза до 200 кг',
+          units: 'шт.',
+          price: 'от 9000 грн.',
+          description: ''
+        }, {
+          name: 'Подъем груза свыше 300 кг',
+          units: 'шт.',
+          price: 'от 12000 грн.',
+          description: ''
+        }]
+      }
+    }];
 }

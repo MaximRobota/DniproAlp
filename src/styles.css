@@ -11,6 +11,11 @@ body {
   float: right;
 }
 
+.align-center {
+  text-align: center;
+  margin: 0 auto;
+}
+
 a {
   text-decoration: none;
   text-transform: none;
@@ -84,4 +89,8 @@ a:focus, a:hover {
 
 :focus {
   outline: none;
+}
+
+.modal-huge {
+  width: auto;
 }
