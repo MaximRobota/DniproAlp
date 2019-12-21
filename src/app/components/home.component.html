@@ -86,7 +86,7 @@
             </div>
             <span *ngIf="submitted && f.phone.errors" class="invalid-feedback">
               <span *ngIf="f.phone.errors.required">{{ "alert.phone"  | translate }}</span>
-              <span *ngIf="f.phone.errors.minlength">{{ "alert.min-phone"  | translate }}</span>
+              <span *ngIf="f.phone.errors.minlength">{{ "alert.phone-min"  | translate }}</span>
             </span>
           </div>
           <div class="col-md-12 form-row">
@@ -370,7 +370,7 @@
                 </div>
                 <span *ngIf="submitted && f.phone.errors" class="invalid-feedback">
               <span *ngIf="f.phone.errors.required">{{ "alert.phone"  | translate }}</span>
-              <span *ngIf="f.phone.errors.minlength">{{ "alert.min-phone"  | translate }}</span>
+              <span *ngIf="f.phone.errors.minlength">{{ "alert.phone-min"  | translate }}</span>
             </span>
               </div>
               <div class="col-md-12 form-row">

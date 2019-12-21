@@ -334,7 +334,7 @@ export class HomeComponent implements OnInit {
         Validators.minLength(9),
         Validators.required])
       ],
-      email: ['', [Validators.required, Validators.email]],
+      email: [''],
       message: ['', Validators.compose([
           Validators.minLength(9)])],
       type: ['', [Validators.required]]
