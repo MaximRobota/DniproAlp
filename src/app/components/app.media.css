@@ -3,14 +3,45 @@
     width: 100%;
   }
   .nav-bar {
-    width: 760px;
-    margin-left: -380px;
+    width: 830px;
+    margin-left: -420px;
   }
 }
 
 @media (max-width: 780px) {
+  #page2, #page3, #page4, #page5, #page6 {
+    min-height: 500px;
+  }
+
+  #page1, .page-1 {
+    min-height: 650px;
+  }
+
+  #page2 {
+    background: url("../../assets/img/background-2.png") -281px 0 no-repeat;
+    min-height: 500px;
+    background-size: cover;
+    z-index: 1;
+  }
+
+  #page2 .text-block {
+    margin: 150px 0 0 100px;
+  }
+
+  #page4 {
+    min-height: 925px;
+  }
+
+  #page6 {
+    height: 615px;
+  }
+
   .menu {
     display: none;
+  }
+
+  .slide-description {
+    font-size: 13px;
   }
 
   .nav-bar {
@@ -29,6 +60,15 @@
 }
 
 @media (max-width: 500px) {
+
+  #page4 {
+    min-height: 725px;
+  }
+
+  .slide-description {
+    font-size: 10px;
+  }
+
   .center-logo {
     width: 80%;
   }
@@ -36,9 +76,11 @@
   #page2 {
     background: url("../../assets/img/background-2.png") 100% 0 #0006ff12;
   }
-
+  #page2 .text-block {
+    margin: 70px 0 0 0;
+  }
   #page6 {
-    background: url("../../assets/img/background-mob-6.png") repeat #ffffff;
+    background: url("../../assets/img/background-mob-6.png") 0 300px no-repeat #ffffff;
     padding: 0;
   }
 

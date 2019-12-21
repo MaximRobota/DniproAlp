@@ -22,7 +22,7 @@
     "callback-btn": "Зв'язатися з нами"
   },
   "modal-1-callbackUsMailer": {
-    "fullName": "ПІБ",
+    "fullName": "Ім'я",
     "phone": "Телефон",
     "email": "Емайл",
     "jobList": "Виберіть вид роботи",

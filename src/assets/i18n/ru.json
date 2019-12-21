@@ -22,7 +22,7 @@
     "callback-btn": "Связаться с нами"
   },
   "modal-1-callbackUsMailer": {
-    "fullName": "ФИО",
+    "fullName": "Имя",
     "phone": "Телефон",
     "email": "Емаил",
     "jobList": "Выберите вид работы",

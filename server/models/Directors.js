@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const ClaimSchema = new Schema({
     fullName: { type: String, required: "{PATH} is required!" },
     phone     		: { type: String, required: "{PATH} is required!" },
-    email     		: { type: String, required: "{PATH} is required!" },
+    email     		: { type: String, default: '' },
     message     : { type: String, default: '' },
     type     : { type: String, default: '' },
     created_at		: { type: Date, default: Date.now },
