@@ -21,7 +21,7 @@
     background: url("../../assets/img/background-2.png") -281px 0 no-repeat;
     min-height: 500px;
     background-size: cover;
-    z-index: 1;
+    z-index: 0;
   }
 
   #page2 .text-block {
