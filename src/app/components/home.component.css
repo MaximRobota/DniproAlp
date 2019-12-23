@@ -593,3 +593,51 @@ footer p {
   width: 150px;
   margin-bottom: 15px;
 }
+
+.social-btn {
+  clear: both;
+  padding: 5px 0 0 58px;
+  height: 60px;
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+  margin: 0;
+}
+
+.social-btn a{
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  display: block;
+  float: left;
+}
+
+.instagram {
+  background: url("../../assets/img/social-buttons.png") -201px 0;
+  background-size: 350px;
+}
+
+.youtube {
+  background: url("../../assets/img/social-buttons.png") -302px 0;
+  background-size: 350px;
+}
+
+.facebook {
+  background: url("../../assets/img/social-buttons.png") 0 0;
+  background-size: 350px;
+}
+
+.gmail {
+  background: url("../../assets/img/social-buttons.png") -101px 0;
+  background-size: 350px;
+}
+
+.phone-number-icon {
+  background: url("../../assets/img/black-phone.png") no-repeat;
+  width: 20px;
+  height: 25px;
+  background-size: 70%;
+  display: block;
+  float: left;
+  padding: 12px;
+  margin: 1px 5px 0 56px;
+}

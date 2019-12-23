@@ -319,12 +319,7 @@ export class HomeComponent implements OnInit {
     draggable: true
   };
 
-  sendQuestionMailer = {
-    fullName: '',
-    phone: '',
-    email: '',
-    message: ''
-  };
+  firstStep = true;
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -341,10 +336,6 @@ export class HomeComponent implements OnInit {
     });
   }
   get f() { return this.registerForm.controls; }
-
-  goToNewPage() {
-    window.open('https://www.facebook.com/dniproalpprom');
-  }
 
   changeLang(lang) {
     this.loaded = false;
@@ -367,21 +358,10 @@ export class HomeComponent implements OnInit {
     }
     this.sendler(this.registerForm.value)
       .subscribe((data) => {
+          console.log('asd');
           this.toasterService.pop('success', '', 'Спасибо. Заявка принята. В ближайшее время с Вами свяжется наш менеджер.');
           this.fakeLoading(300);
-          this.modalRef.hide();
-        },
-        error => {
-          this.fakeLoading(300);
-          this.toasterService.pop('error', '', error.message);
-        });
-  }
-
-  sendMessage() {
-    this.sendler(this.sendQuestionMailer)
-      .subscribe((data) => {
-          this.toasterService.pop('success', '', 'Спасибо. Вопрос отправлен нашему менеджеру.');
-          this.modalRef.hide();
+          this.firstStep = false;
         },
         error => {
           this.fakeLoading(300);
@@ -390,6 +370,7 @@ export class HomeComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
+    this.firstStep = true;
     this.modalRef = this.modalService.show(template, {
       animated: true,
       keyboard: true,

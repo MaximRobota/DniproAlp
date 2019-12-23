@@ -59,13 +59,13 @@
     </div>
   </div>
   <ng-template #modal>
-    <div class="modal-header">
+    <div class="modal-header"  *ngIf="firstStep">
       <h4 class="modal-title pull-left">{{ "page-2.callback-btn"  | translate }}</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" *ngIf="firstStep">
       <form [formGroup]="registerForm" (ngSubmit)="callbackUs()">
         <div class="row">
           <div class="col-md-12 form-row">
@@ -120,6 +120,27 @@
           </div>
         </div>
       </form>
+    </div>
+    <div *ngIf="!firstStep">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ "modal-1-callbackUsMailer.second-header"  | translate }}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="!firstStep">
+        <p>Мы свяжемся с Вами ближайшее время</p>
+        <p>А если у Вас «горит» и ждать нельзя, скорее звоните нам</p>
+        <span class="phone-number-icon"></span>
+        <a href="tel:0992750357"> +38 (099) 275 03 57 </a>
+      </div>
+      <div class="social-btn">
+        <a class="instagram" href="https://instagram.com/dniproalpprom?igshid=o83oh7ja4wt8" target="_blank"></a>
+        <a class="youtube"  href="https://www.youtube.com/channel/UCk6Elr8x-I8-qrgUxFgSg7g" target="_blank"></a>
+        <a class="facebook" href="https://www.facebook.com/dniproalpprom" target="_blank"></a>
+        <a class="gmail"
+           href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=dniproalpprom@gmail.com" target="_blank"></a>
+      </div>
     </div>
   </ng-template>
 </div>
@@ -343,13 +364,13 @@
         </a>
       </div>
       <ng-template #questionModal>
-        <div class="modal-header">
+        <div class="modal-header" *ngIf="firstStep">
           <h4 class="modal-title pull-left">{{ "page-6.question-btn"  | translate }}</h4>
           <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" *ngIf="firstStep">
           <form [formGroup]="registerForm" (ngSubmit)="callbackUs()">
             <div class="row">
               <div class="col-md-12 form-row">
@@ -416,6 +437,27 @@
             </div>
           </form>
         </div>
+        <div *ngIf="!firstStep">
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">{{ "modal-1-callbackUsMailer.second-header"  | translate }}</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" *ngIf="!firstStep">
+            <p>Мы свяжемся с Вами ближайшее время</p>
+            <p>А если у Вас «горит» и ждать нельзя, скорее звоните нам</p>
+            <span class="phone-number-icon"></span>
+            <a href="tel:0992750357"> +38 (099) 275 03 57 </a>
+          </div>
+          <div class="social-btn">
+            <a class="instagram" href="https://instagram.com/dniproalpprom?igshid=o83oh7ja4wt8" target="_blank"></a>
+            <a class="youtube"  href="https://www.youtube.com/channel/UCk6Elr8x-I8-qrgUxFgSg7g" target="_blank"></a>
+            <a class="facebook" href="https://www.facebook.com/dniproalpprom" target="_blank"></a>
+            <a class="gmail"
+               href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=dniproalpprom@gmail.com" target="_blank"></a>
+          </div>
+        </div>
       </ng-template>
     </div>
   </div>
@@ -437,14 +479,16 @@
         <p>+38 (099) 275 03 57</p>
         <p>+38 (098) 729 44 73</p>
         <p class="hidden-xs">dniproalpprom@gmail.com</p>
-        <p style="cursor: pointer;" (click)="goToNewPage()" class="hidden-xs">www.facebook.com/dniproalpprom</p>
+        <a style="cursor: pointer;" href="https://www.facebook.com/dniproalpprom"
+           target="_blank"
+           class="hidden-xs">www.facebook.com/dniproalpprom</a>
       </div>
       <div class="col-md-2 col-sm-2 hidden-xs">
         <img class="footer-logo" src="../../assets/img/footer-logo.png" alt="logo">
       </div>
       <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
         <p>dniproalpprom@gmail.com</p>
-        <p style="cursor: pointer;" (click)="goToNewPage()" >www.facebook.com/dniproalpprom</p>
+        <a style="cursor: pointer;" href="https://www.facebook.com/dniproalpprom" target="_blank">www.facebook.com/dniproalpprom</a>
       </div>
     </div>
   </footer>
