@@ -358,7 +358,6 @@ export class HomeComponent implements OnInit {
     }
     this.sendler(this.registerForm.value)
       .subscribe((data) => {
-          console.log('asd');
           this.toasterService.pop('success', '', 'Спасибо. Заявка принята. В ближайшее время с Вами свяжется наш менеджер.');
           this.fakeLoading(300);
           this.firstStep = false;

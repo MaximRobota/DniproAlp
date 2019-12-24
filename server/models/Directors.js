@@ -4,13 +4,13 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const ClaimSchema = new Schema({
-    fullName: { type: String, required: "{PATH} is required!" },
-    phone     		: { type: String, required: "{PATH} is required!" },
-    email     		: { type: String, default: '' },
-    message     : { type: String, default: '' },
-    type     : { type: String, default: '' },
     created_at		: { type: Date, default: Date.now },
-    updated_at      : { type: Date, default: Date.now }
+    email     		: { type: String, default: "" },
+    fullName      : { type: String, required: "{PATH} is required!" },
+    message       : { type: String, default: "" },
+    phone     		: { type: String, required: "{PATH} is required!" },
+    type          : { type: String, default: "" },
+    updated_at    : { type: Date, default: Date.now },
 });
 
 ClaimSchema.index({ _id: 1});
@@ -18,9 +18,8 @@ ClaimSchema.index({ _id: 1});
 /** Modify hook for cascade delete of ActItems on Claim delete
  *
  */
-ClaimSchema.pre('remove', (next) => {
-  console.log('subSchema.pre:remove!');
-  next()
+ClaimSchema.pre("remove", (next) => {
+  next();
 });
 
 // ClaimSchema.pre('remove', async function(next){
@@ -42,4 +41,4 @@ ClaimSchema.pre('remove', (next) => {
 //     }
 // });
 
-const Claim = mongoose.model('Claim', ClaimSchema);
+const Claim = mongoose.model("Claim", ClaimSchema);
