@@ -6,13 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 declare var BACKEND_API_ENDPOINT: any;
-
-// export interface CallbackUsMailer {
-//   fullName: string;
-//   phone: string;
-//   email: string;
-//   type: any;
-// }
+declare let fbq: any;
 
 @Component({
   selector: 'app-home',
@@ -22,9 +16,9 @@ declare var BACKEND_API_ENDPOINT: any;
 export class HomeComponent implements OnInit {
   public toasterService: ToasterService;
   constructor(
+    toasterService: ToasterService,
     private modalService: BsModalService,
     public translate: TranslateService,
-    toasterService: ToasterService,
     private http: HttpClient,
     private formBuilder: FormBuilder
   ) {
@@ -45,7 +39,7 @@ export class HomeComponent implements OnInit {
   modalRef: BsModalRef;
   loaded: boolean;
 
-  priceItems = [{
+  priceItems = [{ // todo: remove to BE
     group: {
       title: 'Фасадные работы',
       list: [{
@@ -192,7 +186,7 @@ export class HomeComponent implements OnInit {
     }
   }];
 
-  altitudeSlides = [
+  altitudeSlides = [ // todo: remove to BE
     {
       img: '../assets/img/slider/slider-1/1.jpg',
       description: 'slider-1.slide-1'
@@ -211,7 +205,7 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  installationSlides = [
+  installationSlides = [ // todo: remove to BE
     {img: '../assets/img/slider/slider-2/1.jpg',
       description: 'slider-2.slide-1'
     },
@@ -241,7 +235,7 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  frontSlides = [
+  frontSlides = [ // todo: remove to BE
     {img: '../assets/img/slider/slider-3/1.jpg',
       description: 'slider-3.slide-1'
     },
@@ -268,22 +262,22 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  typeWorkListItems = [{
-    value: 0,
-    name: ' Монтаж/демонтаж'
-  }, {
-    value: 1,
-    name: 'Фасадные работы'
-  }, {
-    value: 2,
-    name: 'Работы в промышленной зоне'
-  }, {
-    value: 3,
-    name: 'Подъем и спуск негабаритных грузов'
-  }, {
-    value: 4,
-    name: 'Клининговые услуги'
-  }
+  typeWorkListItems = [{ // todo: remove to BE
+      value: 0,
+      name: ' Монтаж/демонтаж'
+    }, {
+      value: 1,
+      name: 'Фасадные работы'
+    }, {
+      value: 2,
+      name: 'Работы в промышленной зоне'
+    }, {
+      value: 3,
+      name: 'Подъем и спуск негабаритных грузов'
+    }, {
+      value: 4,
+      name: 'Клининговые услуги'
+    }
   ];
 
   questionSlides = [
@@ -305,7 +299,8 @@ export class HomeComponent implements OnInit {
     nextArrow: '<div class="nav-btn next-slide"></div>',
     prevArrow: '<div class="nav-btn prev-slide"></div>',
     dots: true,
-    infinite: false
+    infinite: false,
+    adaptiveHeight: true
   };
 
   thumbnailsSlider = {
@@ -315,6 +310,7 @@ export class HomeComponent implements OnInit {
     prevArrow: '<div class="nav-btn prev-slide"></div>',
     cssEase: 'linear',
     fade: true,
+    dots: true,
     infinite: false,
     draggable: true
   };
@@ -344,11 +340,9 @@ export class HomeComponent implements OnInit {
     this.fakeLoading(300);
   }
 
-  sendler(data) {
+  submit(data) {
     this.loaded = false;
-    return this
-      .http
-      .post(`${BACKEND_API_ENDPOINT}/claim`, data);
+    return this.http.post(`${BACKEND_API_ENDPOINT}/claim`, data);
   }
 
   callbackUs() {
@@ -356,10 +350,10 @@ export class HomeComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-    this.sendler(this.registerForm.value)
-      .subscribe((data) => {
-          this.toasterService.pop('success', '', 'Спасибо. Заявка принята. В ближайшее время с Вами свяжется наш менеджер.');
+    this.submit(this.registerForm.value)
+      .subscribe(() => {
           this.fakeLoading(300);
+          fbq('track', 'Lead');
           this.firstStep = false;
         },
         error => {
@@ -394,7 +388,7 @@ export class HomeComponent implements OnInit {
   }
 
   breakpoint(e) {
-    // console.log('breakpoint');
+    console.log('breakpoint');
   }
 
   afterChange(e) {
@@ -418,7 +412,7 @@ export class HomeComponent implements OnInit {
     return this.phoneShow = !this.phoneShow;
   }
 
-  priceTableHeader() {
+  priceTableHeader() { // todo: remove to BE
     return this.translate.currentLang === 'ru' ? ['Наименование работы', 'Ед.изм.', 'Цены от', 'Примечания'] :
       ['Найменування робіт', 'Од.вим.', 'Ціни від', 'Примітки'];
   }

@@ -146,20 +146,6 @@
   margin: 0 2px;
 }
 
-.main-btn {
-  width: 150px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  background-color: red;
-  text-transform: uppercase;
-  font-weight: 600;
-  border-radius: 4px;
-  margin: 15px auto;
-  cursor: pointer;
-  color: white;
-}
-
 .button {
   position: relative;
   cursor: pointer;
@@ -196,7 +182,9 @@
 .button.red::after {
   background-color: red;
 }
-
+.button.red {
+  color: white;
+}
 
 .center-logo {
   width: 42%;
@@ -469,7 +457,7 @@ label {
 #page6 .button {
   width: 150px;
   position: relative;
-  margin: 15px auto 0;
+  margin: 50px auto 0;
 }
 
 footer {

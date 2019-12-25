@@ -33,7 +33,7 @@
         {{ "page-1.logo-title-2"  | translate }} <br>
         {{ "page-1.logo-title-3"  | translate }}
       </p>
-      <div class="main-btn" (click)="openModal(modal)">
+      <div class="red button align-center price-btn" (click)="openModal(modal)">
         {{ "page-2.callback-btn"  | translate }}
       </div>
     </div>
@@ -122,6 +122,7 @@
       </form>
     </div>
     <div *ngIf="!firstStep">
+
       <div class="modal-header">
         <h4 class="modal-title pull-left">{{ "modal-1-callbackUsMailer.second-header"  | translate }}</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
