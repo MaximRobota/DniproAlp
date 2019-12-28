@@ -318,6 +318,7 @@ export class HomeComponent implements OnInit {
   firstStep = true;
 
   ngOnInit() {
+    this.init();
     this.registerForm = this.formBuilder.group({
       fullName: ['', Validators.required],
       phone: ['', Validators.compose([
@@ -416,4 +417,85 @@ export class HomeComponent implements OnInit {
     return this.translate.currentLang === 'ru' ? ['Наименование работы', 'Ед.изм.', 'Цены от', 'Примечания'] :
       ['Найменування робіт', 'Од.вим.', 'Ціни від', 'Примітки'];
   }
+//
+  init() {
+    const elements = [].slice.call(document.querySelectorAll('a:not([target="_blank"])'));
+    for (const anchor of  elements) {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const linkHash = getHash(e.currentTarget.href);
+        if (!goToSection(linkHash) && e.currentTarget.href) {
+          goToUrl(e.currentTarget.href);
+        }
+      });
+    }
+    window.addEventListener('scroll', () => {
+      setActiveAnchor();
+    });
+
+    function getHash(href) {
+      return href.split('#')[1];
+    }
+
+    function goToSection(linkHash) {
+      const section = getSection(linkHash);
+      if (section) {
+        const offsetTop = section['offsetTop'];
+        console.log(section);
+        scrollTo(offsetTop, 100);
+        history.pushState({}, null, '#' + linkHash);
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function scrollTo(destOffset, duration) {
+      const diffOffset = destOffset - ( document.scrollingElement || document.documentElement).scrollTop,
+        partDist = diffOffset / duration * 1;
+
+      if (duration <= 0) {
+        return;
+      }
+      setTimeout(() => {
+        (document.scrollingElement || document.documentElement).scrollTop =
+          (document.scrollingElement || document.documentElement).scrollTop + partDist;
+        if ((document.scrollingElement || document.documentElement).scrollTop === destOffset) {
+          return;
+        }
+        scrollTo(destOffset, duration - 1);
+      }, 1);
+    }
+
+    function goToUrl(url) {
+      return window.location = url;
+    }
+
+    function setActiveAnchor() {
+      const elements = [].slice.call(document.querySelectorAll('a:not([target="_blank"])'));
+      for (let anchor of elements) {
+        const linkHash = getHash(anchor.href),
+          section = getSection(linkHash),
+          offset = (document.scrollingElement || document.documentElement).scrollTop,
+          scrollHeight = (document.scrollingElement || document.documentElement).scrollHeight;
+        if (section && (((section['offsetTop'] <= offset) && (section['offsetTop'] + section['offsetHeight'] > offset))
+          || ((offset + window.innerHeight) === scrollHeight))) {
+          for (let link of elements) {
+            if (link.href !== anchor.href) {
+              link.classList.remove('active');
+            }
+          }
+          anchor.classList.add('active');
+        }
+      }
+    }
+    function getSection(linkHash) {
+      if (linkHash) {
+        const id = '#' + linkHash;
+        return document.querySelector(id);
+      }
+      return false;
+    }
+  }
+  //
 }

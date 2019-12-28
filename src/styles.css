@@ -30,7 +30,7 @@ a:focus, a:hover {
 }
 
 #page4 .slick-slider {
-  width: 90%;
+  width: 70%;
   margin: auto;
   /*background: #d9e5f2;*/
 }
@@ -93,4 +93,8 @@ a:focus, a:hover {
 
 .modal-huge {
   width: auto;
+}
+
+.slick-list {
+  margin: 20px 0 !important;
 }
