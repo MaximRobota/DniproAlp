@@ -329,6 +329,9 @@ label {
 .text-right {
   text-align: right;
 }
+.float-right {
+  float: right !important;
+}
 
 .button-submit {
   background: #fbc821;
@@ -346,7 +349,7 @@ label {
 .slider p {
   font-weight: 600;
   font-size: 22px;
-  padding: 15px 0 0 0;
+  padding: 5px 0 0 0;
 }
 
 .slick-initialized .slick-slide  {
@@ -610,4 +613,53 @@ footer p {
   float: left;
   padding: 12px;
   margin: 1px 5px 0 56px;
+}
+
+.title-line {
+  position: relative;
+}
+
+.title-line p {
+  width: 200px;
+  float: left;
+}
+
+.title-line span {
+  border: 2px solid #525695;
+  width: calc(100% - 200px);
+  float: left;
+  display: block;
+  margin-top: 20px;
+}
+.title-line span.active {
+  border: 2px solid #fbc821;
+}
+
+.slider-1, .slider-2, .slider-3, .slider-4{
+  position: relative;
+}
+
+#page4 .slick-slider {
+  clear: both;
+  margin: auto;
+  background: #d9e5f2;
+}
+
+#page4 .bg-opacity-left, #page4 .bg-opacity-right {
+  background: #ffffff73;
+  position: absolute;
+  top: 46px;
+  /*top: 46px; TODO*/
+  z-index: 1;
+  width: 228px;
+  height: 172px;
+  /*height: 171px; TODO*/
+}
+
+#page4 .bg-opacity-left {
+  left: 0;
+}
+
+#page4 .bg-opacity-right {
+  right: 0;
 }

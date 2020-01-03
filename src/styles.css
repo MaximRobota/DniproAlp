@@ -29,12 +29,6 @@ a:focus, a:hover {
 
 }
 
-#page4 .slick-slider {
-  width: 70%;
-  margin: auto;
-  /*background: #d9e5f2;*/
-}
-
 .nav-btn {
   height: 30px;
   position: absolute;
@@ -55,9 +49,19 @@ a:focus, a:hover {
 }
 
 .next-slide {
-  background: url(assets/img/slider/next-btn.png) no-repeat scroll 0px 0px;
+  background: url(assets/img/slider/next-btn.png) no-repeat scroll 0 0;
   right: -28px;
   top: calc(50% - 15px);
+}
+
+#page4 .prev-slide {
+  left: 185px;
+  z-index: 2;
+}
+
+#page4 .next-slide {
+  right: 185px;
+  z-index: 2;
 }
 
 /*.prev-slide:hover {*/
@@ -68,6 +72,12 @@ a:focus, a:hover {
   /*background-position: -24px -53px;*/
 /*}*/
 
+@media (max-width: 991px) {
+  #page4 .prev-slide,
+  #page4 .next-slide {
+    display: none !important;
+  }
+}
 
 @media (max-width: 500px) {
   .slick-dotted.slick-slider {

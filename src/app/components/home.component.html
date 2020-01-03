@@ -188,9 +188,15 @@
 <div id="page4">
   <div class="container row">
     <h3>{{"page-4.text-1" | translate}}</h3>
-    <div class="slider">
+    <div class="slider" *ngIf="screenCount">
       <div class="slider-1">
-        <p class="text-left">{{"page-4.text-2" | translate}}</p>
+        <div class="title-line">
+          <p class="text-left">
+            {{"page-4.text-2" | translate}}
+          </p>
+          <span></span>
+        </div>
+        <span class="bg-opacity-left hidden-xs"></span>
         <ngx-slick-carousel class="carousel"
                             #slickModal="slick-carousel"
                             [config]="slideConfig"
@@ -205,9 +211,16 @@
             </div>
           </div>
         </ngx-slick-carousel>
+        <span class="bg-opacity-right hidden-xs"></span>
       </div>
       <div class="slider-2">
-        <p class="text-right">{{"page-4.text-3" | translate}}</p>
+        <div class="title-line">
+          <p class="text-right float-right">
+            {{"page-4.text-3" | translate}}
+          </p>
+          <span class="active"></span>
+        </div>
+        <span class="bg-opacity-left hidden-xs"></span>
         <ngx-slick-carousel class="carousel"
                             #slickModal="slick-carousel"
                             [config]="slideConfig"
@@ -222,9 +235,16 @@
             </div>
           </div>
         </ngx-slick-carousel>
+        <div class="bg-opacity-right hidden-xs"></div>
       </div>
       <div class="slider-3">
-        <p class="text-left">{{"page-4.text-4" | translate}}</p>
+        <div class="title-line">
+          <p class="text-left">
+            {{"page-4.text-4" | translate}}
+          </p>
+          <span></span>
+        </div>
+        <span class="bg-opacity-left hidden-xs"></span>
         <ngx-slick-carousel class="carousel"
                             #slickModal="slick-carousel"
                             [config]="slideConfig"
@@ -239,9 +259,14 @@
             </div>
           </div>
         </ngx-slick-carousel>
+        <div class="bg-opacity-right hidden-xs"></div>
       </div>
       <div class="slider-4">
-        <p class="text-right">{{"page-4.text-5" | translate}}</p>
+        <div class="title-line">
+          <p class="text-right float-right">{{"page-4.text-5" | translate}}</p>
+          <span class="active"></span>
+        </div>
+        <span class="bg-opacity-left hidden-xs"></span>
         <ngx-slick-carousel class="carousel"
                             #slickModal="slick-carousel"
                             [config]="slideConfig"
@@ -256,6 +281,7 @@
             </div>
           </div>
         </ngx-slick-carousel>
+        <div class="bg-opacity-right hidden-xs"></div>
       </div>
     </div>
   </div>

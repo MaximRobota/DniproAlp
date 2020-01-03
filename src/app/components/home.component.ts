@@ -4,9 +4,11 @@ import { ToasterService } from 'angular2-toaster';
 import { TranslateService } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HostListener } from '@angular/core';
 
 declare var BACKEND_API_ENDPOINT: any;
 declare let fbq: any;
+
 
 @Component({
   selector: 'app-home',
@@ -23,6 +25,7 @@ export class HomeComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.loaded = false;
+    this.onResize();
     this.fakeLoading(1000);
 
     this.toasterService = toasterService;
@@ -38,6 +41,8 @@ export class HomeComponent implements OnInit {
   localLang;
   modalRef: BsModalRef;
   loaded: boolean;
+  screenWidth: any;
+  screenCount: number;
 
   priceItems = [{ // todo: remove to BE
     group: {
@@ -294,7 +299,7 @@ export class HomeComponent implements OnInit {
   ];
 
   slideConfig = {
-    slidesToShow: 3,
+    slidesToShow: (window.innerWidth > 960) ? 5 : 1,
     slidesToScroll: 1,
     nextArrow: '<div class="nav-btn next-slide"></div>',
     prevArrow: '<div class="nav-btn prev-slide"></div>',
@@ -316,6 +321,16 @@ export class HomeComponent implements OnInit {
   };
 
   firstStep = true;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?) {
+    this.screenWidth = window.innerWidth;
+    this.screenCount = 0;
+    this.slideConfig.slidesToShow = (this.screenWidth > 960) ? 5 : 1;
+    setTimeout(() => {
+      this.screenCount = (this.screenWidth > 960) ? 5 : 1;
+    }, 500);
+  }
 
   ngOnInit() {
     this.init();
