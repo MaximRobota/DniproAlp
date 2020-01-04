@@ -41,7 +41,7 @@
   }
 
   .slide-description {
-    font-size: 13px;
+    line-height: 40px;
   }
 
   .nav-bar {
@@ -63,10 +63,6 @@
 
   #page4 {
     min-height: 725px;
-  }
-
-  .slide-description {
-    font-size: 10px;
   }
 
   .center-logo {

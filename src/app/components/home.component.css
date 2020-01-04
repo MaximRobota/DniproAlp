@@ -89,12 +89,12 @@
 
 .nav-bar {
   padding-top: 14px;
-  z-index: 2;
   position: fixed;
   width: 1020px;
   left: 50%;
   top: 0;
   margin-left: -510px;
+  z-index: 999;
 }
 
 .nav-bar a {
@@ -620,13 +620,13 @@ footer p {
 }
 
 .title-line p {
-  width: 200px;
+  width: 210px;
   float: left;
 }
 
 .title-line span {
   border: 2px solid #525695;
-  width: calc(100% - 200px);
+  width: calc(100% - 210px);
   float: left;
   display: block;
   margin-top: 20px;
