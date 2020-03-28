@@ -2,15 +2,16 @@
   <div class="col-md-12">
     <h1 class="">Admin Dashboard</h1>
     <a id="logout" class="logout-btn" [routerLink]="['/login']">Log out</a>
+    <a class="logout-btn" (click)="getClaims()">Reload</a>
     <br>
-    <table class="table table-striped table-dark">
+    <table class="table table-striped table-dark" *ngIf="loaded">
       <thead>
       <tr>
         <th *ngFor="let head of headElements" scope="col">{{head}} </th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let claim of claims; let i = index">
+      <tr *ngFor="let claim of adminClaimListService.claims; let i = index">
         <td>{{i}}</td>
         <td>{{ claim.fullName }}</td>
         <td>{{ claim.phone }}</td>
@@ -19,7 +20,7 @@
         <td>{{ claim.message }}</td>
         <td>{{ claim.created_at | date:'medium' }}</td>
         <td>
-          <a title="Delete Claim" class="hover-danger remove-btn" (click)="remove(claim)">
+          <a title="Delete Claim" class="hover-danger remove-btn" (click)="removeClaims(claim._id)">
             <i class="far fa-trash-alt"></i>
           </a>
         </td>
@@ -28,3 +29,4 @@
     </table>
   </div>
 </div>
+<p *ngIf="!loaded" class="records-not-found">Loading...</p>

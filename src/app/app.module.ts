@@ -13,7 +13,7 @@ import { MainLoadingComponent } from './components/loading/loading.component';
 // import { ConfigService } from './services/config.service';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import {CollapseModule, ModalModule} from 'ngx-bootstrap';
+import { CollapseModule, ModalModule } from 'ngx-bootstrap';
 import { ToasterModule } from 'angular2-toaster';
 
 
@@ -21,9 +21,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { routing } from './app-routing.module';
-import {DashboardComponent} from './admin/dashboard/dashboard.component';
-import {AuthGuard} from './admin/role.guard';
-import {AuthenticationService} from './_services';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AuthGuard } from './admin/role.guard';
+import { AuthenticationService } from './_services';
+import { LoadingDirective } from './directives/loading.directive';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -37,7 +38,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MainLoadingComponent,
     AdminComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    LoadingDirective
     // ConfigService
   ],
   imports: [

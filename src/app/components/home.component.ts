@@ -29,14 +29,13 @@ export class HomeComponent implements OnInit {
     this.toasterService = toasterService;
 
     // Translate
+    const localLang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'ru';
     translate.addLangs(['ru', 'ua']);
-    this.localLang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'ru';
-    translate.use(this.localLang);
+    translate.use(localLang);
   }
-  registerForm: FormGroup;
+  registerForm: FormGroup; // Todo
   submitted = false;
   phoneShow = false;
-  localLang;
   modalRef: BsModalRef;
   loaded: boolean;
 

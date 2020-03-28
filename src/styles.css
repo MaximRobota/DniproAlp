@@ -108,3 +108,13 @@ a:focus, a:hover {
 .slick-list {
   margin: 20px 0 !important;
 }
+
+.records-not-found {
+  margin: 50px auto;
+  font-size: 18px;
+  text-align: center;
+  color: #777;
+  position: absolute;
+  top: 40%;
+  width: 100%;
+}

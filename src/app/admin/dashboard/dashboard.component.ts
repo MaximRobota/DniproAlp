@@ -1,61 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {ToasterService} from 'angular2-toaster';
+import {AdminClaimListService} from '../../_services/admin-claim-list.service';
+import {delay} from 'rxjs/operators';
+import { ConfirmationDialogService } from '../../_services/confirmation-dialog/confirmation-dialog.service';
 
-declare var BACKEND_API_ENDPOINT: any;
 
 @Component({
   selector: 'app-admin',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  private loaded = false;
+  public headElements = ['№', 'Full Name', 'Phone', 'Email', 'Type', 'Message', 'Created At', ''];
+  public toasterService: ToasterService;
+
   constructor(
     toasterService: ToasterService,
     private http: HttpClient,
-  ) {
-    this.loaded = false;
-    this.getClaims();
+    private adminClaimListService: AdminClaimListService,
+    private confirmationDialogService: ConfirmationDialogService
+  ) {    this.toasterService = toasterService;
   }
-  loaded: boolean;
-  claims: any;
 
-  headElements = ['№', 'Full Name', 'Phone', 'Email', 'Type', 'Message', 'Created At', ''];
-
-  sendler() {
-    this.loaded = false;
-    return this
-      .http
-      .get(`${BACKEND_API_ENDPOINT}/claims`)
-      .subscribe((data: any) => {
-          this.claims = data;
-          // this.toasterService.pop('success', '', 'Спасибо. Заявка принята. В ближайшее время с Вами свяжется наш менеджер.');
-        },
-        error => {
-          console.log(error.message);
-          // this.toasterService.pop('error', '', error.message);
-        });
+  ngOnInit() {
+    this.getClaims();
+    this.toasterService.pop('success', '', 'Hello Igor )');
   }
 
   getClaims() {
-    this.sendler();
+    this.loaded = false;
+    this.adminClaimListService.getClaims()
+      .pipe(delay(2000))
+      .subscribe(() => {
+      this.loaded = true;
+    },
+    error => {
+      this.toasterService.pop('error', '', error.message);
+    });
   }
 
-  remove(claim) {
-    this.http
-      .delete(`${BACKEND_API_ENDPOINT}/claim/` + claim._id)
-      .subscribe((data: any) => {
-          const indexClaim = this.claims.map((e) => {
-            return e._id;
-          }).indexOf(data._id);
-          if (indexClaim !== -1) {
-            this.claims.splice(indexClaim, 1);
-          }
-          // this.toasterService.pop('success', '', 'Спасибо. Заявка принята. В ближайшее время с Вами свяжется наш менеджер.');
-        },
-        error => {
-          console.log(error.message);
-          // this.toasterService.pop('error', '', error.message);
-        });
+  removeClaims(id) {
+    // this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
+    //   .then((confirmed) => console.log('User confirmed:', confirmed))
+    //   .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
+    //
+
+    this.loaded = false;
+    this.adminClaimListService.removeClaims(id).subscribe((claim) => {
+        const claimId = claim['_id'];
+        this.adminClaimListService.claims = this.adminClaimListService.claims.filter(cl => cl._id !== claimId);
+        this.loaded = true;
+      },
+    error => {
+      this.toasterService.pop('error', '', error.message);
+    });
   }
 }

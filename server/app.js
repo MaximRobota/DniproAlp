@@ -13,7 +13,7 @@ const nodemailer = require('nodemailer');
 const express = require('express');
 
 const app = express();
-const port = 3000;
+const port = 3002;
 
 // mongoose.connect(`mongodb://${config.db.user}:${config.db.pass}@${config.db.host}:${config.db.port}/${config.db.name}?authSource=${config.db.authDb}` , { useMongoClient: true });
 // mongoose.connect('mongodb://localhost:27017', {useNewUrlParser: true});
