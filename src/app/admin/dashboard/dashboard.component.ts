@@ -12,14 +12,14 @@ import { ConfirmationDialogService } from '../../_services/confirmation-dialog/c
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  private loaded = false;
+  public loaded = false;
   public headElements = ['№', 'Full Name', 'Phone', 'Email', 'Type', 'Message', 'Created At', ''];
   public toasterService: ToasterService;
 
   constructor(
     toasterService: ToasterService,
     private http: HttpClient,
-    private adminClaimListService: AdminClaimListService,
+    public adminClaimListService: AdminClaimListService,
     private confirmationDialogService: ConfirmationDialogService
   ) {    this.toasterService = toasterService;
   }
@@ -42,19 +42,20 @@ export class DashboardComponent implements OnInit {
   }
 
   removeClaims(id) {
-    // this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
-    //   .then((confirmed) => console.log('User confirmed:', confirmed))
-    //   .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
-    //
-
-    this.loaded = false;
-    this.adminClaimListService.removeClaims(id).subscribe((claim) => {
-        const claimId = claim['_id'];
-        this.adminClaimListService.claims = this.adminClaimListService.claims.filter(cl => cl._id !== claimId);
-        this.loaded = true;
-      },
-    error => {
-      this.toasterService.pop('error', '', error.message);
-    });
+    this.confirmationDialogService.confirm('Delete..', 'Do you really want to delete?')
+      .then((confirmed) => {
+        console.log(confirmed);
+        if (confirmed) {
+          this.loaded = false;
+          this.adminClaimListService.removeClaims(id).subscribe((claim) => {
+              const claimId = claim['_id'];
+              this.adminClaimListService.claims = this.adminClaimListService.claims.filter(cl => cl._id !== claimId);
+              this.loaded = true;
+            },
+            error => {
+              this.toasterService.pop('error', '', error.message);
+            });
+        }
+      });
   }
 }

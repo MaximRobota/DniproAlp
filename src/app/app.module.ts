@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './components/app.component';
 import { HomeComponent } from './components/home.component';
@@ -25,7 +26,6 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AuthGuard } from './admin/role.guard';
 import { AuthenticationService } from './_services';
 import { LoadingDirective } from './directives/loading.directive';
-
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -50,6 +50,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ReactiveFormsModule,
     SlickCarouselModule,
     HttpClientModule,
+    NgbModule,
     ToasterModule.forRoot(),
     ModalModule.forRoot(),
     TranslateModule.forRoot({

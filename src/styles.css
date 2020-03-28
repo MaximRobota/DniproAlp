@@ -118,3 +118,8 @@ a:focus, a:hover {
   top: 40%;
   width: 100%;
 }
+
+.show {
+  opacity: 1;
+  padding-top: 40px;
+}
