@@ -79,7 +79,7 @@ app.get('/contact-us', (req, res) => {
   res.json(data);  // scenes.filter(req, res);
 });
 
-app.post('/claim', (req, res) => {
+app.post('/claims', (req, res) => {
   // let transporter = nodemailer.createTransport({
   //   // service: 'https://webmail.meta.ua/',
   //   secure: false, // use SSL
@@ -118,11 +118,11 @@ app.get('/claims', (req, res) => {
   claims.list(req, res);
 });
 
-app.put('/claim/:id', (req, res) => {
+app.put('/claims/:id', (req, res) => {
   claims.update(req, res);
 });
 
-app.delete('/claim/:id', (req, res) => {
+app.delete('/claims/:id', (req, res) => {
   claims.remove(req, res);
 });
 

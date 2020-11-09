@@ -20,7 +20,7 @@
         <td>{{ claim.message }}</td>
         <td>{{ claim.created_at | date:'medium' }}</td>
         <td>
-          <a title="Delete Claim" class="hover-danger remove-btn" (click)="removeClaims(claim._id)">
+          <a title="Delete Claim" class="hover-danger remove-btn" (click)="removeClaim(claim.id)">
             <i class="far fa-trash-alt"></i>
           </a>
         </td>

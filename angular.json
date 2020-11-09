@@ -8,11 +8,7 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "schematics": {
-//        "@schematics/angular:component": {
-//          "style": "scss"
-//        }
-      },
+      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -132,6 +128,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "dnipro-alp-pro"
+    }
+  },
+  "defaultProject": "dnipro-alp-pro",
+  "cli": {
+    "analytics": "c15ecdf7-9502-4e69-86cb-3b1722194ec4"
+  }
 }

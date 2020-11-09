@@ -343,7 +343,7 @@ export class HomeComponent implements OnInit {
 
   submit(data) {
     this.loaded = false;
-    return this.http.post(`${BACKEND_API_ENDPOINT}/claim`, data);
+    return this.http.post(`${BACKEND_API_ENDPOINT}/claims`, data);
   }
 
   callbackUs() {

@@ -19,12 +19,12 @@ export class AdminClaimListService {
   public claims: Claim[] = [];
   constructor( private http: HttpClient ) { }
 
-  getClaims(): Observable<Claim[]> {
-    return this.http.get<Claim[]>(`${BACKEND_API_ENDPOINT}/claims`)
-      .pipe(tap(claims => this.claims = claims));
+  getClaims(): Observable<any> {
+    return this.http.get(`${BACKEND_API_ENDPOINT}/claims`)
+      .pipe(tap(response => this.claims = response.claims));
   }
-  removeClaims(id: string) {
-    return this.http.delete(`${BACKEND_API_ENDPOINT}/claim/` + id)
+  removeClaim(id: string) {
+    return this.http.delete(`${BACKEND_API_ENDPOINT}/claims/` + id)
       .pipe(tap(claims => {
         console.log(claims);
     }));

@@ -41,13 +41,13 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  removeClaims(id) {
+  removeClaim(id) {
     this.confirmationDialogService.confirm('Delete..', 'Do you really want to delete?')
       .then((confirmed) => {
         console.log(confirmed);
         if (confirmed) {
           this.loaded = false;
-          this.adminClaimListService.removeClaims(id).subscribe((claim) => {
+          this.adminClaimListService.removeClaim(id).subscribe((claim) => {
               const claimId = claim['_id'];
               this.adminClaimListService.claims = this.adminClaimListService.claims.filter(cl => cl._id !== claimId);
               this.loaded = true;

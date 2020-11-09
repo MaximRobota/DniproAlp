@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+  alp_prom_service:
+    build: ./pythonServer
+    image: cc-dev-alp-prom-service:1.0.0
+    environment:
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_DB: $MYSQL_DB
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - 3000:80
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'devpass'
+      MYSQL_DATABASE: $MYSQL_DB
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+    ports:
+      - 3370:3306
+    expose:
+      - 3370
+#    volumes:
+#      - "./db/data:/var/lib/mysql"
+#      - "./db/initdb:/docker-entrypoint-initdb.d/:ro"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8002:8080
+
+volumes:
+  db-data:
