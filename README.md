@@ -45,7 +45,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     scp -P 22 docker-compose.yml root@31.220.60.190:~/app/pythonServer
     scp -P 22 .env root@31.220.60.190:~/app/pythonServer
     
-    
+    scp -r -P 22 DniproAlp root@31.220.60.190:~/app
+     
     cd app/server/
     sudo service mongod restart
     npm run server_start&
