@@ -68,12 +68,12 @@
         <div class="row">
           <div class="col-md-12 form-row">
             <div class="form-group">
-              <label>{{ "modal-1-callbackUsMailer.fullName"  | translate }}</label>
-              <input type="text" formControlName="fullName" class="form-control"
-                     [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
+              <label>{{ "modal-1-callbackUsMailer.full_name"  | translate }}</label>
+              <input type="text" formControlName="full_name" class="form-control"
+                     [ngClass]="{ 'is-invalid': submitted && f.full_name.errors }">
             </div>
-            <span *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
-              <span *ngIf="f.fullName.errors.required">{{ "alert.fullName"  | translate }}</span>
+            <span *ngIf="submitted && f.full_name.errors" class="invalid-feedback">
+              <span *ngIf="f.full_name.errors.required">{{ "alert.full_name"  | translate }}</span>
             </span>
           </div>
           <div class="col-md-12 form-row">
@@ -100,15 +100,15 @@
           </div>
           <div class="col-md-12 form-row">
             <div class="form-group">
-              <label for="type">{{ "modal-1-callbackUsMailer.jobList"  | translate }}</label>
-              <select formControlName="type" id="type" class="form-control" name="type"
-                      [ngClass]="{ 'is-invalid': submitted && f.type.errors }" >
+              <label for="claim_type-2">{{ "modal-1-callbackUsMailer.jobList"  | translate }}</label>
+              <select formControlName="claim_type" id="claim_type-2" class="form-control" name="claim_type"
+                      [ngClass]="{ 'is-invalid': submitted && f.claim_type.errors }" >
                 <option value="">{{ "modal-1-callbackUsMailer.jobList"  | translate }}</option>
                 <option *ngFor="let item of typeWorkListItems" [value]="item.name">{{item.name}}</option>
               </select>
             </div>
-            <span *ngIf="submitted && f.type.errors" class="invalid-feedback">
-              <span *ngIf="f.type.errors.required">{{ "alert.type"  | translate }}</span>
+            <span *ngIf="submitted && f.claim_type.errors" class="invalid-feedback">
+              <span *ngIf="f.claim_type.errors.required">{{ "alert.claim_type"  | translate }}</span>
             </span>
           </div>
           <div class="col-md-12">
@@ -396,12 +396,12 @@
             <div class="row">
               <div class="col-md-12 form-row">
                 <div class="form-group">
-                  <label>{{ "modal-1-callbackUsMailer.fullName"  | translate }}</label>
-                  <input type="text" formControlName="fullName" class="form-control"
-                         [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
+                  <label>{{ "modal-1-callbackUsMailer.full_name"  | translate }}</label>
+                  <input type="text" formControlName="full_name" class="form-control"
+                         [ngClass]="{ 'is-invalid': submitted && f.full_name.errors }">
                 </div>
-                <span *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
-              <span *ngIf="f.fullName.errors.required">{{ "alert.fullName"  | translate }}</span>
+                <span *ngIf="submitted && f.full_name.errors" class="invalid-feedback">
+              <span *ngIf="f.full_name.errors.required">{{ "alert.full_name"  | translate }}</span>
             </span>
               </div>
               <div class="col-md-12 form-row">
@@ -417,8 +417,8 @@
               </div>
               <div class="col-md-12 form-row">
                 <div class="form-group">
-                  <label for="email">{{ "modal-1-callbackUsMailer.email"  | translate }}</label>
-                  <input type="email" formControlName="email" class="form-control"
+                  <label for="email-2">{{ "modal-1-callbackUsMailer.email"  | translate }}</label>
+                  <input type="email" formControlName="email" id="email-2" class="form-control"
                          [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
                 </div>
                 <span *ngIf="submitted && f.email.errors" class="invalid-feedback">
@@ -428,20 +428,20 @@
               </div>
               <div class="col-md-12 form-row">
                 <div class="form-group">
-                  <label for="type">{{ "modal-1-callbackUsMailer.jobList"  | translate }}</label>
-                  <select formControlName="type" class="form-control" name="type"
-                          [ngClass]="{ 'is-invalid': submitted && f.type.errors }" >
+                  <label for="claim_type">{{ "modal-1-callbackUsMailer.jobList"  | translate }}</label>
+                  <select formControlName="claim_type" class="form-control" name="claim_type" id="claim_type"
+                          [ngClass]="{ 'is-invalid': submitted && f.claim_type.errors }" >
                     <option value="">{{ "modal-1-callbackUsMailer.jobList"  | translate }}</option>
                     <option *ngFor="let item of typeWorkListItems" [value]="item.name">{{item.name}}</option>
                   </select>
                 </div>
-                <span *ngIf="submitted && f.type.errors" class="invalid-feedback">
-                 <span *ngIf="f.type.errors.required">{{ "alert.type"  | translate }}</span>
+                <span *ngIf="submitted && f.claim_type.errors" class="invalid-feedback">
+                 <span *ngIf="f.claim_type.errors.required">{{ "alert.claim_type"  | translate }}</span>
                 </span>
               </div>
               <div class="col-md-12 form-row">
                 <div class="form-group">
-                  <label for="type">{{ "modal-1-callbackUsMailer.message"  | translate }}</label>
+                  <label for="message">{{ "modal-1-callbackUsMailer.message"  | translate }}</label>
                   <textarea formControlName="message" name="message" class="form-control mess"
                             [ngClass]="{ 'is-invalid': submitted && f.message.errors }"
                             id="message" rows="3"></textarea>

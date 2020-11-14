@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  alp_prom_service:
+  api:
     build: ./pythonServer
     image: cc-dev-alp-prom-service:1.0.0
     environment:
@@ -40,6 +40,16 @@ services:
     restart: always
     ports:
       - 8002:8080
+
+  proxy:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    command: [ nginx-debug, '-g', 'daemon off;' ]
+    ports:
+      - 80:80
+    depends_on:
+      - api
 
 volumes:
   db-data:

@@ -25,8 +25,6 @@ export class AdminClaimListService {
   }
   removeClaim(id: string) {
     return this.http.delete(`${BACKEND_API_ENDPOINT}/claims/` + id)
-      .pipe(tap(claims => {
-        console.log(claims);
-    }));
+      .pipe();
   }
 }

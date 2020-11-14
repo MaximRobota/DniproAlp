@@ -264,7 +264,7 @@ export class HomeComponent implements OnInit {
 
   typeWorkListItems = [{ // todo: remove to BE
       value: 0,
-      name: ' Монтаж/демонтаж'
+      name: 'Монтаж/демонтаж'
     }, {
       value: 1,
       name: 'Фасадные работы'
@@ -320,7 +320,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.init();
     this.registerForm = this.formBuilder.group({
-      fullName: ['', Validators.required],
+      full_name: ['', Validators.required],
       phone: ['', Validators.compose([
         Validators.maxLength(25),
         Validators.minLength(9),
@@ -329,7 +329,7 @@ export class HomeComponent implements OnInit {
       email: [''],
       message: ['', Validators.compose([
           Validators.minLength(9)])],
-      type: ['', [Validators.required]]
+      claim_type: ['', [Validators.required]]
     });
   }
   get f() { return this.registerForm.controls; }
