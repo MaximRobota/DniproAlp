@@ -39,7 +39,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     
     clear folder:
     ssh -p 22 root@31.220.60.190 'cd ../var/www/html && rm * && ls -la'
-    FE: scp -P 22 dist/dnipro-alp-pro/* root@31.220.60.190:/var/www/html
+    
     FE: scp -P 22 dist/dnipro-alp-pro/assets root@31.220.60.190:/var/www/html/assets
     BE: scp -P 22 pythonServer/* root@31.220.60.190:~/app/pythonApp/pythonServer
     scp -P 22 docker-compose.yml root@31.220.60.190:~/app/pythonServer

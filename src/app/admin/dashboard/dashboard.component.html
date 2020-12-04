@@ -13,12 +13,12 @@
       <tbody>
       <tr *ngFor="let claim of adminClaimListService.claims; let i = index">
         <td>{{i}}</td>
-        <td>{{ claim.fullName }}</td>
+        <td>{{ claim.full_name }}</td>
         <td>{{ claim.phone }}</td>
         <td>{{ claim.email }}</td>
-        <td>{{ claim.type }}</td>
+        <td>{{ claim.claim_type }}</td>
         <td>{{ claim.message }}</td>
-        <td>{{ claim.created_at | date:'medium' }}</td>
+        <td>{{ claim.created_on | date:'medium' }}</td>
         <td>
           <a title="Delete Claim" class="hover-danger remove-btn" (click)="removeClaim(claim.id)">
             <i class="far fa-trash-alt"></i>

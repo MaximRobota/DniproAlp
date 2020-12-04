@@ -13,7 +13,7 @@ import { ConfirmationDialogService } from '../../_services/confirmation-dialog/c
 })
 export class DashboardComponent implements OnInit {
   public loaded = false;
-  public headElements = ['№', 'Full Name', 'Phone', 'Email', 'Type', 'Message', 'Created At', ''];
+  public headElements = ['№', 'Full Name', 'Phone', 'Email', 'Type', 'Message', 'Created', ''];
   public toasterService: ToasterService;
 
   constructor(
@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
   getClaims() {
     this.loaded = false;
     this.adminClaimListService.getClaims()
-      .pipe(delay(2000))
+      .pipe(delay(200))
       .subscribe(() => {
       this.loaded = true;
     },

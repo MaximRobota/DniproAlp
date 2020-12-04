@@ -2,6 +2,7 @@ from .models import Claims
 from app import app, db
 from flask import jsonify
 from flask import request
+import smtplib
 
 
 @app.before_first_request
@@ -27,6 +28,17 @@ def new_claim():
     claim = Claims(email=email, full_name=full_name, message=message, phone=phone, claim_type=claim_type)
 
     try:
+        email_message = f'Message: {message}'
+        print(email_message)
+        server_ssl = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+        server_ssl.ehlo()
+        server_ssl.login('maxim11061106@gmail.com', '')
+        # server_ssl.login('dniproalpprom@gmail.com', '')
+        server_ssl.sendmail('maxim11061106@gmail.com', 'maxim11061106@gmail.com', email_message)
+        # server_ssl.sendmail('maxim11061106@gmail.com', 'dniproalpprom@gmail.com', 'hi lol')
+          # f'Name: {full_name} / Email: {email} / Phone: {phone} / Type: {claim_type} / message: {message}')
+        server_ssl.close()
+
         db.session.add(claim)
         db.session.commit()
         return {
