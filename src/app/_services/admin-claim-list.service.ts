@@ -1,30 +1,32 @@
-﻿import { Injectable } from '@angular/core';
+﻿import { environment } from "../../environments/environment";
 import { HttpClient } from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {tap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 export interface Claim {
-  _id: string;
+  id: string;
   fullName: string;
   phone: string;
   email: string;
-  type: string;
+  claimType: string;
   message: string;
-  created_at: string;
+  createdOn: string;
 }
-declare var BACKEND_API_ENDPOINT: any;
 
 @Injectable({providedIn: 'root'})
 export class AdminClaimListService {
   public claims: Claim[] = [];
   constructor( private http: HttpClient ) { }
 
-  getClaims(): Observable<any> {
-    return this.http.get(`${BACKEND_API_ENDPOINT}/claims`)
-      .pipe(tap(response => this.claims = response.claims));
+  getClaims() {
+    return  this.http.get(`${environment.apiUrl}/claims`)
+      .pipe(map(
+        (response: any) => this.claims = response.claims)
+      );
   }
+
   removeClaim(id: string) {
-    return this.http.delete(`${BACKEND_API_ENDPOINT}/claims/` + id)
+    return this.http.delete(`${environment.apiUrl}/claims/` + id)
       .pipe();
   }
 }

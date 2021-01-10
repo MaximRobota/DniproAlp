@@ -8,7 +8,6 @@ export class LoadingDirective implements OnInit {
   }
   ngOnInit() {
     this.loadingState(this.loaded);
-    console.log(this.loaded);
   }
   private loadingState(loaded) {
     this.el.nativeElement.style.display = !loaded ? 'block' : 'none';

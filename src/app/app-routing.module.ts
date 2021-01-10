@@ -1,10 +1,8 @@
+import { AuthGuard } from './helpers/auth.guard';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { HomeComponent } from './components/home.component';
+import { LoginComponent } from './admin/login/login.component';
 import { Routes, RouterModule } from '@angular/router';
-import {LoginComponent} from './admin/login/login.component';
-import {HomeComponent} from './components/home.component';
-import {AuthGuard} from './admin/role.guard';
-import {AdminComponent} from './admin/admin.component';
-import {DashboardComponent} from './admin/dashboard/dashboard.component';
-
 
 const appRoutes: Routes = [
   {
@@ -19,7 +17,8 @@ const appRoutes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard]
   },
-  // otherwise redirect to home
-  { path: '**', redirectTo: '' }
+  {
+    path: '**', redirectTo: ''
+  }
 ];
 export const routing = RouterModule.forRoot(appRoutes);

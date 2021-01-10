@@ -31,9 +31,9 @@ services:
       - 3370:3306
     expose:
       - 3370
-#    volumes:
-#      - "./db/data:/var/lib/mysql"
-#      - "./db/initdb:/docker-entrypoint-initdb.d/:ro"
+    volumes:
+      - "./db/data:/var/lib/mysql"
+      - "./db/initdb:/docker-entrypoint-initdb.d/:ro"
 
   adminer:
     image: adminer

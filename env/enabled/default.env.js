@@ -1,1 +1,0 @@
-var BACKEND_API_ENDPOINT = 'api';
