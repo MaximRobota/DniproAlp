@@ -2,12 +2,11 @@ import datetime
 import jwt
 from app import app, db, bcrypt
 
-
 class Claims(db.Model):
   id = db.Column(db.Integer, primary_key=True)
-  email = db.Column(db.String(80))
-  full_name = db.Column(db.String(80))
-  message = db.Column(db.String(80))
+  email = db.Column(db.String(120))
+  full_name = db.Column(db.String(120))
+  message = db.Column(db.String(250))
   phone = db.Column(db.String(80))
   claim_type = db.Column(db.String(120))
   created_on = db.Column(db.DateTime(), default=datetime.datetime.utcnow)
