@@ -3,11 +3,11 @@
   <div class="modal-login col-md-4">
     <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
       <span class="login-form-userIcon"></span>
-      <div class="form-group login" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-        <input type="text" title='username' class="form-control user-icon" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+      <div class="form-group login" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+        <input type="text" title='email' class="form-control user-icon" name="email" [(ngModel)]="model.email" #email="ngModel" required />
         <span class="under-line"></span>
-        <span *ngIf="model.username" (click)="model.username = ''"  class="clear-input"></span>
-        <div *ngIf="f.submitted && !username.valid" class="help-block"><span></span>Username is required</div>
+        <span *ngIf="model.email" (click)="model.email = ''"  class="clear-input"></span>
+        <div *ngIf="f.submitted && !email.valid" class="help-block"><span></span>Email is required</div>
       </div>
       <div class="form-group password" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
         <input type="password" title='password' id="changePassword" class="form-control lock-icon" name="password" [(ngModel)]="model.password" #password="ngModel" required />
@@ -16,7 +16,7 @@
         <div *ngIf="f.submitted && !password.valid" class="help-block"><span></span>Password is required</div>
       </div>
       <div class="form-group">
-        <button [disabled]="loading" [ngClass]="{ 'button-auth-active': model.username && model.password}" class="button-auth">Log in</button>
+        <button [disabled]="loading" [ngClass]="{ 'button-auth-active': model.email && model.password}" class="button-auth">Log in</button>
         <div *ngIf="loading" class="download-login">
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">

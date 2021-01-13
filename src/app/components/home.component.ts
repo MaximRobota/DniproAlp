@@ -1,13 +1,12 @@
-import { Component, TemplateRef, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+import { Component, TemplateRef, OnInit } from '@angular/core';
+import { environment } from "../../environments/environment";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { ToasterService } from 'angular2-toaster';
 import { TranslateService } from '@ngx-translate/core';
-import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-declare var BACKEND_API_ENDPOINT: any;
 declare let fbq: any;
-
 
 @Component({
   selector: 'app-home',
@@ -16,12 +15,13 @@ declare let fbq: any;
 })
 export class HomeComponent implements OnInit {
   public toasterService: ToasterService;
+
   constructor(
-    toasterService: ToasterService,
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
     private modalService: BsModalService,
     public translate: TranslateService,
-    private http: HttpClient,
-    private formBuilder: FormBuilder
+    toasterService: ToasterService,
   ) {
     this.loaded = false;
     this.fakeLoading(1000);
@@ -33,11 +33,12 @@ export class HomeComponent implements OnInit {
     translate.addLangs(['ru', 'ua']);
     translate.use(localLang);
   }
+
+  loaded: boolean;
+  modalRef: BsModalRef;
+  phoneShow = false;
   registerForm: FormGroup; // Todo
   submitted = false;
-  phoneShow = false;
-  modalRef: BsModalRef;
-  loaded: boolean;
 
   priceItems = [{ // todo: remove to BE
     group: {
@@ -343,7 +344,7 @@ export class HomeComponent implements OnInit {
 
   submit(data) {
     this.loaded = false;
-    return this.http.post(`${BACKEND_API_ENDPOINT}/claims`, data);
+    return this.http.post(`${environment.apiUrl}/claims`, data);
   }
 
   callbackUs() {
@@ -441,7 +442,6 @@ export class HomeComponent implements OnInit {
       const section = getSection(linkHash);
       if (section) {
         const offsetTop = section['offsetTop'];
-        console.log(section);
         scrollTo(offsetTop, 100);
         history.pushState({}, null, '#' + linkHash);
         return true;
@@ -489,6 +489,7 @@ export class HomeComponent implements OnInit {
         }
       }
     }
+
     function getSection(linkHash) {
       if (linkHash) {
         const id = '#' + linkHash;

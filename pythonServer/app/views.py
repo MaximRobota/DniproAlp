@@ -1,9 +1,11 @@
 from .models import Claims
 from app import app, db
-from flask import jsonify
-from flask import request
-import smtplib
+from flask import jsonify, request
+from .controllers.auth_controller import AuthController
+from .controllers.claim_controller import ClaimController
 
+auth_controller = AuthController()
+claim_controller = ClaimController()
 
 @app.before_first_request
 def before_first_request_func():
@@ -15,61 +17,41 @@ def index():
     return 'Alp-prom-service is working =)'
 
 
+@app.route('/auth/register/secretHide', methods=['POST'])
+def register():
+    return auth_controller.register(request.json)
+
+
+@app.route('/auth/login', methods=['POST'])
+def auth():
+    return auth_controller.login(request.json)
+
+
+@app.route('/auth/getIdByToken/<int:user_token>', methods=['GET'])
+def get_id_by_token(user_token):
+    return auth_controller.get_id_by_token(user_token)
+
+
+@app.route('/auth/status', methods=['GET'])
+def status():
+    return auth_controller.status()
+
+
+@app.route('/auth/logout', methods=['GET'])
+def logout():
+    return auth_controller.logout()
+
+
 @app.route('/claims', methods=['POST'])
 def new_claim():
-    body = request.json
-    # app.logger.info(body)
-    email = body['email']
-    full_name = body['full_name']
-    message = body['message']
-    phone = body['phone']
-    claim_type = body['claim_type']
-
-    claim = Claims(email=email, full_name=full_name, message=message, phone=phone, claim_type=claim_type)
-
-    try:
-        email_message = f'Message: {message}'
-        print(email_message)
-        server_ssl = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-        server_ssl.ehlo()
-        server_ssl.login('maxim11061106@gmail.com', '')
-        # server_ssl.login('dniproalpprom@gmail.com', '')
-        server_ssl.sendmail('maxim11061106@gmail.com', 'maxim11061106@gmail.com', email_message)
-        # server_ssl.sendmail('maxim11061106@gmail.com', 'dniproalpprom@gmail.com', 'hi lol')
-          # f'Name: {full_name} / Email: {email} / Phone: {phone} / Type: {claim_type} / message: {message}')
-        server_ssl.close()
-
-        db.session.add(claim)
-        db.session.commit()
-        return {
-          "meta": {"status": "success"},
-          "claim": claim.serialize()
-        }
-    except Exception as e:
-        return {
-           "meta": {"status": "error"},
-           "error": str(e)
-        }, 500
+    return claim_controller.new_claim(request.json)
 
 
-# Display All claims from database
 @app.route('/claims', methods=['GET'])
 def claims():
-    return jsonify({'claims': list(map(lambda claims: claims.serialize(), Claims.query.all()))})
+    return claim_controller.get_claims()
 
 
-# # Route to Delete an claim from the MySQL Database
 @app.route('/claims/<int:id>', methods=['DELETE'])
 def delete(id):
-    try:
-        db.session.delete(Claims.query.filter_by(id=id).first())
-        db.session.commit()
-        return {
-          "meta": {"status": "success"},
-          "message": "Claim was successfully deleted."
-        }
-    except Exception as e:
-        return {
-           "meta": {"status": "error"},
-           "error": str(e)
-        }, 500
+    return claim_controller.delete_claim(id)
